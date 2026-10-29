@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgIron" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1A1A"/>
+      <stop offset="100%" stop-color="#2D1115"/>
+    </linearGradient>
+    <linearGradient id="armorRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E22633"/>
+      <stop offset="100%" stop-color="#8E141E"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFDF73"/>
+      <stop offset="100%" stop-color="#D49B28"/>
+    </linearGradient>
+    <radialGradient id="arcGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#9CFCFF" stop-opacity="1"/>
+      <stop offset="60%" stop-color="#00D2FF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#00557A" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Box Outer Shadow & Canvas -->
+  <rect width="800" height="1000" fill="#F0EEE9"/>
+  
+  <!-- Funko Pop Outer Box Frame -->
+  <rect x="70" y="50" width="660" height="900" rx="16" fill="#F7F6F2" stroke="#D8D4CC" stroke-width="2"/>
+  
+  <!-- Funko Header Bar -->
+  <rect x="70" y="50" width="660" height="130" rx="16" fill="#141413"/>
+  <rect x="70" y="140" width="660" height="40" fill="#141413"/>
+  <text x="110" y="125" font-family="'Impact', 'Arial Black', sans-serif" font-size="78" fill="#FFF" letter-spacing="2">POP!</text>
+  <text x="280" y="118" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="800" fill="#E22633" letter-spacing="4">MARVEL STUDIOS</text>
+  <text x="280" y="142" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="600" fill="#A09E97" letter-spacing="2">AVENGERS ENDGAME</text>
+  
+  <!-- Box Number Badge -->
+  <circle cx="660" cy="115" r="42" fill="#E22633"/>
+  <circle cx="660" cy="115" r="38" fill="none" stroke="#FFF" stroke-width="2"/>
+  <text x="660" y="127" font-family="'Impact', 'Arial Black', sans-serif" font-size="34" fill="#FFF" text-anchor="middle">580</text>
+
+  <!-- Display Window Cutout Frame -->
+  <rect x="100" y="200" width="600" height="600" rx="20" fill="url(#bgIron)" stroke="#D8D4CC" stroke-width="3"/>
+  
+  <!-- Window Inner Reflection Line -->
+  <path d="M 120 220 L 680 220 L 580 780 L 120 780 Z" fill="white" opacity="0.03"/>
+
+  <!-- Funko Stylized Character: Iron Man Mark 85 -->
+  <g transform="translate(400, 520)">
+    <!-- Shadow -->
+    <ellipse cx="0" cy="210" rx="180" ry="24" fill="#000" opacity="0.45"/>
+    
+    <!-- Body & Legs -->
+    <rect x="-65" y="80" width="130" height="110" rx="14" fill="url(#armorRed)"/>
+    <rect x="-50" y="95" width="100" height="70" rx="8" fill="url(#gold)"/>
+    
+    <!-- Arc Reactor Core Glow -->
+    <circle cx="0" cy="120" r="18" fill="#FFF" filter="url(#glow)"/>
+    <circle cx="0" cy="120" r="28" fill="url(#arcGlow)"/>
+
+    <!-- Left Arm & Nano Gauntlet with Infinity Stones -->
+    <rect x="-105" y="90" width="35" height="85" rx="10" fill="url(#armorRed)"/>
+    <g transform="translate(-95, 160)">
+      <!-- Stones -->
+      <circle cx="-5" cy="0" r="3" fill="#A855F7" filter="url(#glow)"/>
+      <circle cx="0" cy="-6" r="3" fill="#3B82F6" filter="url(#glow)"/>
+      <circle cx="5" cy="0" r="3" fill="#EF4444" filter="url(#glow)"/>
+      <circle cx="0" cy="6" r="3" fill="#F59E0B" filter="url(#glow)"/>
+      <circle cx="0" cy="0" r="4" fill="#10B981" filter="url(#glow)"/>
+    </g>
+    <!-- Right Arm -->
+    <rect x="70" y="90" width="35" height="85" rx="10" fill="url(#armorRed)"/>
+
+    <!-- Legs -->
+    <rect x="-55" y="180" width="45" height="40" rx="8" fill="url(#gold)"/>
+    <rect x="10" y="180" width="45" height="40" rx="8" fill="url(#gold)"/>
+    <rect x="-60" y="210" width="55" height="15" rx="6" fill="url(#armorRed)"/>
+    <rect x="5" y="210" width="55" height="15" rx="6" fill="url(#armorRed)"/>
+
+    <!-- Iconic Funko Oversized Helmet / Head -->
+    <rect x="-135" y="-190" width="270" height="240" rx="45" fill="url(#armorRed)" stroke="#B31A24" stroke-width="3"/>
+    
+    <!-- Gold Faceplate -->
+    <path d="M -90 -160 L 90 -160 L 80 15 L -80 15 Z" fill="url(#gold)" stroke="#B3801D" stroke-width="2"/>
+    <path d="M -90 -70 L 90 -70" stroke="#8A6314" stroke-width="2"/>
+    
+    <!-- Big Stylized Funko Pop Glowing Eyes -->
+    <polygon points="-75,-50 -25,-50 -32,-32 -68,-32" fill="#E0FBFF" filter="url(#glow)"/>
+    <polygon points="75,-50 25,-50 32,-32 68,-32" fill="#E0FBFF" filter="url(#glow)"/>
+  </g>
+
+  <!-- Collector Sticker: Glow in the Dark -->
+  <g transform="translate(600, 700)">
+    <circle cx="0" cy="0" r="46" fill="#10B981" stroke="#FFF" stroke-width="3"/>
+    <text x="0" y="-12" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="900" fill="#FFF" text-anchor="middle" letter-spacing="1">SPECIAL</text>
+    <text x="0" y="6" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="900" fill="#FFF" text-anchor="middle">GLOW</text>
+    <text x="0" y="20" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="800" fill="#D1FAE5" text-anchor="middle">IN THE DARK</text>
+  </g>
+
+  <!-- Bottom Box Label Section -->
+  <rect x="70" y="820" width="660" height="130" rx="16" fill="#F7F6F2"/>
+  <text x="100" y="865" font-family="'Impact', 'Arial Black', sans-serif" font-size="36" fill="#141413" letter-spacing="1">IRON MAN (I AM IRON MAN)</text>
+  <text x="100" y="895" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#63605A" letter-spacing="2">VINYL BOBBLE-HEAD / FIGURINE EN VINYLE</text>
+  <text x="100" y="920" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#2A4030" letter-spacing="1">WARNING: CHOKING HAZARD &bull; AGES 3+</text>
+</svg>
+

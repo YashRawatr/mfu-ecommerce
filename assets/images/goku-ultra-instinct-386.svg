@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGoku" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141B2D"/>
+      <stop offset="100%" stop-color="#080C14"/>
+    </linearGradient>
+    <linearGradient id="silverHair" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#CBD5E1"/>
+      <stop offset="100%" stop-color="#94A3B8"/>
+    </linearGradient>
+    <radialGradient id="uiAura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E0F2FE" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#38BDF8" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#0284C7" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="chaseGlow">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="1000" fill="#F0EEE9"/>
+  <rect x="70" y="50" width="660" height="900" rx="16" fill="#F7F6F2" stroke="#D8D4CC" stroke-width="2"/>
+  
+  <!-- Header Bar -->
+  <rect x="70" y="50" width="660" height="130" rx="16" fill="#141413"/>
+  <rect x="70" y="140" width="660" height="40" fill="#141413"/>
+  <text x="110" y="125" font-family="'Impact', 'Arial Black', sans-serif" font-size="78" fill="#FFF" letter-spacing="2">POP!</text>
+  <text x="280" y="118" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="800" fill="#F43F5E" letter-spacing="4">ANIMATION</text>
+  <text x="280" y="142" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="600" fill="#A09E97" letter-spacing="2">DRAGON BALL SUPER</text>
+  
+  <!-- Box Number Badge -->
+  <circle cx="660" cy="115" r="42" fill="#E11D48"/>
+  <circle cx="660" cy="115" r="38" fill="none" stroke="#FFF" stroke-width="2"/>
+  <text x="660" y="127" font-family="'Impact', 'Arial Black', sans-serif" font-size="34" fill="#FFF" text-anchor="middle">386</text>
+
+  <!-- Display Window Cutout -->
+  <rect x="100" y="200" width="600" height="600" rx="20" fill="url(#bgGoku)" stroke="#D8D4CC" stroke-width="3"/>
+  <path d="M 120 220 L 680 220 L 580 780 L 120 780 Z" fill="white" opacity="0.03"/>
+
+  <!-- Character: Goku Ultra Instinct -->
+  <g transform="translate(400, 520)">
+    <!-- Shadow -->
+    <ellipse cx="0" cy="210" rx="180" ry="24" fill="#000" opacity="0.45"/>
+    
+    <!-- Ultra Instinct Shimmering Divine Aura -->
+    <circle cx="0" cy="50" r="230" fill="url(#uiAura)" filter="url(#chaseGlow)"/>
+
+    <!-- Muscular Torso (Torn Blue Shirt) -->
+    <rect x="-65" y="80" width="130" height="110" rx="10" fill="#FADBC8"/>
+    <!-- Torn Dark Blue Undershirt remnants -->
+    <polygon points="-65,80 -35,80 -45,130 -65,110" fill="#1E3A8A"/>
+    <polygon points="65,80 35,80 45,130 65,110" fill="#1E3A8A"/>
+
+    <!-- Blue Belt Sash -->
+    <rect x="-55" y="165" width="110" height="18" rx="4" fill="#1D4ED8"/>
+
+    <!-- Orange Gi Pants -->
+    <rect x="-55" y="185" width="45" height="35" rx="6" fill="#EA580C"/>
+    <rect x="10" y="185" width="45" height="35" rx="6" fill="#EA580C"/>
+
+    <!-- Boots -->
+    <rect x="-55" y="215" width="45" height="12" rx="4" fill="#1E3A8A"/>
+    <rect x="10" y="215" width="45" height="12" rx="4" fill="#1E3A8A"/>
+
+    <!-- Iconic Funko Head -->
+    <rect x="-135" y="-190" width="270" height="235" rx="45" fill="#FADBC8"/>
+    
+    <!-- Spectacular Ultra Instinct Silver/White Spiky Hair -->
+    <g fill="url(#silverHair)" stroke="#94A3B8" stroke-width="2">
+      <!-- Giant Anime Hair Spikes -->
+      <polygon points="-135,-150 -210,-240 -120,-200"/>
+      <polygon points="-120,-200 -160,-280 -60,-220"/>
+      <polygon points="-60,-220 0,-310 60,-220"/>
+      <polygon points="60,-220 160,-280 120,-200"/>
+      <polygon points="120,-200 210,-240 135,-150"/>
+      <!-- Bangs -->
+      <polygon points="-80,-190 -60,-130 -40,-190"/>
+      <polygon points="-40,-190 -10,-120 20,-190"/>
+      <polygon points="20,-190 50,-130 70,-190"/>
+    </g>
+
+    <!-- Silver Glowing Eyes -->
+    <circle cx="-65" cy="-45" r="28" fill="#F8FAFC" stroke="#38BDF8" stroke-width="4"/>
+    <circle cx="-65" cy="-45" r="14" fill="#0284C7"/>
+    <circle cx="-60" cy="-50" r="5" fill="#FFF"/>
+
+    <circle cx="65" cy="-45" r="28" fill="#F8FAFC" stroke="#38BDF8" stroke-width="4"/>
+    <circle cx="65" cy="-45" r="14" fill="#0284C7"/>
+    <circle cx="70" cy="-50" r="5" fill="#FFF"/>
+  </g>
+
+  <!-- 1:6 Chase Variant Sticker -->
+  <g transform="translate(600, 700)">
+    <circle cx="0" cy="0" r="46" fill="#F59E0B" stroke="#FFF" stroke-width="3"/>
+    <text x="0" y="-8" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="900" fill="#FFF" text-anchor="middle" letter-spacing="1">LIMITED</text>
+    <text x="0" y="12" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="900" fill="#141413" text-anchor="middle">CHASE</text>
+  </g>
+
+  <!-- Bottom Box Label Section -->
+  <rect x="70" y="820" width="660" height="130" rx="16" fill="#F7F6F2"/>
+  <text x="100" y="865" font-family="'Impact', 'Arial Black', sans-serif" font-size="36" fill="#141413" letter-spacing="1">GOKU (ULTRA INSTINCT - CHASE)</text>
+  <text x="100" y="895" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#63605A" letter-spacing="2">VINYL FIGURE / FIGURINE EN VINYLE</text>
+  <text x="100" y="920" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#2A4030" letter-spacing="1">BIRD STUDIO &bull; SHUEISHA &bull; TOEI ANIMATION</text>
+</svg>
+

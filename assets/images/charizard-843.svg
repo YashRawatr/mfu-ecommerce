@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgPoke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#21130D"/>
+      <stop offset="100%" stop-color="#120A05"/>
+    </linearGradient>
+    <linearGradient id="charOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FB923C"/>
+      <stop offset="100%" stop-color="#EA580C"/>
+    </linearGradient>
+    <linearGradient id="charTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2DD4BF"/>
+      <stop offset="100%" stop-color="#0F766E"/>
+    </linearGradient>
+    <linearGradient id="flame" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A"/>
+      <stop offset="50%" stop-color="#F97316"/>
+      <stop offset="100%" stop-color="#DC2626"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="1000" fill="#F0EEE9"/>
+  <rect x="70" y="50" width="660" height="900" rx="16" fill="#F7F6F2" stroke="#D8D4CC" stroke-width="2"/>
+  
+  <!-- Header Bar -->
+  <rect x="70" y="50" width="660" height="130" rx="16" fill="#141413"/>
+  <rect x="70" y="140" width="660" height="40" fill="#141413"/>
+  <text x="110" y="125" font-family="'Impact', 'Arial Black', sans-serif" font-size="78" fill="#FFF" letter-spacing="2">POP!</text>
+  <text x="280" y="118" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="800" fill="#F59E0B" letter-spacing="4">GAMES</text>
+  <text x="280" y="142" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="600" fill="#A09E97" letter-spacing="2">POKÉMON</text>
+  
+  <!-- Box Number Badge -->
+  <circle cx="660" cy="115" r="42" fill="#EA580C"/>
+  <circle cx="660" cy="115" r="38" fill="none" stroke="#FFF" stroke-width="2"/>
+  <text x="660" y="127" font-family="'Impact', 'Arial Black', sans-serif" font-size="34" fill="#FFF" text-anchor="middle">843</text>
+
+  <!-- Display Window Cutout -->
+  <rect x="100" y="200" width="600" height="600" rx="20" fill="url(#bgPoke)" stroke="#D8D4CC" stroke-width="3"/>
+  <path d="M 120 220 L 680 220 L 580 780 L 120 780 Z" fill="white" opacity="0.03"/>
+
+  <!-- Character: Charizard -->
+  <g transform="translate(400, 520)">
+    <!-- Shadow -->
+    <ellipse cx="0" cy="210" rx="200" ry="24" fill="#000" opacity="0.45"/>
+    
+    <!-- Dragon Wings -->
+    <path d="M -80 60 C -180 -40 -220 30 -240 100 C -180 110 -120 130 -80 120 Z" fill="url(#charTeal)" stroke="url(#charOrange)" stroke-width="8"/>
+    <path d="M 80 60 C 180 -40 220 30 240 100 C 180 110 120 130 80 120 Z" fill="url(#charTeal)" stroke="url(#charOrange)" stroke-width="8"/>
+
+    <!-- Tail & Flame -->
+    <path d="M -50 170 C -140 220 -200 160 -180 110" fill="none" stroke="url(#charOrange)" stroke-width="28" stroke-linecap="round"/>
+    <polygon points="-180,110 -220,70 -160,50 -150,90" fill="url(#flame)"/>
+    <circle cx="-180" cy="80" r="14" fill="#FEF08A"/>
+
+    <!-- Orange Body & Cream Belly -->
+    <ellipse cx="0" cy="140" rx="90" ry="85" fill="url(#charOrange)"/>
+    <ellipse cx="0" cy="145" rx="55" ry="60" fill="#FEF08A"/>
+
+    <!-- Chunky Dragon Feet -->
+    <ellipse cx="-65" cy="210" rx="40" ry="20" fill="url(#charOrange)"/>
+    <ellipse cx="65" cy="210" rx="40" ry="20" fill="url(#charOrange)"/>
+
+    <!-- Funko Oversized Charizard Head -->
+    <rect x="-140" y="-190" width="280" height="235" rx="55" fill="url(#charOrange)"/>
+    <!-- Dual Dragon Horns -->
+    <path d="M -110 -180 C -140 -260 -180 -250 -190 -230 C -170 -200 -140 -170 -130 -160 Z" fill="url(#charOrange)"/>
+    <path d="M 110 -180 C 140 -260 180 -250 190 -230 C 170 -200 140 -170 130 -160 Z" fill="url(#charOrange)"/>
+    
+    <!-- Snout & Nostrils -->
+    <ellipse cx="0" cy="-35" rx="85" ry="40" fill="#F97316"/>
+    <circle cx="-25" cy="-45" r="5" fill="#7C2D12"/>
+    <circle cx="25" cy="-45" r="5" fill="#7C2D12"/>
+    <polygon points="-50,-15 -40,-35 -30,-15" fill="#FFF"/>
+    <polygon points="50,-15 40,-35 30,-15" fill="#FFF"/>
+
+    <!-- Big Funko Eyes -->
+    <circle cx="-70" cy="-75" r="28" fill="#141413"/>
+    <circle cx="-60" cy="-85" r="8" fill="#FFF"/>
+    <circle cx="70" cy="-75" r="28" fill="#141413"/>
+    <circle cx="80" cy="-85" r="8" fill="#FFF"/>
+  </g>
+
+  <!-- Official Sticker -->
+  <g transform="translate(600, 700)">
+    <circle cx="0" cy="0" r="46" fill="#EA580C" stroke="#FFF" stroke-width="3"/>
+    <text x="0" y="-8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="900" fill="#FFF" text-anchor="middle" letter-spacing="1">POKÉMON</text>
+    <text x="0" y="10" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="900" fill="#FFF" text-anchor="middle">OFFICIAL</text>
+  </g>
+
+  <!-- Bottom Box Label Section -->
+  <rect x="70" y="820" width="660" height="130" rx="16" fill="#F7F6F2"/>
+  <text x="100" y="865" font-family="'Impact', 'Arial Black', sans-serif" font-size="36" fill="#141413" letter-spacing="1">CHARIZARD (FLAME EDITION)</text>
+  <text x="100" y="895" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#63605A" letter-spacing="2">VINYL FIGURE / FIGURINE EN VINYLE</text>
+  <text x="100" y="920" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#2A4030" letter-spacing="1">GOTTA CATCH 'EM ALL &bull; NINTENDO &bull; THE POKÉMON COMPANY</text>
+</svg>
+

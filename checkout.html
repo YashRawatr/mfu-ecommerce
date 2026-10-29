@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — MFU</title>
+  <meta name="description" content="Direct MFU order concierge via WhatsApp or secure email. Acquire your limited edition piece directly from our atelier.">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="site-announcement caption">
+    Complimentary 0.5mm Pop Protector Shield on All Figures &bull; Worldwide Dispatch
+  </aside>
+
+  <!-- Editorial Navigation -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <div class="nav-brand">
+        <a href="index.html" class="nav-brand-title">MFU</a>
+        <span class="nav-brand-sub">Curated Funko Pop! Figures & Rare Exclusives</span>
+      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="checkout.html" class="nav-link active">Checkout</a></li>
+        </ul>
+      </nav>
+      <div>
+        <a href="index.html" class="nav-concierge-pill">
+          <span>&larr; Back to Vault</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="checkout-section">
+    <div class="container">
+      <div class="checkout-card-layout" id="checkoutOrderApp" data-whatsapp="+91 6366196633" data-email="mfucollectibles@gmail.com">
+        
+        <!-- Editorial Header -->
+        <div class="checkout-header-block">
+          <span class="checkout-badge-coming-soon">Payment Portal Upgrade In Progress</span>
+          <h1 class="h1">Automated Checkout — Coming Soon</h1>
+          <p class="body-text">
+            Direct online card processing is currently being finalized. To acquire this piece immediately, send a pre-filled order message via WhatsApp or Email below.
+          </p>
+        </div>
+
+        <!-- Selected Product Summary Card -->
+        <div class="checkout-order-summary">
+          <div class="summary-product-row">
+            <div class="summary-img-frame">
+              <img id="checkoutItemImg" src="assets/images/spiderman-no-way-home.webp" alt="Selected Funko Pop">
+            </div>
+            <div class="summary-info">
+              <span class="caption" id="checkoutItemSlug">REF: SPIDERMAN-NO-WAY-HOME-FINAL-SUIT</span>
+              <h3 id="checkoutItemTitle" style="margin-top: 4px;">Pop! Marvel: Spider-Man (Brand New Day / No Way Home Final Suit)</h3>
+              <p class="caption" style="color: var(--text-secondary); margin-top: 4px;">Mint 10/10 Condition &bull; UV Pop Protector Included</p>
+            </div>
+            <div>
+              <span class="summary-price" id="checkoutItemPrice">₹2,799</span>
+            </div>
+          </div>
+
+          <!-- Optional Personalized Client Notes -->
+          <div class="client-note-form">
+            <span class="caption" style="display: block; margin-bottom: 12px; color: var(--text-primary);">Order Personalization (Optional)</span>
+            <div class="form-group">
+              <label for="clientName" class="form-label">Your Full Name</label>
+              <input type="text" id="clientName" class="form-input" placeholder="e.g. Vikram Sharma">
+            </div>
+            <div class="form-group">
+              <label for="clientAddress" class="form-label">Delivery Destination / City</label>
+              <input type="text" id="clientAddress" class="form-input" placeholder="e.g. Indiranagar, Bangalore 560038 or South Ex, New Delhi">
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+              <label for="clientNote" class="form-label">Collector Notes, Protector, or Gift Packaging Instructions</label>
+              <input type="text" id="clientNote" class="form-input" placeholder="e.g. Mint box inspection requested, gift wrapping with collector card">
+            </div>
+          </div>
+
+          <!-- Hairline Divider -->
+          <hr class="hairline-divider" style="margin-bottom: 24px;">
+
+          <!-- Two Prominent Action Buttons -->
+          <span class="caption" style="display: block; text-align: center; margin-bottom: 16px; color: var(--text-secondary);">Select Direct Concierge Route</span>
+          
+          <div class="checkout-actions-grid">
+            <!-- 1. WhatsApp Action -->
+            <a id="btnOrderWhatsApp" href="#" target="_blank" rel="noopener" class="btn-channel btn-channel-whatsapp">
+              <div class="channel-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+              </div>
+              <span class="channel-label">Order via WhatsApp (DM)</span>
+              <span class="channel-sub">Instant direct response from atelier staff</span>
+            </a>
+
+            <!-- 2. Email Action -->
+            <a id="btnOrderEmail" href="#" class="btn-channel btn-channel-email">
+              <div class="channel-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <span class="channel-label">Order via Email</span>
+              <span class="channel-sub">Official invoice & bank wire details dispatched</span>
+            </a>
+          </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 24px;">
+          <p class="caption" style="color: var(--text-secondary);">
+            Our atelier personally verifies 10/10 mint box condition and protective UV encasing prior to dispatch.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Editorial Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span class="caption">&copy; 2026 MFU. Bangalore &bull; Delhi &bull; Mumbai.</span>
+        <span class="caption"><a href="https://www.instagram.com/mfu.pop" target="_blank" rel="noopener">Instagram (@mfu.pop)</a> &bull; <a href="index.html">&larr; Return to MFU Vault</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+

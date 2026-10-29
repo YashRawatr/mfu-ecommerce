@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgBat" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B"/>
+      <stop offset="100%" stop-color="#09090B"/>
+    </linearGradient>
+    <linearGradient id="batArmor" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#27272A"/>
+      <stop offset="100%" stop-color="#09090B"/>
+    </linearGradient>
+    <linearGradient id="batGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FACC15"/>
+      <stop offset="100%" stop-color="#CA8A04"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="1000" fill="#F0EEE9"/>
+  <rect x="70" y="50" width="660" height="900" rx="16" fill="#F7F6F2" stroke="#D8D4CC" stroke-width="2"/>
+  
+  <!-- Header Bar -->
+  <rect x="70" y="50" width="660" height="130" rx="16" fill="#141413"/>
+  <rect x="70" y="140" width="660" height="40" fill="#141413"/>
+  <text x="110" y="125" font-family="'Impact', 'Arial Black', sans-serif" font-size="78" fill="#FFF" letter-spacing="2">POP!</text>
+  <text x="280" y="118" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="800" fill="#FACC15" letter-spacing="4">DC SUPER HEROES</text>
+  <text x="280" y="142" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="600" fill="#A09E97" letter-spacing="2">BATMAN 80 YEARS (1989)</text>
+  
+  <!-- Box Number Badge -->
+  <circle cx="660" cy="115" r="42" fill="#EAB308"/>
+  <circle cx="660" cy="115" r="38" fill="none" stroke="#141413" stroke-width="2"/>
+  <text x="660" y="127" font-family="'Impact', 'Arial Black', sans-serif" font-size="34" fill="#141413" text-anchor="middle">275</text>
+
+  <!-- Display Window Cutout -->
+  <rect x="100" y="200" width="600" height="600" rx="20" fill="url(#bgBat)" stroke="#D8D4CC" stroke-width="3"/>
+  <path d="M 120 220 L 680 220 L 580 780 L 120 780 Z" fill="white" opacity="0.03"/>
+
+  <!-- Character: Batman 1989 -->
+  <g transform="translate(400, 520)">
+    <!-- Shadow -->
+    <ellipse cx="0" cy="210" rx="180" ry="24" fill="#000" opacity="0.5"/>
+    
+    <!-- Scalloped Cape -->
+    <path d="M -110 80 L 110 80 L 150 220 L 90 200 L 0 225 L -90 200 L -150 220 Z" fill="#18181B"/>
+
+    <!-- Black Armored Torso -->
+    <rect x="-65" y="80" width="130" height="110" rx="12" fill="url(#batArmor)"/>
+    
+    <!-- Iconic 1989 Yellow Oval Chest Emblem -->
+    <ellipse cx="0" cy="115" rx="38" ry="24" fill="url(#batGold)"/>
+    <!-- Bat Symbol inside oval -->
+    <path d="M -24 115 C -20 106 -12 110 0 106 C 12 110 20 106 24 115 C 18 126 12 120 0 126 C -12 120 -18 126 -24 115 Z" fill="#141413"/>
+
+    <!-- Gold Utility Belt -->
+    <rect x="-60" y="165" width="120" height="18" rx="4" fill="url(#batGold)"/>
+    <circle cx="0" cy="174" r="8" fill="#A16207"/>
+
+    <!-- Legs & Boots -->
+    <rect x="-55" y="185" width="45" height="40" rx="6" fill="#18181B"/>
+    <rect x="10" y="185" width="45" height="40" rx="6" fill="#18181B"/>
+
+    <!-- Funko Oversized Cowl Head with Pointed Bat Ears -->
+    <!-- Ears -->
+    <polygon points="-125,-160 -135,-260 -70,-175" fill="url(#batArmor)"/>
+    <polygon points="125,-160 135,-260 70,-175" fill="url(#batArmor)"/>
+    
+    <!-- Cowl -->
+    <rect x="-135" y="-190" width="270" height="240" rx="45" fill="url(#batArmor)"/>
+    
+    <!-- Exposed Chin & Mouth Area -->
+    <path d="M -45 5 L 45 5 L 35 48 L -35 48 Z" fill="#FADBC8"/>
+    <!-- Stoic Stern Mouth Line -->
+    <line x1="-18" y1="28" x2="18" y2="28" stroke="#7C2D12" stroke-width="2"/>
+
+    <!-- White Angled Glowing Cowl Eyes -->
+    <polygon points="-75,-50 -25,-50 -32,-32 -68,-32" fill="#FFF"/>
+    <polygon points="75,-50 25,-50 32,-32 68,-32" fill="#FFF"/>
+  </g>
+
+  <!-- 80th Anniversary Foil Sticker -->
+  <g transform="translate(600, 700)">
+    <circle cx="0" cy="0" r="46" fill="#18181B" stroke="#FACC15" stroke-width="3"/>
+    <text x="0" y="-8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="900" fill="#FACC15" text-anchor="middle" letter-spacing="1">BATMAN</text>
+    <text x="0" y="12" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="900" fill="#FFF" text-anchor="middle">80 YEARS</text>
+  </g>
+
+  <!-- Bottom Box Label Section -->
+  <rect x="70" y="820" width="660" height="130" rx="16" fill="#F7F6F2"/>
+  <text x="100" y="865" font-family="'Impact', 'Arial Black', sans-serif" font-size="36" fill="#141413" letter-spacing="1">BATMAN (1989 MICHAEL KEATON SUIT)</text>
+  <text x="100" y="895" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#63605A" letter-spacing="2">VINYL FIGURE / FIGURINE EN VINYLE</text>
+  <text x="100" y="920" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#2A4030" letter-spacing="1">DC COMICS &bull; WARNER BROS. ENTERTAINMENT INC.</text>
+</svg>
+

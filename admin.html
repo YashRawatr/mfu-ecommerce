@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MFU — Atelier Vault Admin Panel</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Admin Specific Luxury Styling */
+    .admin-body {
+      background-color: var(--bg-primary);
+      min-height: 100vh;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+    }
+
+    /* Auth Lock Screen */
+    .auth-overlay {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .auth-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: 6px;
+      padding: 48px 40px;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 12px 36px rgba(20, 20, 19, 0.08);
+      text-align: center;
+    }
+
+    .auth-brand-title {
+      font-family: var(--font-editorial);
+      font-size: 32px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .auth-subtitle {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      display: block;
+    }
+
+    .auth-form-group {
+      text-align: left;
+      margin-bottom: 24px;
+    }
+
+    .auth-input {
+      width: 100%;
+      padding: 14px 16px;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      border: 1px solid var(--border-hairline);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      border-radius: 4px;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .auth-input:focus {
+      border-color: var(--text-primary);
+      background-color: #fff;
+    }
+
+    .btn-admin-submit {
+      width: 100%;
+      padding: 15px 20px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--bg-surface);
+      background-color: var(--text-primary);
+      border: 1px solid var(--text-primary);
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-admin-submit:hover {
+      background-color: #2c2b29;
+      transform: translateY(-1px);
+    }
+
+    .auth-notice {
+      margin-top: 20px;
+      font-size: 11px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .auth-error {
+      display: none;
+      background-color: var(--status-out-bg);
+      color: var(--status-out-text);
+      font-size: 12px;
+      padding: 10px 14px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* Admin Navigation Bar */
+    .admin-nav {
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-hairline);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .admin-nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .admin-logo {
+      font-family: var(--font-editorial);
+      font-size: 24px;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+    }
+
+    .admin-badge {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 2px;
+      background-color: var(--text-primary);
+      color: var(--bg-surface);
+    }
+
+    .admin-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-admin-ghost {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-primary);
+      padding: 8px 16px;
+      border: 1px solid var(--border-hairline);
+      border-radius: 9999px;
+      background-color: transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-admin-ghost:hover {
+      border-color: var(--text-primary);
+      background-color: var(--bg-primary);
+    }
+
+    .btn-admin-lock {
+      color: var(--status-out-text);
+      border-color: #e5c4c4;
+    }
+
+    .btn-admin-lock:hover {
+      background-color: var(--status-out-bg);
+      border-color: var(--status-out-text);
+    }
+
+    /* Main Dashboard Layout */
+    .admin-container {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 36px 24px 80px;
+    }
+
+    /* Metrics Strip */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .metric-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: 4px;
+      padding: 20px 24px;
+    }
+
+    .metric-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .metric-value {
+      font-family: var(--font-editorial);
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Two-Column Section Layout */
+    .admin-sections-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    @media (min-width: 1024px) {
+      .admin-sections-grid {
+        grid-template-columns: 500px 1fr;
+      }
+    }
+
+    .admin-panel-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: 6px;
+      padding: 32px;
+      box-shadow: 0 4px 18px rgba(20, 20, 19, 0.03);
+    }
+
+    .panel-header {
+      border-bottom: 1px solid var(--border-hairline);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .panel-title {
+      font-family: var(--font-editorial);
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .panel-sub {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* Form Styles */
+    .admin-form-group {
+      margin-bottom: 20px;
+    }
+
+    .admin-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .admin-label-hint {
+      font-size: 10px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .admin-input,
+    .admin-select,
+    .admin-textarea {
+      width: 100%;
+      padding: 12px 14px;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      border: 1px solid var(--border-hairline);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      border-radius: 4px;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .admin-input:focus,
+    .admin-select:focus,
+    .admin-textarea:focus {
+      border-color: var(--text-primary);
+      background-color: #fff;
+    }
+
+    .admin-textarea {
+      min-height: 80px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    /* Image Dropzone */
+    .image-dropzone {
+      border: 2px dashed var(--border-hairline);
+      border-radius: 6px;
+      padding: 20px 16px;
+      text-align: center;
+      background-color: var(--bg-primary);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .image-dropzone:hover,
+    .image-dropzone.dragover {
+      border-color: var(--text-primary);
+      background-color: #fff;
+    }
+
+    .dropzone-preview {
+      display: none;
+      margin-top: 12px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropzone-preview img {
+      max-height: 160px;
+      border-radius: 4px;
+      border: 1px solid var(--border-hairline);
+      background-color: #fff;
+      object-fit: contain;
+    }
+
+    .btn-remove-img {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background-color: #ba2828;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    /* Multi Gallery Thumbnails Container */
+    .gallery-preview-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .gallery-thumb-chip {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      border: 1px solid var(--border-hairline);
+      border-radius: 4px;
+      background-color: #fff;
+      overflow: hidden;
+    }
+
+    .gallery-thumb-chip img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .gallery-thumb-chip .btn-remove-chip {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 18px;
+      height: 18px;
+      font-size: 11px;
+      border-radius: 50%;
+      background-color: rgba(20, 20, 19, 0.8);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Status Selector Radios */
+    .status-radios {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .status-radio-option {
+      position: relative;
+    }
+
+    .status-radio-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .status-radio-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 6px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: 1px solid var(--border-hairline);
+      border-radius: 4px;
+      background-color: var(--bg-primary);
+      color: var(--text-secondary);
+      text-align: center;
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+
+    .status-radio-option input[type="radio"]:checked + .status-radio-label {
+      background-color: var(--text-primary);
+      color: var(--bg-surface);
+      border-color: var(--text-primary);
+    }
+
+    /* Catalog Table / List */
+    .catalog-search-wrap {
+      margin-bottom: 20px;
+    }
+
+    .product-list-table {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .product-admin-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-hairline);
+      border-radius: 4px;
+      transition: var(--transition-smooth);
+    }
+
+    .product-admin-row:hover {
+      border-color: #b5b0a5;
+      background-color: #fff;
+    }
+
+    .row-info-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .row-img-thumb {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      background-color: #fff;
+      border: 1px solid var(--border-hairline);
+      border-radius: 4px;
+      flex-shrink: 0;
+      padding: 2px;
+    }
+
+    .row-details {
+      min-width: 0;
+    }
+
+    .row-title {
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 320px;
+    }
+
+    .row-meta {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .row-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .btn-action-icon {
+      height: 34px;
+      padding: 0 10px;
+      border-radius: 4px;
+      border: 1px solid var(--border-hairline);
+      background-color: var(--bg-surface);
+      color: var(--text-primary);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      transition: var(--transition-smooth);
+      text-decoration: none;
+    }
+
+    .btn-action-icon:hover {
+      border-color: var(--text-primary);
+      background-color: var(--text-primary);
+      color: #fff;
+    }
+
+    .btn-action-edit {
+      border-color: #b5b0a5;
+    }
+
+    .btn-action-edit:hover {
+      background-color: #2a4030;
+      border-color: #2a4030;
+      color: #fff;
+    }
+
+    .btn-action-delete {
+      color: var(--status-out-text);
+      border-color: #eed6d6;
+      width: 34px;
+      padding: 0;
+      justify-content: center;
+    }
+
+    .btn-action-delete:hover {
+      background-color: #c93b3b;
+      border-color: #c93b3b;
+      color: #fff;
+    }
+
+    .btn-status-toggle {
+      border: none;
+      cursor: pointer;
+      background: none;
+      padding: 0;
+    }
+
+    /* Modal Styles */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(20, 20, 19, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-box {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: 6px;
+      padding: 32px;
+      max-width: 580px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 48px rgba(0,0,0,0.2);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-hairline);
+      padding-bottom: 14px;
+      margin-bottom: 20px;
+    }
+
+    .modal-title {
+      font-family: var(--font-editorial);
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .modal-close-btn {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--text-secondary);
+    }
+
+    .modal-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .btn-modal-cancel {
+      padding: 12px 16px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: 1px solid var(--border-hairline);
+      background-color: transparent;
+      border-radius: 9999px;
+      cursor: pointer;
+    }
+
+    .btn-modal-save {
+      padding: 12px 16px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      background-color: var(--text-primary);
+      border: 1px solid var(--text-primary);
+      color: #fff;
+      border-radius: 9999px;
+      cursor: pointer;
+    }
+
+    .btn-modal-save:hover {
+      background-color: #2c2b29;
+    }
+
+    /* Toast Notification */
+    .admin-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: var(--text-primary);
+      color: var(--bg-surface);
+      padding: 14px 20px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 2000;
+    }
+
+    .admin-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="admin-body">
+
+  <!-- ==================== SCREEN 1: ADMIN PASSCODE LOCK SCREEN ==================== -->
+  <div id="authScreen" class="auth-overlay">
+    <div class="auth-card">
+      <div style="font-size: 32px; margin-bottom: 12px;">🔒</div>
+      <h1 class="auth-brand-title">MFU</h1>
+      <span class="auth-subtitle">Atelier Vault &bull; Restricted Control Desk</span>
+
+      <div id="authErrorMsg" class="auth-error">Incorrect Passcode. Access Denied.</div>
+
+      <form id="authForm" onsubmit="handleAdminLogin(event)">
+        <div class="auth-form-group">
+          <label class="admin-label" for="passcodeInput">Security Passcode</label>
+          <input type="password" id="passcodeInput" class="auth-input" placeholder="Enter admin passcode..." required autocomplete="current-password" autofocus>
+        </div>
+        <button type="submit" class="btn-admin-submit" id="btnLoginSubmit">
+          Unlock Atelier Portal
+        </button>
+      </form>
+
+      <div class="auth-notice">
+        <span>Protected private desk for authorized MFU curators only.</span><br>
+        <span style="opacity: 0.75; font-size: 10px;">Default Master Passcode: <code>mfu2026</code></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SCREEN 2: ADMIN MANAGEMENT DASHBOARD ==================== -->
+  <div id="dashboardScreen" style="display: none;">
+    
+    <!-- Top Sticky Navigation -->
+    <header class="admin-nav">
+      <div class="container admin-nav-inner">
+        <div class="admin-brand">
+          <span class="admin-logo">MFU</span>
+          <span class="admin-badge">Admin Desk</span>
+        </div>
+        <div class="admin-nav-actions">
+          <a href="index.html" target="_blank" rel="noopener" class="btn-admin-ghost">
+            <span>View Live Store (₹)</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+          </a>
+          <button type="button" class="btn-admin-ghost btn-admin-lock" onclick="handleAdminLogout()">
+            <span>Lock Desk</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="admin-container">
+      
+      <!-- Live Metrics Strip -->
+      <section class="metrics-grid">
+        <div class="metric-card">
+          <span class="metric-label">Total Vault Figures</span>
+          <span class="metric-value" id="metricTotal">0</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">In Stock Figures</span>
+          <span class="metric-value" id="metricAvailable" style="color: var(--status-available-text);">0</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Pre-Orders</span>
+          <span class="metric-value" id="metricPreOrder" style="color: var(--status-preorder-text);">0</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Vaulted / Out of Stock</span>
+          <span class="metric-value" id="metricOut" style="color: var(--status-out-text);">0</span>
+        </div>
+      </section>
+
+      <!-- Two-Column Control Layout -->
+      <div class="admin-sections-grid">
+        
+        <!-- LEFT: CREATE NEW PRODUCT -->
+        <section class="admin-panel-card">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Add New Figure</h2>
+              <p class="panel-sub">Set discounted price & multiple gallery images</p>
+            </div>
+          </div>
+
+          <form id="createProductForm" onsubmit="handleCreateProduct(event)">
+            
+            <div class="admin-form-group">
+              <label class="admin-label" for="prodName">Figure Title *</label>
+              <input type="text" id="prodName" class="admin-input" placeholder="e.g. Pop! Animation: Demon Slayer — Nezuko Kamado" required>
+            </div>
+
+            <!-- Double Price Inputs: Discounted & Original MRP -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <div class="admin-form-group">
+                <label class="admin-label" for="prodPrice">
+                  <span>Offer Price (₹) *</span>
+                </label>
+                <input type="text" id="prodPrice" class="admin-input" placeholder="e.g. ₹2,499" required oninput="calcCreateDiscount()">
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-label" for="prodOriginalPrice">
+                  <span>Original MRP (₹)</span>
+                  <span class="admin-label-hint">Strikethrough</span>
+                </label>
+                <input type="text" id="prodOriginalPrice" class="admin-input" placeholder="e.g. ₹3,299" oninput="calcCreateDiscount()">
+              </div>
+            </div>
+
+            <div id="createDiscountPreview" style="margin-top: -12px; margin-bottom: 16px; font-size: 11px; color: #ba2828; font-weight: 600; display: none;"></div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <div class="admin-form-group">
+                <label class="admin-label" for="prodCategory">Category / Fandom *</label>
+                <select id="prodCategory" class="admin-select" required onchange="handleCategoryChange('create')">
+                  <option value="Anime">Anime</option>
+                  <option value="Marvel & DC">Marvel & DC</option>
+                  <option value="Gaming">Gaming</option>
+                  <option value="Movies">Movies</option>
+                  <option value="Television">Television</option>
+                  <option value="Icons">Icons</option>
+                  <option value="__custom__">+ Custom / New Category...</option>
+                </select>
+                <div id="createCustomCategoryWrap" style="display: none; margin-top: 8px;">
+                  <input type="text" id="prodCustomCategory" class="admin-input" placeholder="Enter custom fandom (e.g. Disney, Sports, Star Wars)">
+                </div>
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-label">Status</label>
+                <select id="prodStatusSelect" class="admin-select">
+                  <option value="Available">Available (In Stock)</option>
+                  <option value="Pre-Order">Pre-Order</option>
+                  <option value="Out of Stock">Out of Stock</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- FRONT COVER IMAGE (Seen on Catalog Screen) -->
+            <div class="admin-form-group">
+              <label class="admin-label">
+                <span>Front Cover Image *</span>
+                <span class="admin-label-hint">Shown on homepage catalog card</span>
+              </label>
+              
+              <div class="image-dropzone" id="frontDropzone" onclick="document.getElementById('frontFileInput').click()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 6px; color: var(--text-secondary);"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <div style="font-size: 12px; font-weight: 600;">Upload Front Image</div>
+                <div style="font-size: 10px; color: var(--text-secondary);">Click or drag WebP, PNG, JPG file</div>
+                <input type="file" id="frontFileInput" accept="image/*" style="display: none;" onchange="handleFrontFile(event)">
+              </div>
+
+              <!-- Front Preview -->
+              <div class="dropzone-preview" id="frontPreviewContainer" style="display: none;">
+                <img id="frontPreviewImg" src="" alt="Front Cover Preview">
+                <button type="button" class="btn-remove-img" onclick="clearFrontImage(event)">&times;</button>
+              </div>
+              
+              <div style="margin-top: 8px;">
+                <input type="text" id="prodFrontFallback" class="admin-input" placeholder="Or enter image path, e.g. assets/images/spiderman-no-way-home.webp">
+              </div>
+            </div>
+
+            <!-- MULTIPLE GALLERY IMAGES (Shown on Product Detail Page) -->
+            <div class="admin-form-group">
+              <label class="admin-label">
+                <span>Additional Gallery Images</span>
+                <span class="admin-label-hint">Multiple angle / box detail photos</span>
+              </label>
+
+              <div class="image-dropzone" id="galleryDropzone" onclick="document.getElementById('galleryFileInput').click()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 6px; color: var(--text-secondary);"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <div style="font-size: 12px; font-weight: 600;">Select Multiple Angle Shots</div>
+                <div style="font-size: 10px; color: var(--text-secondary);">Select multiple files at once</div>
+                <input type="file" id="galleryFileInput" accept="image/*" multiple style="display: none;" onchange="handleGalleryFiles(event)">
+              </div>
+
+              <!-- Gallery Preview Grid -->
+              <div class="gallery-preview-grid" id="createGalleryGrid"></div>
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-label" for="prodSummary">Editorial Summary *</label>
+              <textarea id="prodSummary" class="admin-textarea" placeholder="Collector narrative describing this Funko Pop figure..." required></textarea>
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-label" for="prodSpecs">Collector Specifications (One per line)</label>
+              <textarea id="prodSpecs" class="admin-textarea" placeholder="Officially licensed collectible&#10;10/10 mint window box condition&#10;Includes 0.5mm UV protector shield&#10;Double-boxed crush-proof shipping"></textarea>
+            </div>
+
+            <button type="submit" class="btn-admin-submit" id="btnPublishProduct">
+              + Publish Figure to Vault
+            </button>
+
+          </form>
+        </section>
+
+        <!-- RIGHT: CATALOG & EDIT/DELETE MANAGEMENT -->
+        <section class="admin-panel-card">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Vault Catalog Manager</h2>
+              <p class="panel-sub">Edit prices, manage multiple images, or remove figures</p>
+            </div>
+          </div>
+
+          <div class="catalog-search-wrap">
+            <input type="text" id="adminSearchInput" class="admin-input" placeholder="Search figures by title, fandom, price, or status..." oninput="filterAdminProducts()">
+          </div>
+
+          <div id="adminProductList" class="product-list-table">
+            <!-- Dynamically Rendered -->
+          </div>
+
+        </section>
+
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ==================== MODAL: EDIT PRODUCT & PRICES ==================== -->
+  <div class="modal-backdrop" id="editModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">Edit Figure &amp; Prices</h3>
+        <button type="button" class="modal-close-btn" onclick="closeEditModal()">&times;</button>
+      </div>
+
+      <form id="editProductForm" onsubmit="handleSaveProductEdit(event)">
+        <input type="hidden" id="editProdId">
+
+        <div class="admin-form-group">
+          <label class="admin-label" for="editProdName">Figure Title</label>
+          <input type="text" id="editProdName" class="admin-input" required>
+        </div>
+
+        <!-- Prices Stack -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div class="admin-form-group">
+            <label class="admin-label" for="editProdPrice">Offer Price (₹) *</label>
+            <input type="text" id="editProdPrice" class="admin-input" required oninput="calcEditDiscount()">
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-label" for="editProdOriginalPrice">Original MRP (₹)</label>
+            <input type="text" id="editProdOriginalPrice" class="admin-input" oninput="calcEditDiscount()">
+          </div>
+        </div>
+
+        <div id="editDiscountPreview" style="margin-top: -12px; margin-bottom: 16px; font-size: 11px; color: #ba2828; font-weight: 600;"></div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div class="admin-form-group">
+            <label class="admin-label" for="editProdCategory">Category</label>
+            <select id="editProdCategory" class="admin-select" onchange="handleCategoryChange('edit')">
+              <option value="Anime">Anime</option>
+              <option value="Marvel & DC">Marvel & DC</option>
+              <option value="Gaming">Gaming</option>
+              <option value="Movies">Movies</option>
+              <option value="Television">Television</option>
+              <option value="Icons">Icons</option>
+              <option value="__custom__">+ Custom / New Category...</option>
+            </select>
+            <div id="editCustomCategoryWrap" style="display: none; margin-top: 8px;">
+              <input type="text" id="editCustomCategory" class="admin-input" placeholder="Enter custom category name">
+            </div>
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-label" for="editProdStatus">Status</label>
+            <select id="editProdStatus" class="admin-select">
+              <option value="Available">Available (In Stock)</option>
+              <option value="Pre-Order">Pre-Order</option>
+              <option value="Out of Stock">Out of Stock</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Front Cover Image in Modal -->
+        <div class="admin-form-group">
+          <label class="admin-label">
+            <span>Front Cover Image (Seen on Screen)</span>
+            <span class="admin-label-hint">Click below to change</span>
+          </label>
+          <div style="display: flex; align-items: center; gap: 12px; margin-top: 6px;">
+            <img id="editFrontPreview" src="" alt="Front Image" style="width: 50px; height: 50px; object-fit: contain; border: 1px solid var(--border-hairline); border-radius: 4px; background: #fff;">
+            <button type="button" class="btn-admin-ghost" onclick="document.getElementById('editFrontFileInput').click()">
+              Upload New Front Image
+            </button>
+            <input type="file" id="editFrontFileInput" accept="image/*" style="display: none;" onchange="handleEditFrontFile(event)">
+          </div>
+        </div>
+
+        <!-- Multiple Gallery Images Manager in Modal -->
+        <div class="admin-form-group">
+          <label class="admin-label">
+            <span>Product Detail Gallery Angles (Multiple)</span>
+            <span class="admin-label-hint">Click &times; to remove any angle</span>
+          </label>
+          <div class="gallery-preview-grid" id="editGalleryGrid"></div>
+          <div style="margin-top: 10px;">
+            <button type="button" class="btn-admin-ghost" onclick="document.getElementById('editGalleryUploadInput').click()">
+              + Add More Angle Shots
+            </button>
+            <input type="file" id="editGalleryUploadInput" accept="image/*" multiple style="display: none;" onchange="handleEditGalleryFiles(event)">
+          </div>
+        </div>
+
+        <div class="admin-form-group">
+          <label class="admin-label" for="editProdSummary">Summary</label>
+          <textarea id="editProdSummary" class="admin-textarea"></textarea>
+        </div>
+
+        <div class="admin-form-group">
+          <label class="admin-label" for="editProdSpecs">Specifications (One per line)</label>
+          <textarea id="editProdSpecs" class="admin-textarea"></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-modal-cancel" onclick="closeEditModal()">Cancel</button>
+          <button type="submit" class="btn-modal-save" id="btnSaveEdit">Save Updates</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="modal-backdrop" id="deleteModal">
+    <div class="modal-box" style="max-width: 440px; text-align: center;">
+      <div style="font-size: 32px; margin-bottom: 12px;">⚠️</div>
+      <h3 class="modal-title">Delete Figure?</h3>
+      <p class="modal-text" id="deleteModalText">
+        Are you sure you want to remove this figure from the MFU Vault? This will permanently delete its static page and refresh the storefront.
+      </p>
+      <div class="modal-actions">
+        <button type="button" class="btn-modal-cancel" onclick="closeDeleteModal()">Cancel</button>
+        <button type="button" class="btn-modal-delete" id="btnConfirmDelete" style="padding: 12px; border-radius: 9999px; background-color: #ba2828; color: #fff; border: none; font-weight: 600; cursor: pointer;">Confirm Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="admin-toast" id="adminToast">Action completed</div>
+
+  <!-- Admin Application Client Logic -->
+  <script>
+    let currentAuthPasscode = sessionStorage.getItem('mfu_admin_passcode') || '';
+    let cachedProducts = [];
+    let pendingDeleteProduct = null;
+
+    // Creation State
+    let createFrontBase64 = null;
+    let createFrontFileName = '';
+    let createGalleryUploads = []; // [{ fileName, base64 }]
+
+    // Edit Modal State
+    let editingProduct = null;
+    let editFrontBase64 = null;
+    let editFrontFileName = '';
+    let editGalleryList = []; // list of image URLs/paths
+    let editGalleryUploads = []; // [{ fileName, base64 }]
+
+    window.addEventListener('DOMContentLoaded', () => {
+      if (currentAuthPasscode) {
+        verifySession();
+      } else {
+        showAuthScreen();
+      }
+    });
+
+    function showAuthScreen() {
+      document.getElementById('authScreen').style.display = 'flex';
+      document.getElementById('dashboardScreen').style.display = 'none';
+    }
+
+    function showDashboard() {
+      document.getElementById('authScreen').style.display = 'none';
+      document.getElementById('dashboardScreen').style.display = 'block';
+      loadProductsList();
+    }
+
+    async function handleAdminLogin(e) {
+      e.preventDefault();
+      const pass = document.getElementById('passcodeInput').value.trim();
+      const submitBtn = document.getElementById('btnLoginSubmit');
+      const errorMsg = document.getElementById('authErrorMsg');
+
+      submitBtn.textContent = 'Verifying...';
+      submitBtn.disabled = true;
+      errorMsg.style.display = 'none';
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ passcode: pass })
+        });
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          currentAuthPasscode = pass;
+          sessionStorage.setItem('mfu_admin_passcode', pass);
+          showDashboard();
+          showToast('Welcome to MFU Control Desk');
+        } else {
+          errorMsg.textContent = data.error || 'Incorrect Passcode. Access Denied.';
+          errorMsg.style.display = 'block';
+        }
+      } catch (err) {
+        errorMsg.textContent = 'Network or server error. Please try again.';
+        errorMsg.style.display = 'block';
+      } finally {
+        submitBtn.textContent = 'Unlock Atelier Portal';
+        submitBtn.disabled = false;
+      }
+    }
+
+    function handleAdminLogout() {
+      sessionStorage.removeItem('mfu_admin_passcode');
+      currentAuthPasscode = '';
+      document.getElementById('passcodeInput').value = '';
+      showAuthScreen();
+      showToast('Admin session locked');
+    }
+
+    async function verifySession() {
+      try {
+        const res = await fetch('/api/products', {
+          headers: { 'x-admin-passcode': currentAuthPasscode }
+        });
+        if (res.ok) {
+          showDashboard();
+        } else {
+          handleAdminLogout();
+        }
+      } catch (e) {
+        showAuthScreen();
+      }
+    }
+
+    async function loadProductsList() {
+      try {
+        const res = await fetch('/api/products', {
+          headers: { 'x-admin-passcode': currentAuthPasscode }
+        });
+        if (!res.ok) throw new Error('Unauthorized');
+        const data = await res.json();
+        cachedProducts = data.products || [];
+        renderMetrics();
+        updateCategoryDropdowns();
+        renderProductList(cachedProducts);
+      } catch (err) {
+        showToast('Error loading catalog');
+      }
+    }
+
+    function updateCategoryDropdowns() {
+      const defaultCategories = ['Anime', 'Marvel & DC', 'Gaming', 'Movies', 'Television', 'Icons'];
+      const productCategories = cachedProducts.map(p => p.category).filter(Boolean);
+      const allCategories = [...new Set([...defaultCategories, ...productCategories])];
+
+      ['prodCategory', 'editProdCategory'].forEach(id => {
+        const select = document.getElementById(id);
+        if (!select) return;
+        const currentVal = select.value;
+
+        select.innerHTML = allCategories.map(cat => `<option value="${cat}">${cat}</option>`).join('') +
+          `<option value="__custom__">+ Custom / New Category...</option>`;
+
+        if (currentVal && (allCategories.includes(currentVal) || currentVal === '__custom__')) {
+          select.value = currentVal;
+        }
+      });
+    }
+
+    function handleCategoryChange(mode) {
+      if (mode === 'create') {
+        const sel = document.getElementById('prodCategory');
+        const wrap = document.getElementById('createCustomCategoryWrap');
+        const input = document.getElementById('prodCustomCategory');
+        if (sel.value === '__custom__') {
+          wrap.style.display = 'block';
+          input.focus();
+        } else {
+          wrap.style.display = 'none';
+          input.value = '';
+        }
+      } else if (mode === 'edit') {
+        const sel = document.getElementById('editProdCategory');
+        const wrap = document.getElementById('editCustomCategoryWrap');
+        const input = document.getElementById('editCustomCategory');
+        if (sel.value === '__custom__') {
+          wrap.style.display = 'block';
+          input.focus();
+        } else {
+          wrap.style.display = 'none';
+          input.value = '';
+        }
+      }
+    }
+
+    function renderMetrics() {
+      document.getElementById('metricTotal').textContent = cachedProducts.length;
+      document.getElementById('metricAvailable').textContent = cachedProducts.filter(p => p.status === 'Available').length;
+      document.getElementById('metricPreOrder').textContent = cachedProducts.filter(p => p.status === 'Pre-Order').length;
+      document.getElementById('metricOut').textContent = cachedProducts.filter(p => p.status === 'Out of Stock').length;
+    }
+
+    function renderProductList(products) {
+      const listEl = document.getElementById('adminProductList');
+      if (products.length === 0) {
+        listEl.innerHTML = `<div style="text-align: center; padding: 40px; color: var(--text-secondary); font-size: 13px;">No figures match your query.</div>`;
+        return;
+      }
+
+      listEl.innerHTML = products.map(prod => {
+        const isAvail = prod.status === 'Available';
+        const isPre = prod.status === 'Pre-Order';
+        let statusBadgeClass = 'out-of-stock';
+        if (isAvail) statusBadgeClass = 'available';
+        else if (isPre) statusBadgeClass = 'pre-order';
+
+        // Discount tag calculation
+        let discountTag = '';
+        if (prod.originalPrice) {
+          const numPrice = parseFloat(prod.price.replace(/[^0-9.]/g, ''));
+          const numOrig = parseFloat(prod.originalPrice.replace(/[^0-9.]/g, ''));
+          if (numOrig > numPrice) {
+            const pct = Math.round(((numOrig - numPrice) / numOrig) * 100);
+            discountTag = `<span class="badge-discount" style="margin-left: 6px;">${pct}% OFF</span>`;
+          }
+        }
+
+        const galleryCount = prod.galleryImages ? prod.galleryImages.length : 1;
+
+        return `
+          <div class="product-admin-row">
+            <div class="row-info-wrap">
+              <img src="${prod.mainImage}" alt="${prod.name}" class="row-img-thumb" onerror="this.src='assets/images/spiderman-no-way-home.webp'">
+              <div class="row-details">
+                <div class="row-title" title="${prod.name}">${prod.name}</div>
+                <div class="row-meta">
+                  <span>${prod.category}</span>
+                  <span>&bull;</span>
+                  <span style="font-weight: 700; color: var(--text-primary); font-size: 13px;">${prod.price}</span>
+                  ${prod.originalPrice ? `<span style="text-decoration: line-through; opacity: 0.65;">${prod.originalPrice}</span>` : ''}
+                  ${discountTag}
+                  <span>&bull;</span>
+                  <span style="font-size: 10px; color: var(--text-secondary);">${galleryCount} ${galleryCount === 1 ? 'image' : 'images'}</span>
+                  <span>&bull;</span>
+                  <button type="button" class="btn-status-toggle" onclick="cycleStatus('${prod.id}', '${prod.status}')" title="Click to toggle status">
+                    <span class="badge-status ${statusBadgeClass}">${prod.status.toUpperCase()}</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="row-actions">
+              <button type="button" class="btn-action-icon btn-action-edit" onclick="openEditModal('${prod.id}')" title="Edit Figure & Prices">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                <span>Edit</span>
+              </button>
+              <a href="products/${prod.slug}.html" target="_blank" rel="noopener" class="btn-action-icon" title="View Live Page">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </a>
+              <button type="button" class="btn-action-icon btn-action-delete" onclick="promptDeleteProduct('${prod.id}', '${encodeURIComponent(prod.name)}', '${prod.slug}')" title="Delete Product">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterAdminProducts() {
+      const q = document.getElementById('adminSearchInput').value.toLowerCase().trim();
+      if (!q) {
+        renderProductList(cachedProducts);
+        return;
+      }
+      const filtered = cachedProducts.filter(p => 
+        p.name.toLowerCase().includes(q) ||
+        p.category.toLowerCase().includes(q) ||
+        p.price.toLowerCase().includes(q) ||
+        p.status.toLowerCase().includes(q)
+      );
+      renderProductList(filtered);
+    }
+
+    // Live Discount Calculation Helpers
+    function calcDiscountText(priceStr, origStr) {
+      if (!priceStr || !origStr) return '';
+      const numP = parseFloat(priceStr.replace(/[^0-9.]/g, ''));
+      const numO = parseFloat(origStr.replace(/[^0-9.]/g, ''));
+      if (numO > numP) {
+        const diff = Math.round(numO - numP);
+        const pct = Math.round(((numO - numP) / numO) * 100);
+        return `🎉 Client Saves ₹${diff.toLocaleString('en-IN')} (${pct}% OFF)`;
+      }
+      return '';
+    }
+
+    function calcCreateDiscount() {
+      const p = document.getElementById('prodPrice').value;
+      const o = document.getElementById('prodOriginalPrice').value;
+      const el = document.getElementById('createDiscountPreview');
+      const text = calcDiscountText(p, o);
+      if (text) {
+        el.textContent = text;
+        el.style.display = 'block';
+      } else {
+        el.style.display = 'none';
+      }
+    }
+
+    function calcEditDiscount() {
+      const p = document.getElementById('editProdPrice').value;
+      const o = document.getElementById('editProdOriginalPrice').value;
+      const el = document.getElementById('editDiscountPreview');
+      const text = calcDiscountText(p, o);
+      if (text) {
+        el.textContent = text;
+        el.style.display = 'block';
+      } else {
+        el.style.display = 'none';
+      }
+    }
+
+    // Creation: Front Image Upload
+    function handleFrontFile(e) {
+      if (e.target.files.length > 0) {
+        const file = e.target.files[0];
+        createFrontFileName = file.name;
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          createFrontBase64 = event.target.result;
+          document.getElementById('frontPreviewImg').src = createFrontBase64;
+          document.getElementById('frontPreviewContainer').style.display = 'inline-block';
+          document.getElementById('frontDropzone').style.display = 'none';
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function clearFrontImage(e) {
+      if (e) e.stopPropagation();
+      createFrontBase64 = null;
+      createFrontFileName = '';
+      document.getElementById('frontPreviewImg').src = '';
+      document.getElementById('frontPreviewContainer').style.display = 'none';
+      document.getElementById('frontDropzone').style.display = 'block';
+      document.getElementById('frontFileInput').value = '';
+    }
+
+    // Creation: Multiple Gallery Uploads
+    function handleGalleryFiles(e) {
+      const files = Array.from(e.target.files);
+      files.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          createGalleryUploads.push({
+            fileName: file.name,
+            base64: event.target.result
+          });
+          renderCreateGalleryGrid();
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function renderCreateGalleryGrid() {
+      const container = document.getElementById('createGalleryGrid');
+      container.innerHTML = createGalleryUploads.map((item, idx) => `
+        <div class="gallery-thumb-chip">
+          <img src="${item.base64}" alt="Gallery ${idx + 1}">
+          <button type="button" class="btn-remove-chip" onclick="removeCreateGalleryItem(${idx})">&times;</button>
+        </div>
+      `).join('');
+    }
+
+    function removeCreateGalleryItem(idx) {
+      createGalleryUploads.splice(idx, 1);
+      renderCreateGalleryGrid();
+    }
+
+    // Create New Product Submission
+    async function handleCreateProduct(e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('btnPublishProduct');
+      submitBtn.textContent = 'Compiling Figure...';
+      submitBtn.disabled = true;
+
+      const name = document.getElementById('prodName').value.trim();
+      let price = document.getElementById('prodPrice').value.trim();
+      if (!price.startsWith('₹') && !price.startsWith('Rs.')) price = '₹' + price;
+      
+      let originalPrice = document.getElementById('prodOriginalPrice').value.trim();
+      if (originalPrice && !originalPrice.startsWith('₹') && !originalPrice.startsWith('Rs.')) {
+        originalPrice = '₹' + originalPrice;
+      }
+
+      let category = document.getElementById('prodCategory').value;
+      if (category === '__custom__') {
+        category = document.getElementById('prodCustomCategory').value.trim();
+        if (!category) {
+          alert('Please enter a custom category / fandom name.');
+          submitBtn.textContent = '+ Publish Figure to Vault';
+          submitBtn.disabled = false;
+          return;
+        }
+      }
+      const status = document.getElementById('prodStatusSelect').value;
+      const fallbackFront = document.getElementById('prodFrontFallback').value.trim();
+      const summary = document.getElementById('prodSummary').value.trim();
+      const specsRaw = document.getElementById('prodSpecs').value.trim();
+
+      const specs = specsRaw 
+        ? specsRaw.split('\n').map(s => s.trim()).filter(Boolean)
+        : [summary];
+
+      if (!createFrontBase64 && !fallbackFront) {
+        alert('Please either upload a Front Image or specify an existing image path.');
+        submitBtn.textContent = '+ Publish Figure to Vault';
+        submitBtn.disabled = false;
+        return;
+      }
+
+      const payload = {
+        name,
+        price,
+        originalPrice,
+        category,
+        status,
+        summary,
+        description: specs,
+        mainImage: fallbackFront || 'assets/images/spiderman-no-way-home.webp',
+        mainImageBase64: createFrontBase64,
+        mainImageFileName: createFrontFileName,
+        galleryUploads: createGalleryUploads
+      };
+
+      try {
+        const res = await fetch('/api/products/create', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-admin-passcode': currentAuthPasscode
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+        if (res.ok && data.success) {
+          showToast(`Successfully published ${name}!`);
+          document.getElementById('createProductForm').reset();
+          document.getElementById('createCustomCategoryWrap').style.display = 'none';
+          document.getElementById('prodCustomCategory').value = '';
+          clearFrontImage();
+          createGalleryUploads = [];
+          renderCreateGalleryGrid();
+          loadProductsList();
+        } else {
+          alert(data.error || 'Failed to create product.');
+        }
+      } catch (err) {
+        alert('Server communication error.');
+      } finally {
+        submitBtn.textContent = '+ Publish Figure to Vault';
+        submitBtn.disabled = false;
+      }
+    }
+
+    // ==================== EDIT FIGURE MODAL LOGIC ====================
+    function openEditModal(prodId) {
+      const prod = cachedProducts.find(p => p.id === prodId);
+      if (!prod) return;
+
+      editingProduct = prod;
+      editFrontBase64 = null;
+      editFrontFileName = '';
+      editGalleryList = Array.isArray(prod.galleryImages) ? [...prod.galleryImages] : [prod.mainImage];
+      editGalleryUploads = [];
+
+      document.getElementById('editProdId').value = prod.id;
+      document.getElementById('editProdName').value = prod.name;
+      document.getElementById('editProdPrice').value = prod.price;
+      document.getElementById('editProdOriginalPrice').value = prod.originalPrice || '';
+      
+      // Setup category selection with custom option support
+      updateCategoryDropdowns();
+      const editSelect = document.getElementById('editProdCategory');
+      let foundCat = false;
+      for (let i = 0; i < editSelect.options.length; i++) {
+        if (editSelect.options[i].value.toLowerCase() === (prod.category || '').toLowerCase()) {
+          editSelect.selectedIndex = i;
+          foundCat = true;
+          break;
+        }
+      }
+      if (!foundCat && prod.category) {
+        const opt = document.createElement('option');
+        opt.value = prod.category;
+        opt.textContent = prod.category;
+        editSelect.insertBefore(opt, editSelect.querySelector('option[value="__custom__"]'));
+        editSelect.value = prod.category;
+      }
+      document.getElementById('editCustomCategoryWrap').style.display = 'none';
+      document.getElementById('editCustomCategory').value = '';
+
+      document.getElementById('editProdStatus').value = prod.status;
+      document.getElementById('editProdSummary').value = prod.summary;
+      document.getElementById('editProdSpecs').value = Array.isArray(prod.description) ? prod.description.join('\n') : prod.summary;
+
+      document.getElementById('editFrontPreview').src = prod.mainImage;
+
+      calcEditDiscount();
+      renderEditGalleryGrid();
+
+      document.getElementById('editModal').style.display = 'flex';
+    }
+
+    function closeEditModal() {
+      editingProduct = null;
+      document.getElementById('editModal').style.display = 'none';
+    }
+
+    function handleEditFrontFile(e) {
+      if (e.target.files.length > 0) {
+        const file = e.target.files[0];
+        editFrontFileName = file.name;
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          editFrontBase64 = event.target.result;
+          document.getElementById('editFrontPreview').src = editFrontBase64;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function handleEditGalleryFiles(e) {
+      const files = Array.from(e.target.files);
+      files.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          editGalleryUploads.push({
+            fileName: file.name,
+            base64: event.target.result
+          });
+          renderEditGalleryGrid();
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function renderEditGalleryGrid() {
+      const grid = document.getElementById('editGalleryGrid');
+      let html = '';
+
+      // Existing image paths
+      editGalleryList.forEach((src, idx) => {
+        html += `
+          <div class="gallery-thumb-chip">
+            <img src="${src}" alt="Gallery ${idx}">
+            ${editGalleryList.length > 1 ? `<button type="button" class="btn-remove-chip" onclick="removeExistingGalleryItem(${idx})">&times;</button>` : ''}
+          </div>
+        `;
+      });
+
+      // Newly uploaded base64 images
+      editGalleryUploads.forEach((item, idx) => {
+        html += `
+          <div class="gallery-thumb-chip" style="border-color: #2a4030;">
+            <img src="${item.base64}" alt="New Upload ${idx}">
+            <button type="button" class="btn-remove-chip" onclick="removeEditGalleryUpload(${idx})">&times;</button>
+          </div>
+        `;
+      });
+
+      grid.innerHTML = html;
+    }
+
+    function removeExistingGalleryItem(idx) {
+      editGalleryList.splice(idx, 1);
+      renderEditGalleryGrid();
+    }
+
+    function removeEditGalleryUpload(idx) {
+      editGalleryUploads.splice(idx, 1);
+      renderEditGalleryGrid();
+    }
+
+    async function handleSaveProductEdit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('btnSaveEdit');
+      btn.textContent = 'Updating...';
+      btn.disabled = true;
+
+      const id = document.getElementById('editProdId').value;
+      const name = document.getElementById('editProdName').value.trim();
+      let price = document.getElementById('editProdPrice').value.trim();
+      if (!price.startsWith('₹') && !price.startsWith('Rs.')) price = '₹' + price;
+      
+      let originalPrice = document.getElementById('editProdOriginalPrice').value.trim();
+      if (originalPrice && !originalPrice.startsWith('₹') && !originalPrice.startsWith('Rs.')) {
+        originalPrice = '₹' + originalPrice;
+      }
+
+      let category = document.getElementById('editProdCategory').value;
+      if (category === '__custom__') {
+        category = document.getElementById('editCustomCategory').value.trim();
+        if (!category) {
+          alert('Please enter a custom category name.');
+          btn.textContent = 'Save Updates';
+          btn.disabled = false;
+          return;
+        }
+      }
+      const status = document.getElementById('editProdStatus').value;
+      const summary = document.getElementById('editProdSummary').value.trim();
+      const specsRaw = document.getElementById('editProdSpecs').value.trim();
+      const description = specsRaw ? specsRaw.split('\n').map(s => s.trim()).filter(Boolean) : [summary];
+
+      const payload = {
+        id,
+        name,
+        price,
+        originalPrice,
+        category,
+        status,
+        summary,
+        description,
+        mainImage: editingProduct.mainImage,
+        mainImageBase64: editFrontBase64,
+        mainImageFileName: editFrontFileName,
+        galleryImages: editGalleryList,
+        galleryUploads: editGalleryUploads
+      };
+
+      try {
+        const res = await fetch('/api/products/update', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-admin-passcode': currentAuthPasscode
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+        if (res.ok && data.success) {
+          closeEditModal();
+          showToast(`Saved changes to "${name}"`);
+          loadProductsList();
+        } else {
+          alert(data.error || 'Failed to update figure.');
+        }
+      } catch (err) {
+        alert('Server communication error.');
+      } finally {
+        btn.textContent = 'Save Updates';
+        btn.disabled = false;
+      }
+    }
+
+    // Toggle Status
+    async function cycleStatus(id, currentStatus) {
+      let nextStatus = 'Available';
+      if (currentStatus === 'Available') nextStatus = 'Pre-Order';
+      else if (currentStatus === 'Pre-Order') nextStatus = 'Out of Stock';
+      else nextStatus = 'Available';
+
+      try {
+        const res = await fetch('/api/products/toggle', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-admin-passcode': currentAuthPasscode
+          },
+          body: JSON.stringify({ id, status: nextStatus })
+        });
+
+        if (res.ok) {
+          showToast(`Status updated to ${nextStatus}`);
+          loadProductsList();
+        } else {
+          showToast('Failed to update status');
+        }
+      } catch (e) {
+        showToast('Error communicating with server');
+      }
+    }
+
+    // Delete Product Modal & Action
+    function promptDeleteProduct(id, encodedName, slug) {
+      const name = decodeURIComponent(encodedName);
+      pendingDeleteProduct = { id, name, slug };
+      document.getElementById('deleteModalText').innerHTML = `
+        Are you sure you want to permanently remove <strong>"${name}"</strong> from the MFU Vault?<br><br>
+        This will delete <code>products/${slug}.html</code> and refresh the live storefront.
+      `;
+      document.getElementById('deleteModal').style.display = 'flex';
+    }
+
+    function closeDeleteModal() {
+      pendingDeleteProduct = null;
+      document.getElementById('deleteModal').style.display = 'none';
+    }
+
+    document.getElementById('btnConfirmDelete').addEventListener('click', async () => {
+      if (!pendingDeleteProduct) return;
+      const { id, name, slug } = pendingDeleteProduct;
+      const btn = document.getElementById('btnConfirmDelete');
+      btn.textContent = 'Deleting...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/products/delete', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-admin-passcode': currentAuthPasscode
+          },
+          body: JSON.stringify({ id, slug })
+        });
+
+        const data = await res.json();
+        if (res.ok && data.success) {
+          closeDeleteModal();
+          showToast(`Deleted "${name}" from Vault`);
+          loadProductsList();
+        } else {
+          alert(data.error || 'Failed to delete product.');
+        }
+      } catch (e) {
+        alert('Server error occurred during deletion.');
+      } finally {
+        btn.textContent = 'Confirm Delete';
+        btn.disabled = false;
+      }
+    });
+
+    function showToast(msg) {
+      const toast = document.getElementById('adminToast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3200);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgTanjiro" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141916"/>
+      <stop offset="100%" stop-color="#241416"/>
+    </linearGradient>
+    <linearGradient id="fireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF275"/>
+      <stop offset="40%" stop-color="#FF5722"/>
+      <stop offset="100%" stop-color="#D00000"/>
+    </linearGradient>
+    <pattern id="checkeredHaori" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="#008450"/>
+      <rect x="20" width="20" height="20" fill="#141413"/>
+      <rect y="20" width="20" height="20" fill="#141413"/>
+      <rect x="20" y="20" width="20" height="20" fill="#008450"/>
+    </pattern>
+    <filter id="fireGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="1000" fill="#F0EEE9"/>
+  <rect x="70" y="50" width="660" height="900" rx="16" fill="#F7F6F2" stroke="#D8D4CC" stroke-width="2"/>
+  
+  <!-- Header Bar -->
+  <rect x="70" y="50" width="660" height="130" rx="16" fill="#141413"/>
+  <rect x="70" y="140" width="660" height="40" fill="#141413"/>
+  <text x="110" y="125" font-family="'Impact', 'Arial Black', sans-serif" font-size="78" fill="#FFF" letter-spacing="2">POP!</text>
+  <text x="280" y="118" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="800" fill="#FF5722" letter-spacing="4">ANIMATION</text>
+  <text x="280" y="142" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="600" fill="#A09E97" letter-spacing="2">DEMON SLAYER: KIMETSU NO YAIBA</text>
+  
+  <!-- Box Number Badge -->
+  <circle cx="660" cy="115" r="42" fill="#008450"/>
+  <circle cx="660" cy="115" r="38" fill="none" stroke="#FFF" stroke-width="2"/>
+  <text x="660" y="127" font-family="'Impact', 'Arial Black', sans-serif" font-size="34" fill="#FFF" text-anchor="middle">874</text>
+
+  <!-- Display Window Cutout -->
+  <rect x="100" y="200" width="600" height="600" rx="20" fill="url(#bgTanjiro)" stroke="#D8D4CC" stroke-width="3"/>
+  <path d="M 120 220 L 680 220 L 580 780 L 120 780 Z" fill="white" opacity="0.03"/>
+
+  <!-- Character: Tanjiro with Hinokami Kagura Fire Dragon -->
+  <g transform="translate(400, 520)">
+    <!-- Shadow -->
+    <ellipse cx="0" cy="210" rx="180" ry="24" fill="#000" opacity="0.45"/>
+    
+    <!-- Fire Dragon Arc Effect behind him -->
+    <path d="M -220 180 C -180 -100 80 -180 220 -80 C 180 40 80 180 -100 120" 
+          fill="none" stroke="url(#fireGrad)" stroke-width="34" stroke-linecap="round" filter="url(#fireGlow)" opacity="0.95"/>
+    <path d="M -220 180 C -180 -100 80 -180 220 -80 C 180 40 80 180 -100 120" 
+          fill="none" stroke="#FFF" stroke-width="10" stroke-linecap="round" opacity="0.8"/>
+
+    <!-- Haori / Body -->
+    <path d="M -90 90 L 90 90 L 105 190 L -105 190 Z" fill="url(#checkeredHaori)"/>
+    <rect x="-35" y="90" width="70" height="100" fill="#202022"/>
+    <rect x="-35" y="150" width="70" height="15" fill="#FFF"/>
+
+    <!-- Legs & Sandals -->
+    <rect x="-55" y="190" width="40" height="35" rx="4" fill="#202022"/>
+    <rect x="15" y="190" width="40" height="35" rx="4" fill="#202022"/>
+    <rect x="-55" y="215" width="40" height="10" rx="2" fill="#E6E3DC"/>
+    <rect x="15" y="215" width="40" height="10" rx="2" fill="#E6E3DC"/>
+
+    <!-- Nichirin Blade in hand -->
+    <rect x="90" y="80" width="12" height="140" fill="#141413" transform="rotate(-40 90 80)"/>
+    <circle cx="90" cy="80" r="14" fill="#D4AF37"/>
+
+    <!-- Iconic Funko Head -->
+    <rect x="-135" y="-190" width="270" height="235" rx="45" fill="#FADBC8"/>
+    
+    <!-- Burgundy Spiky Anime Hair -->
+    <path d="M -145 -110 C -150 -240 150 -240 145 -110 C 130 -160 80 -190 0 -190 C -80 -190 -130 -160 -145 -110 Z" fill="#6A1B29"/>
+    <!-- Forehead Scar -->
+    <path d="M -75 -135 L -55 -155 L -45 -135 L -35 -145" stroke="#900C3F" stroke-width="5" stroke-linecap="round" fill="none"/>
+    
+    <!-- Hanafuda Earrings -->
+    <rect x="-145" y="-30" width="16" height="34" rx="2" fill="#FFF" stroke="#141413" stroke-width="2"/>
+    <circle cx="-137" cy="-20" r="4" fill="#E22633"/>
+    
+    <!-- Round Stylized Funko Pop Black Eyes -->
+    <circle cx="-65" cy="-45" r="28" fill="#141413"/>
+    <circle cx="-55" cy="-55" r="8" fill="#FFF"/>
+    <circle cx="65" cy="-45" r="28" fill="#141413"/>
+    <circle cx="75" cy="-55" r="8" fill="#FFF"/>
+  </g>
+
+  <!-- Special Edition Sticker -->
+  <g transform="translate(600, 700)">
+    <circle cx="0" cy="0" r="46" fill="#DC2626" stroke="#FFF" stroke-width="3"/>
+    <text x="0" y="-8" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="900" fill="#FFF" text-anchor="middle" letter-spacing="1">SPECIAL</text>
+    <text x="0" y="12" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="900" fill="#FFF" text-anchor="middle" letter-spacing="1">EDITION</text>
+  </g>
+
+  <!-- Bottom Box Label Section -->
+  <rect x="70" y="820" width="660" height="130" rx="16" fill="#F7F6F2"/>
+  <text x="100" y="865" font-family="'Impact', 'Arial Black', sans-serif" font-size="36" fill="#141413" letter-spacing="1">TANJIRO KAMADO (HINOKAMI KAGURA)</text>
+  <text x="100" y="895" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#63605A" letter-spacing="2">VINYL FIGURE / FIGURINE EN VINYLE</text>
+  <text x="100" y="920" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#2A4030" letter-spacing="1">OFFICIALLY LICENSED ANIME COLLECTIBLE</text>
+</svg>
+
