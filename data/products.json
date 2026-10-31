@@ -1,162 +1,376 @@
 [
   {
-    "id": "pop-1793268234432",
-    "slug": "pop-premium-zenitsu-agatsuma-2502",
-    "name": "Pop! Premium Zenitsu Agatsuma #2502",
-    "price": "₹7,000",
-    "originalPrice": "₹10,000",
-    "category": "Anime",
-    "status": "Pre-Order",
-    "mainImage": "assets/images/pop-premium-zenitsu-agatsuma-fwlifestyle1-1-1793268234424-517.jpg",
+    "id": "pop-015",
+    "slug": "pop-marvel-hulk-gold-chrome-499",
+    "name": "Pop! Marvel: Hulk (Gold Chrome) #499",
+    "price": "₹1,899",
+    "originalPrice": "₹2,599",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "Pics/My Funko Universe available soon.png",
     "galleryImages": [
-      "assets/images/pop-premium-zenitsu-agatsuma-fwlifestyle1-1-1793268234424-517.jpg",
-      "assets/images/pop-premium-zenitsu-agatsuma-hi-res-4-1793268234427-822.png",
-      "assets/images/pop-premium-zenitsu-agatsuma-hi-res-6-1793268234429-643.png"
+      "Pics/My Funko Universe available soon.png"
     ],
-    "summary": "Only two of the Kamado family survived a demon attack. Now, Tanjiro and Nezuko are out for revenge. Expand your Demon Slayer collection by making POP! Premium Zenitsu Agatsuma the next addition to your POP! Animation lineup. There’s a 1 in 6 chance you may find the glow-in-the-dark chase of POP! Premium Zenitsu Agatsuma. Vinyl figure is approximately 4.8 in (12.2 cm) tall. Chase variants are shipped at random. Receiving a chase with purchase is not guaranteed.",
+    "summary": "Marvel Studios 10th Anniversary Gold Chrome special edition of The Incredible Hulk (#499), sculpted in gleaming lustrous metallic gold.",
     "description": [
-      "Only two of the Kamado family survived a demon attack. Now, Tanjiro and Nezuko are out for revenge. Expand your Demon Slayer collection by making POP! Premium Zenitsu Agatsuma the next addition to your POP! Animation lineup. There’s a 1 in 6 chance you may find the glow-in-the-dark chase of POP! Premium Zenitsu Agatsuma. Vinyl figure is approximately 4.8 in (12.2 cm) tall. Chase variants are shipped at random. Receiving a chase with purchase is not guaranteed."
-    ],
-    "createdAt": "2026-10-29T10:03:54.432Z"
-  },
-  {
-    "id": "pop-spiderman-nwh",
-    "slug": "spiderman-no-way-home-final-suit",
-    "name": "Pop! Marvel: Spider-Man (Brand New Day / No Way Home Final Suit)",
-    "price": "₹2,799",
-    "originalPrice": "₹3,499",
-    "category": "Marvel & DC",
-    "status": "Out of Stock",
-    "mainImage": "assets/images/spiderman-no-way-home.webp",
-    "galleryImages": [
-      "assets/images/spiderman-no-way-home.webp",
-      "assets/images/spiderman-no-way-home-box.webp"
-    ],
-    "summary": "Peter Parker in his newly hand-sewn, metallic-blue and classic crimson comic-accurate suit as seen in the final moments of Spider-Man: No Way Home.",
-    "description": [
-      "Officially licensed Marvel Studios & Sony Pictures collectible",
-      "Brand New Day classic shiny fabric texture and sculpted spider chest emblem",
-      "Approx. 3.75 inches (9.5 cm) tall with dynamic leaping bobble-head pose",
-      "Window display box in 10/10 mint condition with hologram authentication",
+      "Marvel Studios 10th Anniversary Commemorative Special Edition (#499)",
+      "High-gloss polished gold chrome metallic finish with intricate muscle sculpt",
+      "Vaulted collector grail vinyl bobble-head format",
+      "Window display box in 10/10 mint condition with hologram verification",
       "Includes complimentary 0.5mm archival UV-resistant Pop protector case"
     ],
-    "createdAt": "2026-10-28T14:00:00.000Z"
+    "createdAt": "2026-10-31T05:30:00.000Z"
   },
   {
-    "id": "pop-giyu-tomioka",
-    "slug": "demon-slayer-giyu-tomioka",
-    "name": "Pop! Animation: Demon Slayer — Giyu Tomioka (Water Hashira)",
-    "price": "₹2,450",
-    "originalPrice": "₹3,200",
+    "id": "pop-016",
+    "slug": "pop-marvel-spider-man-japanese-tv-series-glow-chase-932",
+    "name": "Pop! Marvel: Spider-Man (Japanese TV Series, Glow Chase) #932",
+    "price": "₹3,499",
+    "originalPrice": "₹4,799",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "Pics/My Funko Universe available soon.png",
+    "galleryImages": [
+      "Pics/My Funko Universe available soon.png"
+    ],
+    "summary": "Rare Glow-in-the-Dark Chase Edition of Spider-Man from the iconic 1978 Toei Japanese TV series (#932) with luminescent web lines and eyes.",
+    "description": [
+      "Official 1978 Toei Japanese Spider-Man TV Series collectible (#932)",
+      "Rare Glow-in-the-Dark (GITD) Chase Variant with certified Chase foil sticker",
+      "Sculpted classic emissary from hell battle stance with Spider Bracelet",
+      "Window display box in 10/10 mint condition with collector seal",
+      "Shipped in crush-proof packaging with 0.5mm UV protector shield"
+    ],
+    "createdAt": "2026-10-31T05:31:00.000Z"
+  },
+  {
+    "id": "pop-017",
+    "slug": "pop-dc-comics-batman-beyond-chase-458",
+    "name": "Pop! DC Comics: Batman (Batman Beyond, Chase) #458",
+    "price": "₹3,499",
+    "originalPrice": "₹4,999",
+    "category": "DC Comics",
+    "status": "Available",
+    "mainImage": "Pics/My Funko Universe available soon.png",
+    "galleryImages": [
+      "Pics/My Funko Universe available soon.png"
+    ],
+    "summary": "Terry McGinnis in the sleek futuristic Neo-Gotham Batman Beyond batsuit (#458), featuring the rare metallic Chase edition with wings deployed.",
+    "description": [
+      "Official DC Comics Batman Beyond animation series collectible (#458)",
+      "Rare Limited Edition Chase variant with official Chase foil seal",
+      "Futuristic matte-black stealth suit with crimson bat insignia and wing gliders",
+      "Archival quality packaging with mint 10/10 box verification",
+      "Complimentary 0.5mm UV-resistant Pop protector included"
+    ],
+    "createdAt": "2026-10-31T05:32:00.000Z"
+  },
+  {
+    "id": "pop-018",
+    "slug": "pop-marvel-thor-glow-in-the-dark-335",
+    "name": "Pop! Marvel: Thor (Glow in the Dark) #335",
+    "price": "₹3,499",
+    "originalPrice": "₹4,599",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "Pics/My Funko Universe available soon.png",
+    "galleryImages": [
+      "Pics/My Funko Universe available soon.png"
+    ],
+    "summary": "The God of Thunder Thor (#335) charging electrifying Asgardian lightning, featuring glowing phosphorescent storm effects.",
+    "description": [
+      "Officially licensed Marvel Avengers / Thor collectible (#335)",
+      "Special Edition Glow-in-the-Dark (GITD) phosphorescent lightning sculpt",
+      "Classic armor with dynamic winged helmet and enchanted Mjolnir",
+      "Collector mint 10/10 window display box",
+      "Double-boxed crush-proof white-glove dispatch with UV protector"
+    ],
+    "createdAt": "2026-10-31T05:33:00.000Z"
+  },
+  {
+    "id": "pop-019",
+    "slug": "pop-marvel-tony-stark-infinity-saga-le9500-1600",
+    "name": "Pop! Marvel: Tony Stark (Infinity Saga) (LE 9500) #1600",
+    "price": "₹5,999",
+    "originalPrice": "₹8,499",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "Pics/My Funko Universe available soon.png",
+    "galleryImages": [
+      "Pics/My Funko Universe available soon.png"
+    ],
+    "summary": "Ultra-limited edition Tony Stark from Marvel Studios The Infinity Saga (#1600), numbered piece limited to just 9,500 pieces worldwide.",
+    "description": [
+      "Official Marvel Studios Infinity Saga Limited Edition (LE 9500) (#1600)",
+      "Rare numbered grail collectible with authenticated piece count sticker",
+      "Sculpted with Tony Stark casual tech attire and arc reactor detailing",
+      "Pristine 10/10 mint condition window display box",
+      "Includes heavy-duty 0.5mm archival UV protector case"
+    ],
+    "createdAt": "2026-10-31T05:34:00.000Z"
+  },
+  {
+    "id": "pop-020",
+    "slug": "pop-marvel-superior-iron-man-le5000-1568",
+    "name": "Pop! Marvel: Superior Iron Man (LE 5000) #1568",
+    "price": "₹4,999",
+    "originalPrice": "₹6,999",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "Pics/My Funko Universe available soon.png",
+    "galleryImages": [
+      "Pics/My Funko Universe available soon.png"
+    ],
+    "summary": "Rare comic-exclusive Superior Iron Man (#1568) in high-polish white Endo-Sym armor, limited to only 5,000 pieces worldwide.",
+    "description": [
+      "Limited Edition of only 5,000 pieces worldwide (LE 5000) (#1568)",
+      "Sculpted in liquid-metal white and cobalt blue Endo-Sym biological armor",
+      "Official convention/collector exclusive foil sticker on box",
+      "10/10 mint collector grade condition with verified packaging integrity",
+      "Includes premium 0.5mm UV protector shield"
+    ],
+    "createdAt": "2026-10-31T05:35:00.000Z"
+  },
+  {
+    "id": "pop-021",
+    "slug": "pop-anime-sung-jinwoo-solo-leveling-le7500-2221",
+    "name": "Pop! Anime: Sung Jinwoo (Solo Leveling) (LE7500) #2221",
+    "price": "₹8,499",
+    "originalPrice": "₹11,999",
     "category": "Anime",
     "status": "Available",
-    "mainImage": "assets/images/giyu-tomioka.webp",
+    "mainImage": "Pics/My Funko Universe available soon.png",
     "galleryImages": [
-      "assets/images/giyu-tomioka.webp",
-      "assets/images/giyu-tomioka-box.webp"
+      "Pics/My Funko Universe available soon.png"
     ],
-    "summary": "The stoic Water Hashira Giyu Tomioka featuring his signature split-pattern haori, dark Nichirin blade, and calm focused battle pose.",
+    "summary": "The Shadow Monarch Sung Jinwoo from Solo Leveling (#2221), ultra-grail exclusive limited to 7,500 pieces worldwide with glowing purple shadow aura.",
     "description": [
-      "Officially licensed Demon Slayer: Kimetsu no Yaiba / Aniplex collectible",
-      "Sculpted two-toned haori honoring Sabito and Tsutako",
-      "Special Edition foil sticker on pristine window box",
-      "Precision vinyl mold capturing Tomioka's dark blue Nichirin katana",
-      "Double-boxed crush-proof shipping with protective corner shields"
+      "Officially licensed Solo Leveling anime grail collectible (#2221)",
+      "Strictly limited to 7,500 pieces worldwide (LE 7500)",
+      "Dynamic sculpt featuring Kasaka Poison Fang dagger and glowing monarch eyes",
+      "Factory-sealed box with exclusive collector foil authentication sticker",
+      "Encased in a complimentary 0.5mm archival UV protector shield"
     ],
-    "createdAt": "2026-10-28T14:15:00.000Z"
+    "createdAt": "2026-10-31T05:36:00.000Z"
   },
   {
-    "id": "pop-tanjiro-fire",
-    "slug": "demon-slayer-tanjiro-fire-breathing",
-    "name": "Pop! Animation: Demon Slayer — Tanjiro Kamado (Fire Breathing)",
-    "price": "₹2,299",
-    "originalPrice": "₹2,999",
+    "id": "pop-022",
+    "slug": "pop-marvel-spider-man-die-cast-collectible-09",
+    "name": "Pop! Marvel: Spider-Man (Die-Cast Collectible) #09",
+    "price": "₹6,499",
+    "originalPrice": "₹8,999",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "Pics/My Funko Universe available soon.png",
+    "galleryImages": [
+      "Pics/My Funko Universe available soon.png"
+    ],
+    "summary": "Heavyweight premium die-cast metal Spider-Man (#09) housed in an acrylic display case with laser-etched collector base.",
+    "description": [
+      "Official Funko Die-Cast Metal Series collectible (#09)",
+      "Constructed with authentic solid die-cast metal for substantial premium weight",
+      "Encased in clear acrylic museum-grade display case with telescopic lid",
+      "Metallic crimson and cobalt blue comic-accurate enamel detailing",
+      "Double-boxed with reinforced impact-absorbing corner protectors"
+    ],
+    "createdAt": "2026-10-31T05:37:00.000Z"
+  },
+  {
+    "id": "pop-023",
+    "slug": "pop-anime-pain-naruto-shippuden-signed-934",
+    "name": "Pop! Anime: Pain (Naruto Shippuden) (Signed) #934",
+    "price": "₹7,999",
+    "originalPrice": "₹11,499",
     "category": "Anime",
     "status": "Available",
-    "mainImage": "assets/images/tanjiro-fire-breathing.webp",
+    "mainImage": "Pics/My Funko Universe available soon.png",
     "galleryImages": [
-      "assets/images/tanjiro-fire-breathing.webp",
-      "assets/images/tanjiro-fire-breathing-box.webp",
-      "assets/images/tanjiro-fire-breathing-gitd.webp"
+      "Pics/My Funko Universe available soon.png"
     ],
-    "summary": "Tanjiro Kamado invoking the ancestral Dance of the Fire God (Hinokami Kagura) with crimson flame blade sculpt and hanafuda earrings.",
+    "summary": "Autographed collector grail of Pain (Deva Path) from Naruto: Shippuden (#934), signed by official voice actor with authentication.",
     "description": [
-      "Officially licensed Demon Slayer: Kimetsu no Yaiba collectible figure",
-      "Vivid sculpted fire-breathing aura along the black Nichirin blade",
-      "Checkered green-and-black haori with forehead demon slayer mark",
-      "Factory-sealed window display box with 10/10 collector mint rating",
-      "Packaged with UV-shield hard protector case"
+      "Official Naruto: Shippuden anime collectible (#934)",
+      "Hand-signed on front window with tamper-evident authentication seal",
+      "Akatsuki cloud cloak with sculpted Rinnegan eyes and chakra receivers",
+      "10/10 mint box condition guaranteed for premier display",
+      "Complimentary 0.5mm archival UV-resistant Pop protector case"
     ],
-    "createdAt": "2026-10-28T14:30:00.000Z"
+    "createdAt": "2026-10-31T05:38:00.000Z"
   },
   {
-    "id": "pop-astro-bot-jumbo",
-    "slug": "astro-bot-10-inch-jumbo",
-    "name": "Pop! Games: Astro Bot — Astro Bot (10-Inch Jumbo Edition)",
-    "price": "₹4,199",
-    "originalPrice": "₹5,499",
-    "category": "Gaming",
+    "id": "pop-024",
+    "slug": "pop-dc-comics-superman-earth-23-le4250-84",
+    "name": "Pop! DC Comics: Superman (Earth-23) (LE4250) #84",
+    "price": "₹5,999",
+    "originalPrice": "₹8,499",
+    "category": "DC Comics",
     "status": "Available",
-    "mainImage": "assets/images/astro-bot-jumbo.webp",
+    "mainImage": "Pics/My Funko Universe available soon.png",
     "galleryImages": [
-      "assets/images/astro-bot-jumbo.webp",
-      "assets/images/astro-bot-jumbo-box.webp"
+      "Pics/My Funko Universe available soon.png"
     ],
-    "summary": "Team ASOBI & PlayStation sensation Astro Bot in massive 10-inch Jumbo Pop! vinyl format with high-gloss robotic blue visor eyes and cape.",
+    "summary": "President Calvin Ellis, the Superman of Earth-23 (#84), strictly limited to only 4,250 pieces worldwide.",
     "description": [
-      "Officially licensed Sony Interactive Entertainment PlayStation merchandise",
-      "Super-sized 10-Inch Jumbo Pop! format with weighty vinyl construction",
-      "High-gloss futuristic metallic white and cobalt blue robotic finish",
-      "Oversized window display box with PlayStation authentic seal",
-      "Exclusive collector grail packaging with reinforced corner cradles"
+      "Official DC Comics Multiverse collectible (#84)",
+      "Ultra-limited edition of only 4,250 pieces worldwide (LE 4250)",
+      "Iconic gold-bordered shield emblem with sculpted red cape and metallic belt",
+      "Numbered collector foil seal on pristine window display box",
+      "Includes archival 0.5mm UV protector shield"
     ],
-    "createdAt": "2026-10-28T14:45:00.000Z"
+    "createdAt": "2026-10-31T05:39:00.000Z"
   },
   {
-    "id": "pop-kaigaku",
-    "slug": "demon-slayer-kaigaku",
-    "name": "Pop! Animation: Demon Slayer — Kaigaku (Upper Moon Six)",
-    "price": "₹2,899",
-    "originalPrice": "₹3,600",
+    "id": "pop-025",
+    "slug": "pop-welcome-to-derry-little-periwinkle-signed-1853",
+    "name": "Pop! Welcome to Derry: Little Periwinkle (Signed) #1853",
+    "price": "₹6,999",
+    "originalPrice": "₹9,999",
+    "category": "Television",
+    "status": "Available",
+    "mainImage": "Pics/My Funko Universe available soon.png",
+    "galleryImages": [
+      "Pics/My Funko Universe available soon.png"
+    ],
+    "summary": "Autographed exclusive of Little Periwinkle from HBOs IT prequel series Welcome to Derry (#1853), hand-signed on window.",
+    "description": [
+      "Officially licensed HBO / Warner Bros. Welcome to Derry collectible (#1853)",
+      "Authentic hand-signed autograph on window with certificate of authenticity",
+      "Eerie vintage horror styling capturing the early lore of Derry",
+      "10/10 collector box condition with UV-shield hard protector",
+      "Vaulted limited release for horror collectors"
+    ],
+    "createdAt": "2026-10-31T05:40:00.000Z"
+  },
+  {
+    "id": "pop-026",
+    "slug": "pop-sports-lionel-messi-inter-miami-cf-11",
+    "name": "Pop! Sports: Lionel Messi (Inter Miami CF) #11",
+    "price": "₹2,399",
+    "originalPrice": "₹3,299",
+    "category": "Sports",
+    "status": "Available",
+    "mainImage": "Pics/My Funko Universe available soon.png",
+    "galleryImages": [
+      "Pics/My Funko Universe available soon.png"
+    ],
+    "summary": "World champion and 8-time Ballon dOr winner Lionel Messi in his iconic pink Inter Miami CF home kit (#11).",
+    "description": [
+      "Officially licensed MLS / Inter Miami CF football collectible (#11)",
+      "Sculpted in signature pink and black kit with captains armband and ball",
+      "Pristine window display box honoring the Argentine legends MLS arrival",
+      "10/10 mint box condition verified before shipment",
+      "Complimentary 0.5mm archival UV protector case included"
+    ],
+    "createdAt": "2026-10-31T05:41:00.000Z"
+  },
+  {
+    "id": "pop-027",
+    "slug": "pop-dc-comics-aquaman-justice-league-464",
+    "name": "Pop! DC Comics: Aquaman (Justice League) #464",
+    "price": "₹1,899",
+    "originalPrice": "₹2,499",
+    "category": "DC Comics",
+    "status": "Available",
+    "mainImage": "Pics/My Funko Universe available soon.png",
+    "galleryImages": [
+      "Pics/My Funko Universe available soon.png"
+    ],
+    "summary": "Arthur Curry, King of Atlantis, as seen in DCs Justice League (#464), sculpted with golden trident and scaled Atlantean armor.",
+    "description": [
+      "Officially licensed DC Comics / Warner Bros. Justice League collectible (#464)",
+      "Detailed Atlantean scale mail armor and gleaming golden Quinquedent",
+      "Dynamic flowing hair and determined battle pose",
+      "Factory-sealed 10/10 mint window display box",
+      "Packed in double-walled crush-proof shipping carton with UV shield"
+    ],
+    "createdAt": "2026-10-31T05:42:00.000Z"
+  },
+  {
+    "id": "pop-028",
+    "slug": "pop-dc-comics-batman-the-dark-knight-le5000-621",
+    "name": "Pop! DC Comics: Batman (The Dark Knight) (LE 5000) #621",
+    "price": "₹5,999",
+    "originalPrice": "₹8,999",
+    "category": "DC Comics",
+    "status": "Available",
+    "mainImage": "Pics/My Funko Universe available soon.png",
+    "galleryImages": [
+      "Pics/My Funko Universe available soon.png"
+    ],
+    "summary": "Christopher Nolans The Dark Knight trilogy Batman (#621), strictly limited to 5,000 pieces with tactical Kevlar weave armor.",
+    "description": [
+      "Officially licensed The Dark Knight / Christopher Nolan trilogy collectible (#621)",
+      "Strictly limited production of only 5,000 pieces worldwide (LE 5000)",
+      "Sculpted with modular cowl plates, gauntlet blades, and utility belt",
+      "Numbered grail sticker on 10/10 mint condition box",
+      "Complimentary 0.5mm archival UV protector case"
+    ],
+    "createdAt": "2026-10-31T05:43:00.000Z"
+  },
+  {
+    "id": "pop-029",
+    "slug": "pop-anime-gyokko-demon-slayer-1855",
+    "name": "Pop! Anime: Gyokko (Demon Slayer) #1855",
+    "price": "₹8,999",
+    "originalPrice": "₹11,999",
     "category": "Anime",
     "status": "Available",
-    "mainImage": "assets/images/kaigaku.webp",
+    "mainImage": "Pics/My Funko Universe available soon.png",
     "galleryImages": [
-      "assets/images/kaigaku.webp",
-      "assets/images/kaigaku-box.webp"
+      "Pics/My Funko Universe available soon.png"
     ],
-    "summary": "Former Thunder Breathing disciple turned Upper Rank Six demon, sculpted with black lightning markings, Magatama necklace, and dual-tone Nichirin sword.",
+    "summary": "Upper Rank Five demon Gyokko from Demon Slayer: Kimetsu no Yaiba (#1855), emerging from his ornate porcelain summoning pot.",
     "description": [
-      "Officially licensed Demon Slayer: Kimetsu no Yaiba anime collectible",
-      "Demon slayer uniform with etched Upper Rank demon eye marks",
-      "Black lightning Thunder Breathing effect sculpt",
-      "Limited release — currently vaulted and unavailable at retail",
-      "Inquire via concierge for private vault restock notifications"
+      "Officially licensed Demon Slayer: Swordsmith Village Arc collectible (#1855)",
+      "Intricate porcelain vase sculpt with emerging serpentine demon form",
+      "Sculpted multiple hands and inverted facial feature anatomy",
+      "Rare vaulted edition in pristine 10/10 mint box condition",
+      "Shipped with archival 0.5mm UV protector shield"
     ],
-    "createdAt": "2026-10-28T15:00:00.000Z"
+    "createdAt": "2026-10-31T05:44:00.000Z"
   },
   {
-    "id": "pop-tanjiro-gitd",
-    "slug": "demon-slayer-tanjiro-glow-edition",
-    "name": "Pop! Animation: Demon Slayer — Tanjiro Kamado (Glow-in-the-Dark Exclusive)",
-    "price": "₹3,199",
-    "originalPrice": "₹3,800",
-    "category": "Anime",
+    "id": "pop-030",
+    "slug": "pop-harry-potter-harry-potter-112",
+    "name": "Pop! Harry Potter: Harry Potter #112",
+    "price": "₹1,899",
+    "originalPrice": "₹2,699",
+    "category": "Movies",
     "status": "Available",
-    "mainImage": "assets/images/tanjiro-fire-breathing-gitd.webp",
+    "mainImage": "Pics/My Funko Universe available soon.png",
     "galleryImages": [
-      "assets/images/tanjiro-fire-breathing-gitd.webp",
-      "assets/images/tanjiro-glow-box.webp",
-      "assets/images/tanjiro-fire-breathing.webp"
+      "Pics/My Funko Universe available soon.png"
     ],
-    "summary": "Exclusive Special Edition variant featuring phosphorescent luminescent Hinokami Kagura flame effects that glow vibrantly in darkness.",
+    "summary": "The Boy Who Lived in classic Hogwarts Gryffindor school robes with wand drawn (#112).",
     "description": [
-      "Officially licensed Demon Slayer: Kimetsu no Yaiba anime collectible",
-      "Special Edition Glow-in-the-Dark certified foil seal",
-      "Luminescent fire-effect vinyl blade with phosphorescent pigment",
-      "10/10 collector box with UV-resistant archival hard protector",
-      "Individually numbered vault piece"
+      "Officially licensed Wizarding World / Harry Potter collectible (#112)",
+      "Sculpted round spectacles, lightning bolt forehead scar, and holly wand",
+      "Gryffindor house crest and pleated Hogwarts school uniform",
+      "Factory-sealed 10/10 mint window display box",
+      "Protected inside complimentary 0.5mm UV protector case"
     ],
-    "createdAt": "2026-10-28T15:15:00.000Z"
+    "createdAt": "2026-10-31T05:45:00.000Z"
+  },
+  {
+    "id": "pop-031",
+    "slug": "pop-godzilla-freddy-funko-as-shin-godzilla-fundays24-1150",
+    "name": "Pop! Godzilla: Freddy Funko as Shin Godzilla (Funko Fundays24 SE) (LE 1150)",
+    "price": "₹6,499",
+    "originalPrice": "₹9,499",
+    "category": "Movies",
+    "status": "Available",
+    "mainImage": "Pics/My Funko Universe available soon.png",
+    "galleryImages": [
+      "Pics/My Funko Universe available soon.png"
+    ],
+    "summary": "Ultra-rare Funko Fundays 2024 Special Edition mashup of Freddy Funko as Shin Godzilla, strictly limited to only 1,150 pieces worldwide.",
+    "description": [
+      "Official Funko Fundays 2024 Convention Exclusive (Fundays24 SE)",
+      "Extremely limited grail edition of only 1,150 pieces worldwide (LE 1150)",
+      "Sculpted Shin Godzilla tail, dorsal fins, and Freddy crown insignia",
+      "Numbered convention foil sticker on flawless 10/10 mint box",
+      "Double-boxed with heavy-duty 0.5mm archival UV protector shield"
+    ],
+    "createdAt": "2026-10-31T05:46:00.000Z"
   }
 ]
