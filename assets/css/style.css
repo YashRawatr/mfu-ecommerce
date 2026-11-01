@@ -6,21 +6,27 @@
 @import url('https://fonts.googleapis.com/css2?family=GFS+Didot&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
 
 :root {
-  /* ==================== A. Color Theme: Cloud Dancer ==================== */
-  --bg-primary: #F0EEE9;         /* Cloud Dancer Base */
-  --bg-surface: #F7F6F2;         /* Elevated Surface / Card Background */
-  --bg-secondary: #E6E3DC;       /* Secondary Surface / Subtle Contrast */
-  --text-primary: #141413;       /* Deep Obsidian Ink */
-  --text-secondary: #63605A;     /* Warm Taupe Grey */
-  --border-hairline: #D8D4CC;    /* 1px solid editorial grid lines */
+  /* ==================== A. Color Theme: Obsidian Noir (Dark Translucent Glass) ==================== */
+  --bg-primary: #09090b;                /* Deep Obsidian Midnight Canvas */
+  --bg-surface: rgba(18, 18, 24, 0.70); /* Translucent Frosted Glass Card */
+  --bg-secondary: rgba(28, 28, 36, 0.55); /* Translucent Contrast Layer */
+  --text-primary: #f5f5f7;              /* Crisp Luminous Platinum */
+  --text-secondary: #a1a1aa;            /* Soft Refined Celestial Silver */
+  --border-hairline: rgba(255, 255, 255, 0.09); /* Frosted Hairline Glass Border */
+
+  /* Glassmorphic Effects */
+  --glass-blur: blur(20px) saturate(180%);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.55);
+  --glass-glow: 0 0 25px rgba(255, 255, 255, 0.06);
+  --glass-card-hover: rgba(26, 26, 36, 0.85);
 
   /* Status Colors */
-  --status-available-text: #2A4030;  /* Muted Botanical Green */
-  --status-available-bg: #E3EBE5;
-  --status-preorder-text: #78350F;   /* Warm Amber Bronze */
-  --status-preorder-bg: #FEF3C7;
-  --status-out-text: #6E3838;        /* Muted Editorial Umber */
-  --status-out-bg: #EFE3E3;
+  --status-available-text: #4ade80;     /* Luminous Emerald Green */
+  --status-available-bg: rgba(74, 222, 128, 0.12);
+  --status-preorder-text: #fbbf24;      /* Warm Luminous Amber */
+  --status-preorder-bg: rgba(251, 191, 36, 0.12);
+  --status-out-text: #f87171;           /* Muted Rose Crimson */
+  --status-out-bg: rgba(248, 113, 113, 0.12);
 
   /* Fonts */
   --font-editorial: 'Didot', 'GFSDidot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
@@ -54,6 +60,28 @@
   --gutter-mobile: 20px;
   --gutter-desktop: 48px;
   --transition-smooth: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==================== Reversibility: Light "Cloud Dancer" Fallback ====================
+   Set <html data-theme="light"> to revert back to light theme instantly */
+html[data-theme="light"] {
+  --bg-primary: #F0EEE9;
+  --bg-surface: #F7F6F2;
+  --bg-secondary: #E6E3DC;
+  --text-primary: #141413;
+  --text-secondary: #63605A;
+  --border-hairline: #D8D4CC;
+  --glass-blur: none;
+  --glass-shadow: 0 4px 12px rgba(20, 20, 19, 0.08);
+  --status-available-text: #2A4030;
+  --status-available-bg: #E3EBE5;
+  --status-preorder-text: #78350F;
+  --status-preorder-bg: #FEF3C7;
+  --status-out-text: #6E3838;
+  --status-out-bg: #EFE3E3;
+}
+html[data-theme="light"] body {
+  background-image: none !important;
 }
 
 /* ==================== Responsive Mobile Guardrail (< 768px) ==================== */
@@ -115,10 +143,32 @@ body {
   font-size: var(--scale-body);
   line-height: var(--line-body);
   background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(35, 39, 52, 0.45) 0%, rgba(9, 9, 11, 0.98) 75%),
+    radial-gradient(circle at 12% 28%, rgba(26, 30, 42, 0.35) 0%, transparent 55%),
+    radial-gradient(circle at 88% 72%, rgba(22, 25, 36, 0.3) 0%, transparent 60%);
+  background-attachment: fixed;
   color: var(--text-primary);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* Custom Translucent Dark Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 4px;
+  border: 2px solid #09090b;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.32);
 }
 
 img {
@@ -334,16 +384,21 @@ p, .body-text {
   padding: 8px 16px;
   text-align: center;
   color: var(--text-secondary);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 11px;
+  letter-spacing: 0.14em;
 }
 
 .site-header {
-  background-color: var(--bg-primary);
+  background-color: rgba(9, 9, 11, 0.72);
   border-bottom: 1px solid var(--border-hairline);
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 .nav-inner {
@@ -390,6 +445,7 @@ p, .body-text {
   text-transform: uppercase;
   font-weight: 500;
   color: var(--text-primary);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
 }
 
 .nav-brand-sub {
@@ -420,6 +476,7 @@ p, .body-text {
 .nav-link:hover,
 .nav-link.active {
   color: var(--text-primary);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
 }
 
 .nav-link::after {
@@ -430,6 +487,7 @@ p, .body-text {
   width: 0;
   height: 1px;
   background-color: var(--text-primary);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
   transition: var(--transition-smooth);
 }
 
@@ -443,7 +501,7 @@ p, .body-text {
   align-items: center;
   gap: 8px;
   border: 1px solid var(--border-hairline);
-  padding: 8px 14px;
+  padding: 8px 16px;
   border-radius: 20px;
   font-family: var(--font-sans);
   font-size: var(--scale-caption);
@@ -451,19 +509,24 @@ p, .body-text {
   text-transform: uppercase;
   color: var(--text-primary);
   background-color: var(--bg-surface);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   transition: var(--transition-smooth);
 }
 
 .nav-concierge-pill:hover {
-  border-color: var(--text-primary);
-  background-color: var(--bg-primary);
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
 }
 
 /* ==================== Hero Section ==================== */
 .hero-section {
   padding: 64px 0 48px;
   border-bottom: 1px solid var(--border-hairline);
-  background-color: var(--bg-primary);
+  background-color: transparent;
 }
 
 .hero-meta-strip {
@@ -497,7 +560,9 @@ p, .body-text {
 .catalog-toolbar {
   padding: 24px 0;
   border-bottom: 1px solid var(--border-hairline);
-  background-color: var(--bg-surface);
+  background-color: rgba(14, 14, 18, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .toolbar-inner {
@@ -521,7 +586,9 @@ p, .body-text {
 }
 
 .filter-pill {
-  background: transparent;
+  background: var(--bg-surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-hairline);
   padding: 7px 16px;
   border-radius: 24px;
@@ -535,8 +602,9 @@ p, .body-text {
 }
 
 .filter-pill:hover {
-  border-color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.35);
   color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
   transform: translateY(-1px);
 }
 
@@ -545,9 +613,11 @@ p, .body-text {
 }
 
 .filter-pill.active {
-  background-color: var(--text-primary);
-  border-color: var(--text-primary);
-  color: var(--bg-primary);
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #09090b;
+  font-weight: 600;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.3);
 }
 
 .search-input-wrap {
@@ -557,7 +627,9 @@ p, .body-text {
 
 .search-input {
   width: 100%;
-  background: var(--bg-primary);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-hairline);
   padding: 8px 14px 8px 36px;
   border-radius: 20px;
@@ -569,7 +641,9 @@ p, .body-text {
 }
 
 .search-input:focus {
-  border-color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.12);
 }
 
 .search-icon {
@@ -611,24 +685,27 @@ p, .body-text {
   }
 }
 
-/* Product Card with 3D Depth & Holographic Sheen */
+/* Product Card with Translucent Frosted Glass & Holographic Sheen */
 .product-card {
   background-color: var(--bg-surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-hairline);
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 6px;
+  box-shadow: var(--glass-shadow);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background-color 0.3s ease;
   will-change: transform;
 }
 
 .product-card:hover {
-  background-color: var(--bg-primary);
-  border-color: var(--text-primary);
-  box-shadow: 0 20px 40px -15px rgba(20, 20, 19, 0.12), 0 0 0 1px var(--text-primary);
-  transform: translateY(-5px);
+  background-color: var(--glass-card-hover);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.8), 0 0 24px rgba(255, 255, 255, 0.05), 0 0 0 1px rgba(255, 255, 255, 0.2);
+  transform: translateY(-6px);
 }
 
 /* Holographic Window Sheen Effect */
@@ -642,9 +719,9 @@ p, .body-text {
   background: linear-gradient(
     115deg,
     transparent 35%,
-    rgba(255, 255, 255, 0.25) 47%,
-    rgba(255, 255, 255, 0.5) 50%,
-    rgba(255, 255, 255, 0.25) 53%,
+    rgba(255, 255, 255, 0.08) 47%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0.08) 53%,
     transparent 65%
   );
   transform: translateX(-100%) rotate(22deg);
@@ -664,7 +741,7 @@ p, .body-text {
   width: 100%;
   padding-top: 133.33%; /* 3:4 High-aspect luxury portrait */
   overflow: hidden;
-  background-color: var(--bg-secondary);
+  background-color: rgba(12, 12, 16, 0.65);
 }
 
 .product-card-img {
@@ -679,7 +756,7 @@ p, .body-text {
 
 .product-card:hover .product-card-img {
   transform: scale(1.06);
-  filter: contrast(1.03) brightness(1.02);
+  filter: contrast(1.04) brightness(1.04);
 }
 
 .product-card-badge {
@@ -695,6 +772,7 @@ p, .body-text {
   flex-direction: column;
   flex-grow: 1;
   border-top: 1px solid var(--border-hairline);
+  background: rgba(18, 18, 24, 0.3);
 }
 
 .product-card-meta {
@@ -768,8 +846,9 @@ p, .body-text {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #ba2828;
-  background-color: #fee2e2;
+  color: #f87171;
+  background-color: rgba(248, 113, 113, 0.14);
+  border: 1px solid rgba(248, 113, 113, 0.3);
   padding: 1px 5px;
   border-radius: 2px;
 }
@@ -867,6 +946,8 @@ p, .body-text {
   letter-spacing: 0.08em;
   color: var(--text-primary);
   background-color: var(--bg-surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-hairline);
   border-radius: 9999px;
   cursor: pointer;
@@ -876,19 +957,19 @@ p, .body-text {
 
 .pagination-btn:hover:not(:disabled),
 .page-number:hover:not(.active) {
-  background-color: var(--text-primary);
-  color: var(--bg-surface);
-  border-color: var(--text-primary);
+  background-color: #ffffff;
+  color: #09090b;
+  border-color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(20, 20, 19, 0.08);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.3);
 }
 
 .page-number.active {
-  background-color: var(--text-primary);
-  color: var(--bg-surface);
-  border-color: var(--text-primary);
+  background-color: #ffffff;
+  color: #09090b;
+  border-color: #ffffff;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(20, 20, 19, 0.16);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.3);
 }
 
 .pagination-btn:disabled {
@@ -948,10 +1029,13 @@ p, .body-text {
   width: 100%;
   padding-top: 125%; /* 4:5 Luxury editorial portrait */
   background-color: var(--bg-surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-hairline);
   overflow: hidden;
   cursor: zoom-in;
-  border-radius: 4px;
+  border-radius: 6px;
+  box-shadow: var(--glass-shadow);
 }
 
 .gallery-main-img {
@@ -975,9 +1059,12 @@ p, .body-text {
   position: relative;
   padding-top: 125%;
   background-color: var(--bg-surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-hairline);
   cursor: pointer;
   overflow: hidden;
+  border-radius: 4px;
   transition: var(--transition-smooth);
 }
 
@@ -998,8 +1085,8 @@ p, .body-text {
 }
 
 .gallery-thumb-item.active {
-  border-color: var(--text-primary);
-  box-shadow: 0 0 0 1px var(--text-primary);
+  border-color: #ffffff;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
 }
 
 /* Right Column: Product Narrative & Actions */
@@ -1104,15 +1191,17 @@ p, .body-text {
 }
 
 .btn-cta-primary {
-  background-color: var(--text-primary);
-  color: var(--bg-primary);
+  background-color: #ffffff;
+  color: #09090b;
+  border-color: #ffffff;
+  font-weight: 700;
 }
 
 .btn-cta-primary:hover {
-  background-color: #2b2b2a;
-  border-color: #2b2b2a;
+  background-color: #f5f5f7;
+  border-color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 12px 24px -10px rgba(20, 20, 19, 0.35);
+  box-shadow: 0 0 28px rgba(255, 255, 255, 0.4);
 }
 
 .btn-cta-primary:active {
@@ -1120,9 +1209,9 @@ p, .body-text {
 }
 
 .btn-cta-disabled {
-  background-color: var(--bg-secondary);
+  background-color: rgba(255, 255, 255, 0.04);
   border-color: var(--border-hairline);
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.3);
   cursor: not-allowed;
 }
 
@@ -1131,7 +1220,10 @@ p, .body-text {
   margin-top: 16px;
   padding: 20px;
   background-color: var(--bg-surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-hairline);
+  border-radius: 6px;
 }
 
 .restock-inquiry-box p {
@@ -1161,18 +1253,22 @@ p, .body-text {
   gap: 8px;
   padding: 10px 14px;
   border: 1px solid var(--border-hairline);
-  background-color: var(--bg-primary);
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   font-family: var(--font-sans);
   font-size: var(--scale-caption);
   letter-spacing: var(--tracking-caption);
   text-transform: uppercase;
   color: var(--text-primary);
+  border-radius: 4px;
   transition: var(--transition-smooth);
 }
 
 .btn-inquire:hover {
-  border-color: var(--text-primary);
-  background-color: var(--bg-surface);
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.15);
 }
 
 /* Collapsible Editorial Accordions */
@@ -1268,7 +1364,11 @@ p, .body-text {
 
 .checkout-order-summary {
   background-color: var(--bg-surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-hairline);
+  box-shadow: var(--glass-shadow);
+  border-radius: 8px;
   padding: 32px;
   margin-bottom: 32px;
 }
@@ -1287,6 +1387,7 @@ p, .body-text {
   height: 120px;
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-hairline);
+  border-radius: 4px;
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -1332,9 +1433,12 @@ p, .body-text {
 
 .form-input {
   width: 100%;
-  background-color: var(--bg-primary);
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-hairline);
   padding: 12px 16px;
+  border-radius: 4px;
   font-family: var(--font-sans);
   font-size: 14px;
   color: var(--text-primary);
@@ -1343,7 +1447,9 @@ p, .body-text {
 }
 
 .form-input:focus {
-  border-color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.12);
 }
 
 /* Direct Action Buttons on Checkout */
@@ -1367,16 +1473,19 @@ p, .body-text {
   padding: 24px 20px;
   border: 1px solid var(--border-hairline);
   background-color: var(--bg-surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 6px;
   text-align: center;
   gap: 10px;
   transition: var(--transition-smooth);
 }
 
 .btn-channel:hover {
-  border-color: var(--text-primary);
-  background-color: var(--bg-primary);
+  border-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(28, 28, 36, 0.85);
   transform: translateY(-4px);
-  box-shadow: 0 14px 28px -10px rgba(20, 20, 19, 0.15);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7);
 }
 
 .btn-channel-whatsapp {
@@ -1413,7 +1522,9 @@ p, .body-text {
 /* ==================== Editorial Footer ==================== */
 .site-footer {
   margin-top: auto;
-  background-color: var(--bg-secondary);
+  background-color: rgba(10, 10, 14, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid var(--border-hairline);
   padding: 64px 0 32px;
 }
