@@ -1,5 +1,94 @@
 [
   {
+    "id": "pop-011",
+    "slug": "pop-dc-comics-freddy-funko-as-the-riddler-87",
+    "name": "Pop! DC Comics: Freddy Funko as The Riddler #87",
+    "price": "₹2,999",
+    "originalPrice": "₹4,199",
+    "category": "DC Comics",
+    "status": "Available",
+    "mainImage": "Pics/Pop_DC_Comics_Freddy_Funko_as_the_Riddler_87__f_img.png",
+    "galleryImages": [
+      "Pics/Pop_DC_Comics_Freddy_Funko_as_the_Riddler_87__f_img.png",
+      "Pics/Pop_DC_Comics_Freddy_Funko_as_the_Riddler_87__b_img.png"
+    ],
+    "summary": "Exclusive collector grail featuring Freddy Funko dressed as the enigmatic Gotham rogue The Riddler (#87) in tailored green question-mark suit.",
+    "description": [
+      "Official Funko Specialty Series exclusive collectible (#87)",
+      "Sculpted in signature emerald green suit adorned with iconic question mark motifs",
+      "Includes bowler hat, golden question mark cane accessory, and domino mask",
+      "Pristine 10/10 collector window display box with official authenticity foil seal",
+      "Encased in a complimentary 0.5mm archival UV-resistant Pop protector case"
+    ],
+    "createdAt": "2026-11-01T08:00:00.000Z"
+  },
+  {
+    "id": "pop-012",
+    "slug": "pop-marvel-groot-as-wolverine-1396",
+    "name": "Pop! Marvel: Groot as Wolverine #1396",
+    "price": "₹1,899",
+    "originalPrice": "₹2,599",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "Pics/My Funko Universe available soon.png",
+    "galleryImages": [
+      "Pics/My Funko Universe available soon.png"
+    ],
+    "summary": "Playful Marvel mashup featuring everyone's favorite Flora Colossus Groot channeling Wolverine (#1396) complete with Adamantium wood-claws and winged mask.",
+    "description": [
+      "Officially licensed Marvel Studios collectible (#1396)",
+      "Dynamic mashup sculpt combining classic Groot bark texture with Wolverine cowl and claws",
+      "Vibrant yellow and blue comic-inspired battle suit detailing",
+      "Factory-sealed 10/10 mint condition window display box",
+      "Shipped in double-walled crush-proof packaging with archival UV protector"
+    ],
+    "createdAt": "2026-11-01T08:01:00.000Z"
+  },
+  {
+    "id": "pop-013",
+    "slug": "pop-marvel-captain-america-2017-summer-convention-exclusive-06",
+    "name": "Pop! Marvel: Captain America (2017 Summer Convention Exclusive) #06",
+    "price": "₹2,499",
+    "originalPrice": "₹3,499",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "Pics/My Funko Universe available soon.png",
+    "galleryImages": [
+      "Pics/My Funko Universe available soon.png"
+    ],
+    "summary": "Vaulted 2017 San Diego Summer Convention Exclusive of Steve Rogers as Captain America (#06) with classic vibranium shield.",
+    "description": [
+      "Official 2017 San Diego Summer Convention Exclusive grail (#06)",
+      "Authentic convention exclusive sticker on front display window",
+      "Classic WWII tactical suit sculpt with iconic star emblem and circular vibranium shield",
+      "Vaulted vintage release in pristine 10/10 collector condition",
+      "Includes premium 0.5mm UV-shield archival Pop protector"
+    ],
+    "createdAt": "2026-11-01T08:02:00.000Z"
+  },
+  {
+    "id": "pop-014",
+    "slug": "pop-dc-comics-batman-justice-armor-83",
+    "name": "Pop! DC Comics: Batman (Justice Armor) #83",
+    "price": "₹6,500",
+    "originalPrice": "₹8,999",
+    "category": "DC Comics",
+    "status": "Available",
+    "mainImage": "Pics/My Funko Universe available soon.png",
+    "galleryImages": [
+      "Pics/My Funko Universe available soon.png"
+    ],
+    "summary": "Heavy tactical Justice Armor Batman (#83) built for epic confrontations with high-tech reinforced plating and glowing bat-insignia.",
+    "description": [
+      "Officially licensed DC Comics premier collector vinyl (#83)",
+      "Heavyweight tactical exo-armor sculpt with reinforced shoulder pauldrons and gauntlets",
+      "Metallic battle-weathered finish with intricate hydraulic joint detailing",
+      "Flawless 10/10 mint window display box suitable for premier display",
+      "Shipped double-boxed with heavy-duty 0.5mm archival UV protector"
+    ],
+    "createdAt": "2026-11-01T08:03:00.000Z"
+  },
+  {
     "id": "pop-015",
     "slug": "pop-marvel-hulk-gold-chrome-499",
     "name": "Pop! Marvel: Hulk (Gold Chrome) #499",
