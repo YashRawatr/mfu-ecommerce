@@ -105,7 +105,7 @@ export function buildIndex(products, settings) {
     return `<button type="button" class="shelf-pill ${isAll ? 'active' : ''}" data-filter="${filterVal}">${cat}</button>`;
   }).join('\n          ');
 
-  const cardsHtml = products.map(p => {
+  const cardsHtml = products.map((p, idx) => {
     const isAvailable = p.status === 'Available';
     const isPreOrder = p.status === 'Pre-Order' || p.status === 'Preorder';
     const statusClass = isAvailable ? 'available' : (isPreOrder ? 'preorder' : 'out-of-stock');
@@ -120,6 +120,8 @@ export function buildIndex(products, settings) {
       ? p.mainImage
       : 'Pics/pop_person_transparent.png';
 
+    const initialDisplay = idx < 25 ? 'flex' : 'none';
+
     return `
         <article class="collector-card" 
           data-id="${p.id}" 
@@ -129,7 +131,8 @@ export function buildIndex(products, settings) {
           data-category="${p.category || 'Collectibles'}" 
           data-status="${statusClass}"
           data-image="${imgSrc}"
-          data-specs="${specsJson}">
+          data-specs="${specsJson}"
+          style="display: ${initialDisplay};">
           
           <div class="card-visual-frame">
             <span class="card-status-pill ${statusClass}">
@@ -320,17 +323,22 @@ export function buildIndex(products, settings) {
           <option value="title-az">Name: A to Z</option>
         </select>
 
-        <span class="results-count-badge" id="resultsCounter">Showing ${products.length} Vault Pieces</span>
+        <span class="results-count-badge" id="resultsCounter">Showing 1–25 of ${products.length} Vault Pieces (Page 1 of ${Math.ceil(products.length / 25)})</span>
       </div>
     </div>
   </section>
 
-  <!-- 5-Column Product Grid -->
+  <!-- 5-Column Product Grid with 5x5 Pagination -->
   <main class="catalog-section">
     <div class="container">
       <div class="collector-grid" id="collectorGrid">
         ${cardsHtml}
       </div>
+
+      <!-- 5x5 Pagination Navigation -->
+      <nav class="pagination-nav" id="paginationNav" aria-label="Catalog Navigation">
+        <!-- Dynamically managed via app.js -->
+      </nav>
     </div>
   </main>
 

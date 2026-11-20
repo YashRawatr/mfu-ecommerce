@@ -13,9 +13,12 @@
   let inStockOnly = false;
   let activeSort = 'featured';
   let searchQuery = '';
+  const ITEMS_PER_PAGE = 25; // 5 columns x 5 rows = 25 per page
+  let currentPage = 1;
 
   // DOM Elements
   const productGrid = document.getElementById('collectorGrid');
+  const paginationNav = document.getElementById('paginationNav');
   const searchInput = document.getElementById('searchInput');
   const shelfPills = document.querySelectorAll('.shelf-pill');
   const stockToggle = document.getElementById('stockToggle');
@@ -79,6 +82,7 @@
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
         searchQuery = e.target.value.trim().toLowerCase();
+        currentPage = 1;
         renderFilteredProducts();
       });
 
@@ -97,6 +101,7 @@
         shelfPills.forEach(p => p.classList.remove('active'));
         pill.classList.add('active');
         activeFilter = pill.dataset.filter || 'all';
+        currentPage = 1;
         renderFilteredProducts();
       });
     });
@@ -105,6 +110,7 @@
     if (stockToggle) {
       stockToggle.addEventListener('change', (e) => {
         inStockOnly = e.target.checked;
+        currentPage = 1;
         renderFilteredProducts();
       });
     }
@@ -113,8 +119,42 @@
     if (sortSelect) {
       sortSelect.addEventListener('change', (e) => {
         activeSort = e.target.value;
+        currentPage = 1;
         renderFilteredProducts();
       });
+    }
+
+    // Pagination Controls (Previous, Next, Page Numbers)
+    if (paginationNav) {
+      paginationNav.addEventListener('click', (e) => {
+        const pageBtn = e.target.closest('[data-page]');
+        const prevBtn = e.target.closest('#paginationPrev');
+        const nextBtn = e.target.closest('#paginationNext');
+
+        if (pageBtn) {
+          const targetPage = parseInt(pageBtn.dataset.page, 10);
+          if (targetPage && targetPage !== currentPage) {
+            currentPage = targetPage;
+            renderFilteredProducts(false);
+            scrollToGrid();
+          }
+        } else if (prevBtn && !prevBtn.disabled && currentPage > 1) {
+          currentPage--;
+          renderFilteredProducts(false);
+          scrollToGrid();
+        } else if (nextBtn && !nextBtn.disabled) {
+          currentPage++;
+          renderFilteredProducts(false);
+          scrollToGrid();
+        }
+      });
+    }
+
+    function scrollToGrid() {
+      if (productGrid) {
+        const topOffset = productGrid.getBoundingClientRect().top + window.pageYOffset - 110;
+        window.scrollTo({ top: Math.max(0, topOffset), behavior: 'smooth' });
+      }
     }
 
     // Cart Drawer Toggle
@@ -154,8 +194,12 @@
     }
   }
 
-  // Filter & Render
-  function renderFilteredProducts() {
+  // Filter & Render (with 5x5 Pagination)
+  function renderFilteredProducts(resetPage = false) {
+    if (resetPage) {
+      currentPage = 1;
+    }
+
     let visible = allProducts.filter(item => {
       // Category filter
       if (activeFilter !== 'all' && item.category.toLowerCase() !== activeFilter.toLowerCase()) {
@@ -183,19 +227,85 @@
       visible.sort((a, b) => a.name.localeCompare(b.name));
     }
 
-    // Hide all, re-order and show matching
+    const totalCount = visible.length;
+    const totalPages = Math.ceil(totalCount / ITEMS_PER_PAGE) || 1;
+    if (currentPage > totalPages) currentPage = totalPages;
+    if (currentPage < 1) currentPage = 1;
+
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    const pageProducts = visible.slice(startIndex, endIndex);
+
+    // Hide all cards
     allProducts.forEach(p => {
       p.element.style.display = 'none';
     });
 
-    visible.forEach(p => {
+    // Show only the 25 items for the active page
+    pageProducts.forEach(p => {
       p.element.style.display = 'flex';
       productGrid.appendChild(p.element);
     });
 
     if (resultsCounter) {
-      resultsCounter.textContent = `Showing ${visible.length} Vault Pieces`;
+      if (totalCount === 0) {
+        resultsCounter.textContent = 'Showing 0 Vault Pieces';
+      } else {
+        const from = startIndex + 1;
+        const to = Math.min(endIndex, totalCount);
+        resultsCounter.textContent = `Showing ${from}–${to} of ${totalCount} Vault Pieces (Page ${currentPage} of ${totalPages})`;
+      }
     }
+
+    renderPagination(totalPages, totalCount);
+  }
+
+  function renderPagination(totalPages, totalCount) {
+    if (!paginationNav) return;
+
+    if (totalCount <= ITEMS_PER_PAGE) {
+      paginationNav.innerHTML = '';
+      paginationNav.style.display = 'none';
+      return;
+    }
+
+    paginationNav.style.display = 'flex';
+
+    let html = '';
+
+    // Previous Button
+    const prevDisabled = currentPage <= 1 ? 'disabled' : '';
+    html += `
+      <button type="button" class="pagination-btn" id="paginationPrev" ${prevDisabled} aria-label="Previous Page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        <span>Prev</span>
+      </button>
+    `;
+
+    // Page Numbers
+    for (let i = 1; i <= totalPages; i++) {
+      const activeClass = i === currentPage ? 'active' : '';
+      html += `
+        <button type="button" class="pagination-btn ${activeClass}" data-page="${i}" aria-label="Page ${i}" ${i === currentPage ? 'aria-current="page"' : ''}>
+          ${i}
+        </button>
+      `;
+    }
+
+    // Next Button
+    const nextDisabled = currentPage >= totalPages ? 'disabled' : '';
+    html += `
+      <button type="button" class="pagination-btn" id="paginationNext" ${nextDisabled} aria-label="Next Page">
+        <span>Next</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    `;
+
+    paginationNav.innerHTML = html;
   }
 
   // Quick View Modal

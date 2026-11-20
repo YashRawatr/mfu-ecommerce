@@ -1457,3 +1457,62 @@ img {
   font-size: 12px;
   color: var(--text-muted);
 }
+
+/* ==========================================================================
+   5x5 PAGINATION SYSTEM
+   ========================================================================== */
+.pagination-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 48px;
+  margin-bottom: 32px;
+  padding: 16px 0;
+  user-select: none;
+}
+
+.pagination-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 16px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background-color: var(--bg-hover);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.pagination-btn.active {
+  background-color: #111111;
+  color: #FFFFFF;
+  border-color: #111111;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.pagination-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+}
