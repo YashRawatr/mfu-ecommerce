@@ -1,10 +1,10 @@
 {
-  "name": "new-overhaul",
+  "name": "mfu-collectibles",
   "version": "1.0.0",
   "description": "Modern Minimalist Tech & Collector Storefront",
   "type": "module",
   "scripts": {
-    "build": "node manage.js",
+    "compile": "node manage.js",
     "start": "node server.js"
   }
 }
