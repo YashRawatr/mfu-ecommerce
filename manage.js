@@ -30,7 +30,7 @@ export function formatTitle(rawName) {
   let name = (rawName || '').trim();
   name = name.replace(/\s*#\d+\b/g, '');
   name = name.replace(/^Pop!?\s*/i, '');
-  name = name.replace(/^(DC Comics|Marvel|Anime|Sports|Godzilla|Welcome to Derry|Harry Potter|Television|Movies|Games|Animation):\s*/i, '');
+  name = name.replace(/^(DC Comics|Marvel|Anime|Sports|Godzilla|Welcome to Derry|Harry Potter|Television|Movies|Games|Gaming|Animation):\s*/i, '');
   name = name.replace(/\s*\((?:LE\s*\d+|LE\d+|Signed|2017 Summer Convention Exclusive|Funko Fundays\d*\s*SE)\)/gi, '');
   return `Pop! ${name.trim()}`;
 }
@@ -47,14 +47,51 @@ export function getSubtitle(name, category) {
   if (n.includes('thor')) return 'Asgardian Core • Glow Edition';
   if (n.includes('stark') || n.includes('iron man')) return 'Stark Archive • Infinity Saga';
   if (n.includes('sung jinwoo')) return 'Shadow Monarch • Solo Leveling';
+  if (n.includes('choi jong-in')) return 'Ultimate Soldier • Solo Leveling';
   if (n.includes('pain')) return 'Six Paths • Signed Collectible';
-  if (n.includes('superman')) return 'Multiverse Icon • Earth-23';
+  if (n.includes('superman')) return 'Man of Steel • Iconic Edition';
   if (n.includes('periwinkle')) return 'Derry Archive • Signed Edition';
   if (n.includes('messi')) return 'World Champion • Sports Legends';
   if (n.includes('aquaman')) return 'Seven Seas • Justice League';
   if (n.includes('harry potter')) return 'Golden Snitch • Wizarding World';
   if (n.includes('godzilla')) return 'Fundays Grail • Atomic Edition';
   if (n.includes('gyokko')) return 'Upper Moon • Demon Slayer';
+  if (n.includes('nezuko')) return 'Awakened Demon • Demon Slayer';
+  if (n.includes('wolverine')) return 'Viral Archive • Deluxe Series';
+  if (n.includes('naruto')) return 'Forbidden Scroll • Hidden Leaf';
+  if (n.includes('sakamoto')) return 'Retired Hitman • Sakamoto Days';
+  if (n.includes('takamura')) return 'Order Swordsman • Katana Master';
+  if (n.includes('goku')) return 'Super Saiyan • Dragon Ball';
+  if (n.includes('clicker')) return 'Cordyceps Fungal • The Last of Us';
+  if (n.includes('wolf')) return 'Snow Companion • Ghost of Yōtei';
+  if (n.includes('rengoku')) return 'Flame Hashira • Sumi Deco';
+  if (n.includes('zenitsu')) return 'Thunder Breathing • Lightning Master';
+  if (n.includes('tanjiro')) return 'Hinokami Kagura • Dance of Fire';
+  if (n.includes('invincible')) return 'Skybound Hero • Flying Kick';
+  if (n.includes('doom')) return 'Latverian Monarch • Doomsday';
+  if (n.includes('wednesday')) return 'Nevermore Academy • Gothic Icon';
+  if (n.includes('leon')) return 'Survival Horror • Resident Evil';
+  if (n.includes('anakin')) return 'Chosen One • Jedi Order';
+  if (n.includes('stewie')) return 'Infant Mastermind • Family Guy';
+  if (n.includes('sanji')) return 'Egghead Tech • Black Leg Cook';
+  if (n.includes('zoro')) return 'Three Swords • Live Action';
+  if (n.includes('saitama')) return 'One-Punch Hero • Hero Association';
+  if (n.includes('genos')) return 'Demon Cyborg • Incineration Cannon';
+  if (n.includes('midoriya') || n.includes('deku')) return 'Full Cowl • My Hero Academia';
+  if (n.includes('punisher')) return 'Vigilante Justice • Tactical Blade';
+  if (n.includes('cyclops')) return 'Optic Blast • X-Men Resistance';
+  if (n.includes('magneto')) return 'Magnetic Master • Doomsday';
+  if (n.includes('yelena')) return 'White Widow • Tactical Combat';
+  if (n.includes('fantastic')) return 'Elastic Intellect • First Steps';
+
+  // Category fallbacks
+  if (category === 'Anime') return 'Japanese Animation • Curated Vinyl';
+  if (category === 'Marvel') return 'Marvel Multiverse • Signature Edition';
+  if (category === 'DC Comics') return 'DC Universe • Collector Archive';
+  if (category === 'Gaming') return 'Gaming Legends • Iconic Series';
+  if (category === 'Television') return 'Television Legends • Vault Edition';
+  if (category === 'Movies') return 'Cinematic Vault • Classic Collectible';
+  if (category === 'Sports') return 'Sports Legends • Pitch Icon';
   return 'Collector Archive • Vinyl Edition';
 }
 

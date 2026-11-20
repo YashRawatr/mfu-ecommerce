@@ -430,5 +430,786 @@
       "Sculpted Shin Godzilla tail, dorsal fins, and Freddy crown insignia"
     ],
     "createdAt": "2026-10-31T05:46:00.000Z"
+  },
+  {
+    "id": "pop-032",
+    "slug": "pop-anime-nezuko-kamado-demon-form",
+    "name": "Pop! Anime: Nezuko Kamado (Demon Form)",
+    "price": "₹1,799",
+    "originalPrice": "₹2,499",
+    "category": "Anime",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Demon Slayer fan-favorite Nezuko Kamado unleashed in full Demon Form with awakened horn and demonic vine markings.",
+    "description": [
+      "Official Demon Slayer: Kimetsu no Yaiba licensed collectible",
+      "Captures Nezuko in awakened demon berserk state with protruding horn and vine motifs",
+      "Collector grade packaging with protective window display"
+    ],
+    "createdAt": "2026-11-20T01:35:58.760Z"
+  },
+  {
+    "id": "pop-033",
+    "slug": "pop-marvel-deluxe-wolverine-crush-meme",
+    "name": "Pop! Marvel: Deluxe Wolverine (Wolverine's Crush Meme)",
+    "price": "₹1,999",
+    "originalPrice": "₹2,799",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Deluxe special collector piece recreating the viral 90s X-Men animated series Wolverine bed picture frame meme.",
+    "description": [
+      "Official Marvel X-Men Deluxe Comic & Animated Series collector piece",
+      "Sculpted recreation of Wolverine lying in bed gazing fondly at a picture frame",
+      "Deluxe oversized collector window box with authentic retro comic livery"
+    ],
+    "createdAt": "2026-11-20T01:35:58.762Z"
+  },
+  {
+    "id": "pop-034",
+    "slug": "pop-anime-naruto-uzumaki-with-scroll",
+    "name": "Pop! Anime: Naruto Uzumaki with Scroll",
+    "price": "₹1,699",
+    "originalPrice": "₹2,399",
+    "category": "Anime",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Classic Naruto Uzumaki carrying the legendary forbidden giant scroll from the Hidden Leaf Village.",
+    "description": [
+      "Official Naruto Shippuden licensed animation collectible",
+      "Features young Naruto in iconic orange tracksuit carrying the oversized sealing scroll",
+      "Detailed headband with Konohagakure village emblem"
+    ],
+    "createdAt": "2026-11-20T01:35:58.762Z"
+  },
+  {
+    "id": "pop-035",
+    "slug": "pop-anime-taro-sakamoto-in-suit",
+    "name": "Pop! Anime: Taro Sakamoto in Suit (Sakamoto Days)",
+    "price": "₹1,499",
+    "originalPrice": "₹2,099",
+    "category": "Anime",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "The legendary retired hitman Taro Sakamoto sharply dressed in black suit from the hit manga Sakamoto Days.",
+    "description": [
+      "Official Shonen Jump Sakamoto Days collector edition",
+      "Portrays Taro Sakamoto in dapper formal black suit and round spectacles",
+      "Mint condition collector box with protective outer sleeve"
+    ],
+    "createdAt": "2026-11-20T01:35:58.762Z"
+  },
+  {
+    "id": "pop-036",
+    "slug": "pop-sports-lionel-messi-inter-miami-away-jersey",
+    "name": "Pop! Sports: Lionel Messi (Inter Miami CF Away Jersey)",
+    "price": "₹1,699",
+    "originalPrice": "₹2,299",
+    "category": "Sports",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Official Lionel Messi collectible featuring the Inter Miami CF black away kit and captain presence.",
+    "description": [
+      "Official MLS licensed football sports legends collectible",
+      "Features Lionel Messi in sleek black and pink Inter Miami CF La Noche away kit #10",
+      "Includes football pitch grass texture stand and commemorative packaging"
+    ],
+    "createdAt": "2026-11-20T01:35:58.762Z"
+  },
+  {
+    "id": "pop-037",
+    "slug": "pop-anime-super-saiyan-son-goku-mini",
+    "name": "Pop! Anime: Super Saiyan Son Goku (Mini) (Dragon Ball)",
+    "price": "₹1,499",
+    "originalPrice": "₹1,999",
+    "category": "Anime",
+    "status": "Available",
+    "mainImage": "assets/images/goku-ultra-instinct-386.svg",
+    "galleryImages": [
+      "assets/images/goku-ultra-instinct-386.svg"
+    ],
+    "summary": "Compact collector edition of Son Goku in powered-up Super Saiyan golden aura from Dragon Ball.",
+    "description": [
+      "Official Toei Animation Dragon Ball licensed collectible",
+      "Sculpted with golden spiked Super Saiyan hair and classic orange Turtle School Gi",
+      "Dynamic power stance with translucent aura base"
+    ],
+    "createdAt": "2026-11-20T01:35:58.762Z"
+  },
+  {
+    "id": "pop-038",
+    "slug": "pop-television-the-last-of-us-clicker-infected",
+    "name": "Pop! Television: Clicker (Infected) (The Last of Us)",
+    "price": "₹1,499",
+    "originalPrice": "₹2,199",
+    "category": "Television",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Terrifying fungal Cordyceps infected Clicker from HBO's critically acclaimed The Last of Us.",
+    "description": [
+      "Official HBO The Last of Us licensed television collectible",
+      "Intricately sculpted fungal head plates and tattered survivor garments",
+      "Collector grade box with atmospheric post-apocalyptic artwork"
+    ],
+    "createdAt": "2026-11-20T01:35:58.762Z"
+  },
+  {
+    "id": "pop-039",
+    "slug": "pop-marvel-symbiote-spider-man-2099",
+    "name": "Pop! Marvel: Symbiote Spider-Man 2099",
+    "price": "₹1,499",
+    "originalPrice": "₹1,999",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Futuristic Miguel O'Hara fused with the dark alien Symbiote in sleek noir and crimson detailing.",
+    "description": [
+      "Official Marvel Comics collector exclusive",
+      "Reimagines Miguel O'Hara Spider-Man 2099 bonded with the Klyntar alien Symbiote",
+      "Sharp spiked forearm talons and sinister iridescent chest insignia"
+    ],
+    "createdAt": "2026-11-20T01:35:58.762Z"
+  },
+  {
+    "id": "pop-040",
+    "slug": "pop-gaming-ghost-of-yotei-wolf",
+    "name": "Pop! Gaming: Wolf (Ghost of Yōtei)",
+    "price": "₹1,499",
+    "originalPrice": "₹2,099",
+    "category": "Gaming",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "The fierce companion Wolf from PlayStation's breathtaking feudal epic Ghost of Yōtei.",
+    "description": [
+      "Official PlayStation Studios Ghost of Yōtei licensed gaming piece",
+      "Majestic snow wolf companion sculpted with wind-swept fur and piercing gaze",
+      "Includes rocky mountain terrain display base"
+    ],
+    "createdAt": "2026-11-20T01:35:58.762Z"
+  },
+  {
+    "id": "pop-041",
+    "slug": "pop-anime-kyojuro-rengoku-sumi-deco",
+    "name": "Pop! Anime: Kyojuro Rengoku (Sumi Deco)",
+    "price": "₹1,499",
+    "originalPrice": "₹2,199",
+    "category": "Anime",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Flame Hashira Kyojuro Rengoku rendered in traditional Japanese Sumi-e calligraphic ink wash styling.",
+    "description": [
+      "Demon Slayer: Mugen Train Special Sumi Deco collector release",
+      "Artistic black-ink brush stroke accents highlighting the Flame Hashira haori",
+      "Exclusive Japanese calligraphy packaging design"
+    ],
+    "createdAt": "2026-11-20T01:35:58.762Z"
+  },
+  {
+    "id": "pop-042",
+    "slug": "pop-anime-zenitsu-agatsuma-sumi-deco",
+    "name": "Pop! Anime: Zenitsu Agatsuma (Sumi Deco)",
+    "price": "₹1,499",
+    "originalPrice": "₹1,999",
+    "category": "Anime",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Thunder Breathing master Zenitsu Agatsuma adorned in artistic Japanese ink brush deco.",
+    "description": [
+      "Demon Slayer: Kimetsu no Yaiba Sumi Deco series collectible",
+      "Striking monochrome and gold brushwork reflecting Zenitsu lightning mastery",
+      "Premium matte-finish collector box"
+    ],
+    "createdAt": "2026-11-20T01:35:58.762Z"
+  },
+  {
+    "id": "pop-043",
+    "slug": "pop-anime-tanjiro-kamado-fire-breathing",
+    "name": "Pop! Anime: Tanjiro Kamado (Fire Breathing)",
+    "price": "₹1,799",
+    "originalPrice": "₹2,499",
+    "category": "Anime",
+    "status": "Available",
+    "mainImage": "assets/images/tanjiro-fire-breathing.webp",
+    "galleryImages": [
+      "assets/images/tanjiro-fire-breathing.webp",
+      "assets/images/tanjiro-fire-breathing-box.webp"
+    ],
+    "summary": "Dramatic Demon Slayer edition featuring Tanjiro Kamado executing the Hinokami Kagura Dance of Fire.",
+    "description": [
+      "Official Demon Slayer Hinokami Kagura dynamic action pose",
+      "Translucent flame effects wrapping around Tanjiro Nichirin blade",
+      "Includes collector box with front and back photography"
+    ],
+    "createdAt": "2026-11-20T01:35:58.762Z"
+  },
+  {
+    "id": "pop-044",
+    "slug": "pop-television-invincible-flying-kick",
+    "name": "Pop! Television: Invincible (Flying Kick)",
+    "price": "₹1,799",
+    "originalPrice": "₹2,399",
+    "category": "Television",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Mark Grayson in dynamic mid-air flying kick combat pose from Prime Video's hit series Invincible.",
+    "description": [
+      "Official Skybound / Prime Video Invincible collectible",
+      "Features Mark Grayson mid-flight striking with a high-velocity superhero kick",
+      "Includes transparent acrylic levitation flight stand"
+    ],
+    "createdAt": "2026-11-20T01:35:58.763Z"
+  },
+  {
+    "id": "pop-045",
+    "slug": "pop-marvel-lord-doom-doomsday",
+    "name": "Pop! Marvel: Lord Doom (Doomsday)",
+    "price": "₹2,399",
+    "originalPrice": "₹3,299",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Victor Von Doom crowned supreme ruler Lord Doom from the epochal Marvel Doomsday multiverse saga.",
+    "description": [
+      "Official Marvel Comics Doomsday event collector piece",
+      "Sovereign Latverian armor with gold filigree and flowing regal green mantle",
+      "Crown of Doom emblem with metallic chrome paint application"
+    ],
+    "createdAt": "2026-11-20T01:35:58.763Z"
+  },
+  {
+    "id": "pop-046",
+    "slug": "pop-television-wednesday-addams",
+    "name": "Pop! Television: Wednesday Addams",
+    "price": "₹2,399",
+    "originalPrice": "₹3,199",
+    "category": "Television",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "The iconic gothic prodigy Wednesday Addams in Nevermore Academy uniform with signature deadpan stare.",
+    "description": [
+      "Official Netflix Wednesday television series licensed vinyl figure",
+      "Sculpted in Nevermore Academy striped uniform with braided pigtails",
+      "Includes miniature companion Thing perched on shoulder"
+    ],
+    "createdAt": "2026-11-20T01:35:58.763Z"
+  },
+  {
+    "id": "pop-047",
+    "slug": "pop-anime-premium-zenitsu-agatsuma",
+    "name": "Pop! Anime: Premium Zenitsu Agatsuma",
+    "price": "₹2,699",
+    "originalPrice": "₹3,699",
+    "category": "Anime",
+    "status": "Available",
+    "mainImage": "assets/images/pop-premium-zenitsu-agatsuma-hi-res-4-1793268234427-822.png",
+    "galleryImages": [
+      "assets/images/pop-premium-zenitsu-agatsuma-hi-res-4-1793268234427-822.png"
+    ],
+    "summary": "Ultra-detailed premium collector release of Zenitsu Agatsuma unleashing First Form: Thunderclap and Flash.",
+    "description": [
+      "High-tier premium collector sculpt featuring dynamic lightning burst effects",
+      "Metallic gold gradient hair highlighting Thunder Breathing concentration",
+      "Limited production run in deluxe archival packaging"
+    ],
+    "createdAt": "2026-11-20T01:35:58.763Z"
+  },
+  {
+    "id": "pop-048",
+    "slug": "pop-movies-obsession-nikki-bloody",
+    "name": "Pop! Movies: Nikki (Bloody) (Obsession)",
+    "price": "₹2,299",
+    "originalPrice": "₹2,999",
+    "category": "Movies",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Intense horror collector variant of Nikki featuring exclusive battle-damaged bloody paint deco.",
+    "description": [
+      "Limited horror thriller collector variant with custom splattered blood deco",
+      "Expressive sculpt capturing high-stakes cinematic suspense",
+      "Includes specialized warning label collector box"
+    ],
+    "createdAt": "2026-11-20T01:35:58.763Z"
+  },
+  {
+    "id": "pop-049",
+    "slug": "pop-gaming-resident-evil-leon-kennedy",
+    "name": "Pop! Gaming: Leon S. Kennedy (Resident Evil)",
+    "price": "₹2,399",
+    "originalPrice": "₹3,299",
+    "category": "Gaming",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "R.P.D. veteran and special agent Leon S. Kennedy armed and combat-ready from Capcom survival horror icon.",
+    "description": [
+      "Official Capcom Resident Evil survival horror collectible",
+      "Features Leon in brown bomber leather jacket with tactical shoulder holster",
+      "Sculpted with signature Silver Ghost handgun ready for deployment"
+    ],
+    "createdAt": "2026-11-20T01:35:58.763Z"
+  },
+  {
+    "id": "pop-050",
+    "slug": "pop-marvel-steve-rogers-doomsday",
+    "name": "Pop! Marvel: Steve Rogers (Doomsday)",
+    "price": "₹2,299",
+    "originalPrice": "₹3,199",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Battle-hardened Captain America Steve Rogers leading the resistance in Marvel Doomsday.",
+    "description": [
+      "Official Marvel Doomsday comic event exclusive",
+      "Weathered combat-hardened tactical uniform with battle-worn vibranium shield",
+      "Stalwart leadership pose amidst the multiverse collapse"
+    ],
+    "createdAt": "2026-11-20T01:35:58.763Z"
+  },
+  {
+    "id": "pop-051",
+    "slug": "pop-marvel-yelena-belova-doomsday",
+    "name": "Pop! Marvel: Yelena Belova (Doomsday)",
+    "price": "₹2,399",
+    "originalPrice": "₹3,299",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Master assassin and White Widow Yelena Belova equipped for apocalyptic tactical combat.",
+    "description": [
+      "Official Marvel Comics Doomsday series collectible",
+      "Reinforced White Widow combat suit with multi-pocket tactical utility vest",
+      "Equipped with dual electric shock batons"
+    ],
+    "createdAt": "2026-11-20T01:35:58.763Z"
+  },
+  {
+    "id": "pop-052",
+    "slug": "pop-marvel-thor-doomsday",
+    "name": "Pop! Marvel: Thor (Doomsday)",
+    "price": "₹2,399",
+    "originalPrice": "₹3,199",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "The Mighty God of Thunder Thor channeling cosmic lightning against the forces of Doom.",
+    "description": [
+      "Marvel Doomsday catastrophic battle edition",
+      "Heavy Asgardian armor plates with textured red cape and Mjolnir battle hammer",
+      "Translucent lightning crackling from hammer and eyes"
+    ],
+    "createdAt": "2026-11-20T01:35:58.763Z"
+  },
+  {
+    "id": "pop-053",
+    "slug": "pop-marvel-doctor-doom-doomsday",
+    "name": "Pop! Marvel: Doctor Doom (Doomsday)",
+    "price": "₹2,399",
+    "originalPrice": "₹3,499",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Victor Von Doom in menacing emerald cloak and forged titanium armor commanding Doomsday legions.",
+    "description": [
+      "Iconic supervillain sculpt from the climactic Doomsday storyline",
+      "Cold forged metallic titanium mask with piercing gaze beneath hood",
+      "Arcane energy effects radiating from clenched gauntlets"
+    ],
+    "createdAt": "2026-11-20T01:35:58.763Z"
+  },
+  {
+    "id": "pop-054",
+    "slug": "pop-marvel-cyclops-doomsday",
+    "name": "Pop! Marvel: Cyclops (Doomsday)",
+    "price": "₹2,299",
+    "originalPrice": "₹2,999",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "X-Men tactical leader Scott Summers releasing devastating optic blasts across battlefields.",
+    "description": [
+      "Marvel Doomsday mutant resistance edition",
+      "Classic navy and gold X-Men suit with reinforced tactical harness",
+      "Translucent ruby-quartz ruby optic blast beam effect"
+    ],
+    "createdAt": "2026-11-20T01:35:58.763Z"
+  },
+  {
+    "id": "pop-055",
+    "slug": "pop-marvel-mister-fantastic-doomsday",
+    "name": "Pop! Marvel: Mister Fantastic (Doomsday)",
+    "price": "₹2,299",
+    "originalPrice": "₹3,199",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Reed Richards utilizing elastic dimensional intellect against Doom in the ultimate clash of minds.",
+    "description": [
+      "Fantastic Four leader sculpted in elongated morphing combat posture",
+      "Deep blue bodysuit with iconic 4 chest insignia and scientific scanner",
+      "Essential centerpiece for any Marvel multiverse display"
+    ],
+    "createdAt": "2026-11-20T01:35:58.763Z"
+  },
+  {
+    "id": "pop-056",
+    "slug": "pop-marvel-magneto-doomsday",
+    "name": "Pop! Marvel: Magneto (Doomsday)",
+    "price": "₹2,399",
+    "originalPrice": "₹3,299",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Master of Magnetism Erik Lehnsherr manipulating magnetic forces in royal crimson and violet cape.",
+    "description": [
+      "Sovereign mutant leader in iconic helmet and regal swirling cape",
+      "Metallic debris levitating around magnetic force fields",
+      "High-impact comic showcase collector packaging"
+    ],
+    "createdAt": "2026-11-20T01:35:58.763Z"
+  },
+  {
+    "id": "pop-057",
+    "slug": "pop-movies-star-wars-anakin-skywalker-jedi-general",
+    "name": "Pop! Movies: Anakin Skywalker (Jedi General)",
+    "price": "₹1,899",
+    "originalPrice": "₹2,599",
+    "category": "Movies",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "The Chosen One Anakin Skywalker in Clone Wars armored Jedi General attire wielding his azure lightsaber.",
+    "description": [
+      "Official Star Wars: The Clone Wars Lucasfilm licensed collectible",
+      "Jedi General armored chest plate, brown tunic, and ignited blue lightsaber",
+      "Star Wars branded display stand included"
+    ],
+    "createdAt": "2026-11-20T01:35:58.763Z"
+  },
+  {
+    "id": "pop-058",
+    "slug": "pop-marvel-jumbo-spider-man",
+    "name": "Pop! Marvel: Jumbo Spider-Man (10-Inch)",
+    "price": "₹3,999",
+    "originalPrice": "₹5,499",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Colossal 10-inch supersized showcase figure of friendly neighborhood Spider-Man in classic web-slinging form.",
+    "description": [
+      "Massive 10-Inch (25cm) Jumbo scale centerpiece vinyl figure",
+      "Vibrant red and blue web-patterned suit with high-definition sculpted weblines",
+      "Large-format collector window display box"
+    ],
+    "createdAt": "2026-11-20T01:35:58.763Z"
+  },
+  {
+    "id": "pop-059",
+    "slug": "pop-anime-my-hero-academia-plus-izuku-midoriya",
+    "name": "Pop! Anime: Plus Izuku Midoriya (My Hero Academia)",
+    "price": "₹1,499",
+    "originalPrice": "₹1,999",
+    "category": "Anime",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Deku channeling One For All Full Cowl with energetic emerald lightning arcs from My Hero Academia.",
+    "description": [
+      "Official My Hero Academia licensed anime vinyl figure",
+      "Sculpted with green energy crackles surging along Deku hero costume",
+      "Determined expression with signature red iron soles"
+    ],
+    "createdAt": "2026-11-20T01:35:58.763Z"
+  },
+  {
+    "id": "pop-060",
+    "slug": "pop-anime-solo-leveling-choi-jong-in",
+    "name": "Pop! Anime: Choi Jong-in (Solo Leveling)",
+    "price": "₹1,499",
+    "originalPrice": "₹2,099",
+    "category": "Anime",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "S-Rank Mage and Guild Master of Hunters Guild Choi Jong-in commanding flame incantations.",
+    "description": [
+      "Official Solo Leveling manhwa and anime licensed collectible",
+      "The Ultimate Soldier Choi Jong-in in sleek crimson suit and spectacles",
+      "Translucent flame swirling from his casting hand"
+    ],
+    "createdAt": "2026-11-20T01:35:58.763Z"
+  },
+  {
+    "id": "pop-061",
+    "slug": "pop-marvel-punisher-with-sword",
+    "name": "Pop! Marvel: Punisher with Sword",
+    "price": "₹1,499",
+    "originalPrice": "₹1,999",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Frank Castle wielding dual-handed tactical blade weapon in heavy skull-embossed vigilante gear.",
+    "description": [
+      "Marvel Knights brutal vigilante edition",
+      "Frank Castle in matte black armor with faded white skull insignia",
+      "Grasping a heavy steel combat blade ready for close-quarters vengeance"
+    ],
+    "createdAt": "2026-11-20T01:35:58.764Z"
+  },
+  {
+    "id": "pop-062",
+    "slug": "pop-anime-sakamoto-days-takamura",
+    "name": "Pop! Anime: Takamura (Sakamoto Days)",
+    "price": "₹1,499",
+    "originalPrice": "₹2,199",
+    "category": "Anime",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "The enigmatic, unstoppable Order swordsman Takamura muttering incisive strikes with his deadly katana.",
+    "description": [
+      "Official Sakamoto Days manga series collector piece",
+      "Elderly assassin Takamura in traditional coat gripping an unsheathed katana",
+      "Unsurpassed aura sculpt capturing the deadliest member of the Order"
+    ],
+    "createdAt": "2026-11-20T01:35:58.764Z"
+  },
+  {
+    "id": "pop-063",
+    "slug": "pop-television-family-guy-stewie-griffin",
+    "name": "Pop! Television: Stewie Griffin (Family Guy)",
+    "price": "₹1,499",
+    "originalPrice": "₹1,899",
+    "category": "Television",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Diabolical infant genius Stewie Griffin scheming world domination in red overalls and yellow shirt.",
+    "description": [
+      "Official Fox Family Guy animated series licensed collectible",
+      "Stewie Griffin sculpted with football-shaped head and condescending smirk",
+      "Holding a miniature ray-gun gadget accessory"
+    ],
+    "createdAt": "2026-11-20T01:35:58.764Z"
+  },
+  {
+    "id": "pop-064",
+    "slug": "pop-marvel-mister-fantastic-fantastic-four-first-steps",
+    "name": "Pop! Marvel: Mister Fantastic (Fantastic Four: First Steps)",
+    "price": "₹1,999",
+    "originalPrice": "₹2,699",
+    "category": "Marvel",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Retro-futuristic Pedro Pascal Mister Fantastic from Marvel Studios' upcoming Fantastic Four: First Steps.",
+    "description": [
+      "Marvel Cinematic Universe Phase 6 teaser collector figure",
+      "Classic 1960s retro-futuristic blue and white spacesuit uniform",
+      "Stretching arm effect piece and scientific apparatus included"
+    ],
+    "createdAt": "2026-11-20T01:35:58.764Z"
+  },
+  {
+    "id": "pop-065",
+    "slug": "pop-anime-one-piece-sanji-egghead-arc",
+    "name": "Pop! Anime: Sanji (Egghead Arc) (One Piece)",
+    "price": "₹1,699",
+    "originalPrice": "₹2,399",
+    "category": "Anime",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Straw Hat cook 'Black Leg' Sanji sporting futuristic Egghead Island sci-fi tech boots and jacket.",
+    "description": [
+      "Official Toei Animation One Piece Egghead Arc collectible",
+      "Sanji equipped with Dr. Vegapunk DOM Shoes and stylish future streetwear",
+      "Diable Jambe fire ready kicking stance"
+    ],
+    "createdAt": "2026-11-20T01:35:58.764Z"
+  },
+  {
+    "id": "pop-066",
+    "slug": "pop-movies-star-wars-anakin-skywalker-padawan",
+    "name": "Pop! Movies: Anakin Skywalker (Padawan)",
+    "price": "₹1,499",
+    "originalPrice": "₹1,999",
+    "category": "Movies",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Young Anakin Skywalker as Obi-Wan Kenobi's Padawan apprentice with braided hair from Episode II: Attack of the Clones.",
+    "description": [
+      "Official Star Wars prequel trilogy collector vinyl",
+      "Young Anakin with Padawan learner braid, traditional Jedi robes, and lightsaber",
+      "Classic Star Wars display stand included"
+    ],
+    "createdAt": "2026-11-20T01:35:58.764Z"
+  },
+  {
+    "id": "pop-067",
+    "slug": "pop-dc-comics-superman-2025",
+    "name": "Pop! DC Comics: Superman (2025)",
+    "price": "₹1,599",
+    "originalPrice": "₹2,199",
+    "category": "DC Comics",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "The Man of Steel in James Gunn brand new 2025 cinematic suit with classic crest and red trunks.",
+    "description": [
+      "Official DC Studios 2025 cinematic Superman collectible",
+      "New textured blue suit with modern yellow and red S-Shield emblem and crimson cape",
+      "Heroic standing pose ready for flight"
+    ],
+    "createdAt": "2026-11-20T01:35:58.764Z"
+  },
+  {
+    "id": "pop-068",
+    "slug": "pop-anime-one-punch-man-genos",
+    "name": "Pop! Anime: Genos (One-Punch Man)",
+    "price": "₹1,799",
+    "originalPrice": "₹2,499",
+    "category": "Anime",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "S-Class cyborg Demon Cyborg Genos primed with glowing incineration core blasters.",
+    "description": [
+      "Official One-Punch Man licensed anime collectible",
+      "Cyborg arms detailed with silver mechanics and glowing gold palm cannons",
+      "Sleeveless black hoodie and combat stance"
+    ],
+    "createdAt": "2026-11-20T01:35:58.764Z"
+  },
+  {
+    "id": "pop-069",
+    "slug": "pop-anime-one-piece-zoro-live-action",
+    "name": "Pop! Anime: Roronoa Zoro (Live Action) (One Piece)",
+    "price": "₹1,599",
+    "originalPrice": "₹2,299",
+    "category": "Anime",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "Mackenyu's pirate hunter Roronoa Zoro from Netflix acclaimed live-action One Piece adaptation.",
+    "description": [
+      "Official Netflix One Piece Live Action series collectible",
+      "Captures Zoro with green bandana, three katanas sheathed at his hip, and earrings",
+      "Collector grade box featuring live-action series branding"
+    ],
+    "createdAt": "2026-11-20T01:35:58.764Z"
+  },
+  {
+    "id": "pop-070",
+    "slug": "pop-anime-one-punch-man-saitama",
+    "name": "Pop! Anime: Saitama (One-Punch Man)",
+    "price": "₹1,599",
+    "originalPrice": "₹2,199",
+    "category": "Anime",
+    "status": "Available",
+    "mainImage": "assets/images/image-not-available.svg",
+    "galleryImages": [
+      "assets/images/image-not-available.svg"
+    ],
+    "summary": "The hero for fun Saitama in signature yellow suit, white cape, and red gloved single-punch ready stance.",
+    "description": [
+      "Official One-Punch Man series licensed vinyl figure",
+      "Saitama sculpted in signature yellow jumpsuit, buttoned white cape, and red gloves",
+      "Classic nonchalant expression before obliterating opponents"
+    ],
+    "createdAt": "2026-11-20T01:35:58.764Z"
   }
 ]
