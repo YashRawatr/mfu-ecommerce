@@ -244,10 +244,10 @@ export function buildIndex(products, settings) {
       <div class="hero-headline-wrap">
         <div class="hero-pill-badge">
           <span class="dot"></span>
-          Vault Archive • Authenticated Curations
+          Vault Archive • Authenticated Editions
         </div>
-        <h1 class="hero-headline">Curated Rare Vinyl & Grail Archive</h1>
-        <p class="hero-lead">Museum-grade Pop collectibles, rare convention exclusives, and vaulted vinyl figurines. Every piece ships in a complimentary 0.5mm UV-filtering shield.</p>
+        <h1 class="hero-headline">Rare Vinyl & Grail Curations</h1>
+        <p class="hero-lead">Archival Pop figures, scarce convention exclusives, and vaulted vinyl. Delivered in a complimentary 0.5mm UV-filtering shield.</p>
       </div>
 
       <div class="hero-metrics-strip">
