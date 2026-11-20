@@ -22,8 +22,3 @@ desktop.ini
 .idea/
 *.sublime-project
 *.sublime-workspace
-
-# Antigravity Scratch & Task Artifacts (if any)
-scratch/
-temp_*
-

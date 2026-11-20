@@ -1,752 +1,603 @@
-#!/usr/bin/env node
-
 /**
- * ============================================================================
- * ATELIER CLOUD DANCER — ZERO-CODE TERMINAL CLI MANAGEMENT SYSTEM
- * Local Interactive Management for Products, Availability, and Static Generation
- * ============================================================================
+ * NEW OVERHAUL — STATIC COMPILER & CONTENT MANAGER
+ * Compiles index.html, checkout.html, and products/*.html using data/products.json & data/settings.json
  */
 
-import readline from 'node:readline/promises';
-import { stdin as input, stdout as output } from 'node:process';
-import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Paths
 const DATA_DIR = path.join(__dirname, 'data');
-const PRODUCTS_JSON_PATH = path.join(DATA_DIR, 'products.json');
-const SETTINGS_JSON_PATH = path.join(DATA_DIR, 'settings.json');
-const TEMPLATES_DIR = path.join(__dirname, 'templates');
-const PRODUCT_TEMPLATE_PATH = path.join(TEMPLATES_DIR, 'product-template.html');
-const INDEX_TEMPLATE_PATH = path.join(TEMPLATES_DIR, 'index-template.html');
-const PRODUCTS_OUT_DIR = path.join(__dirname, 'products');
-const INDEX_HTML_PATH = path.join(__dirname, 'index.html');
-const CHECKOUT_HTML_PATH = path.join(__dirname, 'checkout.html');
+const PRODUCTS_JSON = path.join(DATA_DIR, 'products.json');
+const SETTINGS_JSON = path.join(DATA_DIR, 'settings.json');
+const OUT_PRODUCTS_DIR = path.join(__dirname, 'products');
 
-// Helper: ANSI colors for high-fashion terminal styling
-const c = {
-  reset: '\x1b[0m',
-  bold: '\x1b[1m',
-  dim: '\x1b[2m',
-  obsidian: '\x1b[38;2;20;20;19m',
-  taupe: '\x1b[38;2;120;116;108m',
-  cloudDancerBg: '\x1b[48;2;240;238;233m',
-  green: '\x1b[32m',
-  red: '\x1b[31m',
-  cyan: '\x1b[36m',
-  yellow: '\x1b[33m',
-};
-
-// Slugify helper
-function slugify(text) {
-  return text
-    .toString()
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/[^\w\-]+/g, '')
-    .replace(/\-\-+/g, '-')
-    .replace(/^-+/, '')
-    .replace(/-+$/, '');
+export function loadProducts() {
+  if (!fs.existsSync(PRODUCTS_JSON)) return [];
+  return JSON.parse(fs.readFileSync(PRODUCTS_JSON, 'utf-8'));
 }
 
-// Relative URL path normalizers for subfolder (products/) vs root (index.html)
-function toProductPagePath(url) {
-  if (!url) return '';
-  if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('//') || url.startsWith('/')) {
-    return url;
-  }
-  return '../' + url.replace(/^\.\.\//, '');
+export function loadSettings() {
+  if (!fs.existsSync(SETTINGS_JSON)) return {};
+  return JSON.parse(fs.readFileSync(SETTINGS_JSON, 'utf-8'));
 }
 
-function toRootPagePath(url) {
-  if (!url) return '';
-  if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('//') || url.startsWith('/')) {
-    return url;
-  }
-  return url.replace(/^\.\.\//, '');
+// Clean title formatter
+export function formatTitle(rawName) {
+  let name = (rawName || '').trim();
+  name = name.replace(/\s*#\d+\b/g, '');
+  name = name.replace(/^Pop!?\s*/i, '');
+  name = name.replace(/^(DC Comics|Marvel|Anime|Sports|Godzilla|Welcome to Derry|Harry Potter|Television|Movies|Games|Animation):\s*/i, '');
+  name = name.replace(/\s*\((?:LE\s*\d+|LE\d+|Signed|2017 Summer Convention Exclusive|Funko Fundays\d*\s*SE)\)/gi, '');
+  return `Pop! ${name.trim()}`;
 }
 
-// Load Data
-function loadProducts() {
-  try {
-    if (!fs.existsSync(PRODUCTS_JSON_PATH)) {
-      return [];
-    }
-    const raw = fs.readFileSync(PRODUCTS_JSON_PATH, 'utf-8');
-    return JSON.parse(raw);
-  } catch (err) {
-    console.error(`${c.red}Error loading products.json: ${err.message}${c.reset}`);
-    return [];
-  }
+// Subtitle generator
+export function getSubtitle(name, category) {
+  const n = (name || '').toLowerCase();
+  if (n.includes('riddler')) return 'Gotham Enigma • Special Edition';
+  if (n.includes('groot')) return 'Wild Fusion • Limited Series';
+  if (n.includes('captain america')) return 'First Avenger • Convention Grail';
+  if (n.includes('justice armor') || n.includes('batman')) return 'Dark Knight • Armored Edition';
+  if (n.includes('hulk')) return 'Chrome Alloy • Special Finish';
+  if (n.includes('spider-man')) return 'Web Slinger • Vintage Series';
+  if (n.includes('thor')) return 'Asgardian Core • Glow Edition';
+  if (n.includes('stark') || n.includes('iron man')) return 'Stark Archive • Infinity Saga';
+  if (n.includes('sung jinwoo')) return 'Shadow Monarch • Solo Leveling';
+  if (n.includes('pain')) return 'Six Paths • Signed Collectible';
+  if (n.includes('superman')) return 'Multiverse Icon • Earth-23';
+  if (n.includes('periwinkle')) return 'Derry Archive • Signed Edition';
+  if (n.includes('messi')) return 'World Champion • Sports Legends';
+  if (n.includes('aquaman')) return 'Seven Seas • Justice League';
+  if (n.includes('harry potter')) return 'Golden Snitch • Wizarding World';
+  if (n.includes('godzilla')) return 'Fundays Grail • Atomic Edition';
+  if (n.includes('gyokko')) return 'Upper Moon • Demon Slayer';
+  return 'Collector Archive • Vinyl Edition';
 }
 
-function saveProducts(products) {
-  try {
-    fs.writeFileSync(PRODUCTS_JSON_PATH, JSON.stringify(products, null, 2), 'utf-8');
-    return true;
-  } catch (err) {
-    console.error(`${c.red}Error saving products.json: ${err.message}${c.reset}`);
-    return false;
-  }
-}
+// Build index.html
+export function buildIndex(products, settings) {
+  const categories = ['All', ...new Set(products.map(p => p.category).filter(Boolean))];
 
-function loadSettings() {
-  try {
-    if (!fs.existsSync(SETTINGS_JSON_PATH)) {
-      return {
-        storeName: "MFU",
-        tagline: "Curated Funko Pop! Vinyl Figures & Rare Chase Editions",
-        whatsappNumber: "+91 6366196633",
-        contactEmail: "mfucollectibles@gmail.com",
-        instagramHandle: "@mfu.pop",
-        instagramUrl: "https://www.instagram.com/mfu.pop",
-        currencySymbol: "$",
-        atelierLocation: "Bangalore &bull; Delhi &bull; Mumbai",
-        announcementText: "Complimentary 0.5mm Pop Protector Shield on All Figures &bull; Worldwide Dispatch"
-      };
-    }
-    const raw = fs.readFileSync(SETTINGS_JSON_PATH, 'utf-8');
-    return JSON.parse(raw);
-  } catch (err) {
-    console.error(`${c.red}Error loading settings.json: ${err.message}${c.reset}`);
-    return {};
-  }
-}
+  const categoryPillsHtml = categories.map(cat => {
+    const isAll = cat === 'All';
+    const filterVal = isAll ? 'all' : cat.toLowerCase();
+    return `<button type="button" class="shelf-pill ${isAll ? 'active' : ''}" data-filter="${filterVal}">${cat}</button>`;
+  }).join('\n          ');
 
-function saveSettings(settings) {
-  try {
-    fs.writeFileSync(SETTINGS_JSON_PATH, JSON.stringify(settings, null, 2), 'utf-8');
-    return true;
-  } catch (err) {
-    console.error(`${c.red}Error saving settings.json: ${err.message}${c.reset}`);
-    return false;
-  }
-}
+  const cardsHtml = products.map(p => {
+    const isAvailable = p.status === 'Available';
+    const isPreOrder = p.status === 'Pre-Order' || p.status === 'Preorder';
+    const statusClass = isAvailable ? 'available' : (isPreOrder ? 'preorder' : 'out-of-stock');
+    const statusLabel = isAvailable ? 'In Stock' : (isPreOrder ? 'Pre-Order' : 'Vaulted');
 
-// ============================================================================
-// TEMPLATE SYNC ENGINE: Rebuilding Static HTML
-// ============================================================================
+    const cleanName = formatTitle(p.name);
+    const subtitle = getSubtitle(p.name, p.category);
+    const specsJson = JSON.stringify(Array.isArray(p.description) ? p.description : [p.description || 'Exclusive official Funko Pop figure.']).replace(/"/g, '&quot;');
 
-function compileProductPage(product, settings) {
-  if (!fs.existsSync(PRODUCT_TEMPLATE_PATH)) {
-    throw new Error(`Master template not found at ${PRODUCT_TEMPLATE_PATH}`);
-  }
-
-  const template = fs.readFileSync(PRODUCT_TEMPLATE_PATH, 'utf-8');
-  const cleanWhatsApp = (settings.whatsappNumber || '').replace(/[^0-9]/g, '');
-  const isAvailable = product.status === 'Available';
-  const isPreOrder = product.status === 'Pre-Order' || product.status === 'Preorder';
-  let statusClass = 'out-of-stock';
-  let statusLabel = 'OUT OF STOCK';
-  if (isAvailable) {
-    statusClass = 'available';
-    statusLabel = 'AVAILABLE';
-  } else if (isPreOrder) {
-    statusClass = 'pre-order';
-    statusLabel = 'PRE-ORDER';
-  }
-
-  // Build Thumbnail Strip
-  const galleryList = (product.galleryImages && product.galleryImages.length > 0)
-    ? product.galleryImages
-    : [product.mainImage];
-
-  const thumbsHtml = galleryList.map((imgUrl, index) => {
-    const thumbSrc = toProductPagePath(imgUrl);
-    return `<div class="gallery-thumb-item ${index === 0 ? 'active' : ''}" data-full-src="${thumbSrc}">
-      <img src="${thumbSrc}" alt="${product.name} view ${index + 1}" loading="lazy">
-    </div>`;
-  }).join('\n            ');
-
-  // Build Price Display with Discounts
-  let priceStackHtml = `<span class="product-price-large">${product.price}</span>`;
-  if (product.originalPrice) {
-    const numPrice = parseFloat(product.price.replace(/[^0-9.]/g, ''));
-    const numOrig = parseFloat(product.originalPrice.replace(/[^0-9.]/g, ''));
-    let pillHtml = '';
-    if (numOrig > numPrice) {
-      const diff = Math.round(numOrig - numPrice);
-      const pct = Math.round(((numOrig - numPrice) / numOrig) * 100);
-      pillHtml = `<span class="product-discount-pill">SAVE ₹${diff.toLocaleString('en-IN')} (${pct}% OFF)</span>`;
-    }
-    priceStackHtml = `
-      <div class="price-stack">
-        <span class="product-price-large">${product.price}</span>
-        <span class="product-price-original">${product.originalPrice}</span>
-        ${pillHtml}
-      </div>
-    `;
-  }
-
-  // Build Specs List
-  const specs = Array.isArray(product.description)
-    ? product.description
-    : [product.description];
-
-  const specsHtml = specs.map(item => `<li>${item}</li>`).join('\n              ');
-
-  // Build Call to Action Button
-  let actionsHtml = '';
-  if (isAvailable || isPreOrder) {
-    const checkoutQuery = new URLSearchParams({
-      product: product.name,
-      price: product.price,
-      slug: product.slug,
-      image: toRootPagePath(product.mainImage),
-      status: isPreOrder ? 'preorder' : 'available'
-    }).toString();
-
-    const btnText = isPreOrder ? 'PRE-ORDER NOW' : 'PROCEED TO CHECKOUT';
-
-    actionsHtml = `
-      <a href="../checkout.html?${checkoutQuery}" class="btn-cta btn-cta-primary">
-        ${btnText}
-      </a>
-    `;
-    if (isPreOrder) {
-      actionsHtml += `
-        <div style="margin-top: 12px; text-align: center;">
-          <span class="caption" style="color: #78350F; letter-spacing: 0.12em;">Official Pre-Order Reservation &bull; Mint 10/10 Box Protected</span>
-        </div>
-      `;
-    }
-  } else {
-    const waText = encodeURIComponent(`Hello, I would like to inquire about restock / bespoke order for: ${product.name} (${product.price}).`);
-    const emailSubject = encodeURIComponent(`Restock Inquiry: ${product.name}`);
-    const emailBody = encodeURIComponent(`Hello Atelier,\n\nI am interested in acquiring ${product.name} listed at ${product.price}.\n\nPlease let me know when this edition becomes available again or if a bespoke piece can be commissioned.\n\nThank you.`);
-
-    actionsHtml = `
-      <button class="btn-cta btn-cta-disabled" disabled>
-        CURRENTLY UNAVAILABLE
-      </button>
-      <div class="restock-inquiry-box">
-        <p>This edition is currently spoken for. To join the priority waitlist or request a bespoke commission, reach out directly to the atelier:</p>
-        <div class="inquiry-buttons-group">
-          <a href="https://wa.me/${cleanWhatsApp}?text=${waText}" target="_blank" rel="noopener" class="btn-inquire">
-            <span>WhatsApp Concierge</span>
-          </a>
-          <a href="mailto:${settings.contactEmail}?subject=${emailSubject}&body=${emailBody}" class="btn-inquire">
-            <span>Email Inquiries</span>
-          </a>
-        </div>
-      </div>
-    `;
-  }
-
-  // Replace placeholders
-  let html = template
-    .replaceAll('{{STORE_NAME}}', settings.storeName || 'MFU')
-    .replaceAll('{{STORE_TAGLINE}}', settings.tagline || 'Curated Funko Pop! Vinyl Figures & Rare Chase Editions')
-    .replaceAll('{{STORE_WHATSAPP}}', settings.whatsappNumber || '')
-    .replaceAll('{{STORE_WHATSAPP_CLEAN}}', cleanWhatsApp)
-    .replaceAll('{{STORE_EMAIL}}', settings.contactEmail || '')
-    .replaceAll('{{INSTAGRAM_HANDLE}}', settings.instagramHandle || '@mfu.pop')
-    .replaceAll('{{INSTAGRAM_URL}}', settings.instagramUrl || 'https://www.instagram.com/mfu.pop')
-    .replaceAll('{{ATELIER_LOCATION}}', settings.atelierLocation || 'Bangalore &bull; Delhi &bull; Mumbai')
-    .replaceAll('{{ANNOUNCEMENT_TEXT}}', settings.announcementText || 'Complimentary 0.5mm Pop Protector Shield on All Figures &bull; Worldwide Dispatch')
-    .replaceAll('{{PRODUCT_NAME}}', product.name)
-    .replaceAll('{{PRODUCT_SLUG}}', product.slug)
-    .replaceAll('{{PRODUCT_PRICE}}', product.price)
-    .replaceAll('{{PRODUCT_PRICE_STACK}}', priceStackHtml)
-    .replaceAll('{{PRODUCT_CATEGORY}}', product.category)
-    .replaceAll('{{PRODUCT_CATEGORY_SLUG}}', slugify(product.category))
-    .replaceAll('{{PRODUCT_STATUS}}', product.status)
-    .replaceAll('{{PRODUCT_STATUS_CLASS}}', statusClass)
-    .replaceAll('{{PRODUCT_STATUS_LABEL}}', statusLabel)
-    .replaceAll('{{PRODUCT_MAIN_IMAGE}}', toProductPagePath(product.mainImage))
-    .replaceAll('{{PRODUCT_GALLERY_THUMBS}}', thumbsHtml)
-    .replaceAll('{{PRODUCT_SUMMARY}}', product.summary)
-    .replaceAll('{{PRODUCT_SPECS_HTML}}', specsHtml)
-    .replaceAll('{{PRODUCT_ACTIONS_HTML}}', actionsHtml)
-    .replaceAll('{{YEAR}}', new Date().getFullYear().toString());
-
-  // Ensure products directory exists
-  if (!fs.existsSync(PRODUCTS_OUT_DIR)) {
-    fs.mkdirSync(PRODUCTS_OUT_DIR, { recursive: true });
-  }
-
-  const outFilePath = path.join(PRODUCTS_OUT_DIR, `${product.slug}.html`);
-  fs.writeFileSync(outFilePath, html, 'utf-8');
-  return outFilePath;
-}
-
-function compileIndexPage(products, settings) {
-  if (!fs.existsSync(INDEX_TEMPLATE_PATH)) {
-    throw new Error(`Master index template not found at ${INDEX_TEMPLATE_PATH}`);
-  }
-
-  const template = fs.readFileSync(INDEX_TEMPLATE_PATH, 'utf-8');
-  const cleanWhatsApp = (settings.whatsappNumber || '').replace(/[^0-9]/g, '');
-
-  // Extract unique categories
-  const categories = [...new Set(products.map(p => p.category))].filter(Boolean);
-  const filterPillsHtml = categories.map(cat => {
-    return `<button type="button" class="filter-pill" data-filter="${cat.toLowerCase()}">${cat}</button>`;
-  }).join('\n        ');
-
-  // Build Product Cards
-  const cardsHtml = products.map(product => {
-    const isAvailable = product.status === 'Available';
-    const isPreOrder = product.status === 'Pre-Order' || product.status === 'Preorder';
-    let statusClass = 'out-of-stock';
-    let statusLabel = 'OUT OF STOCK';
-    if (isAvailable) {
-      statusClass = 'available';
-      statusLabel = 'AVAILABLE';
-    } else if (isPreOrder) {
-      statusClass = 'pre-order';
-      statusLabel = 'PRE-ORDER';
-    }
-
-    // Build Price with Strikethrough & Discount Tag
-    let priceBlockHtml = `<span class="product-card-price">${product.price}</span>`;
-    if (product.originalPrice) {
-      const numPrice = parseFloat(product.price.replace(/[^0-9.]/g, ''));
-      const numOrig = parseFloat(product.originalPrice.replace(/[^0-9.]/g, ''));
-      let badgeHtml = '';
-      if (numOrig > numPrice) {
-        const pct = Math.round(((numOrig - numPrice) / numOrig) * 100);
-        badgeHtml = `<span class="badge-discount">${pct}% OFF</span>`;
-      }
-      priceBlockHtml = `
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">${product.price}</span>
-                <span class="product-card-original-price">${product.originalPrice}</span>
-                ${badgeHtml}
-              </div>`;
-    }
+    // Use transparent Pop person image or product image
+    const imgSrc = p.mainImage && fs.existsSync(path.join(__dirname, p.mainImage))
+      ? p.mainImage
+      : 'Pics/pop_person_transparent.png';
 
     return `
-        <article class="product-card" data-category="${product.category}" data-status="${statusClass}">
-          <a href="products/${product.slug}.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status ${statusClass}">${statusLabel}</span>
-            </div>
-            <img src="${toRootPagePath(product.mainImage)}" alt="${product.name}" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">${product.category}</span>
-            </div>
-            <a href="products/${product.slug}.html">
-              <h3 class="product-card-title">${product.name}</h3>
+        <article class="collector-card" 
+          data-id="${p.id}" 
+          data-slug="${p.slug}" 
+          data-name="${cleanName}" 
+          data-price="${p.price}" 
+          data-category="${p.category || 'Collectibles'}" 
+          data-status="${statusClass}"
+          data-image="${imgSrc}"
+          data-specs="${specsJson}">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill ${statusClass}">
+              <span class="indicator-dot"></span>
+              ${statusLabel}
+            </span>
+            <a href="products/${p.slug}.html" class="card-visual-link" aria-label="${cleanName}">
+              <img src="${imgSrc}" alt="${cleanName}" class="card-visual-img" loading="lazy">
             </a>
-            <p class="product-card-summary">${product.summary}</p>
-            <div class="product-card-footer">
-              ${priceBlockHtml}
-              <a href="products/${product.slug}.html" class="product-card-cta">
-                <span>${isPreOrder ? 'Pre-Order Piece' : 'View Collector Piece'}</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
                 </svg>
-              </a>
+              </button>
             </div>
           </div>
+
+          <div class="card-info-body">
+            <a href="products/${p.slug}.html" class="card-title-link">
+              <h3 class="card-title">${cleanName}</h3>
+            </a>
+            <span class="card-category-tag">${subtitle}</span>
+            <div class="card-price-row">
+              <span class="card-price">${p.price}</span>
+              ${p.originalPrice ? `<span class="card-original-price">${p.originalPrice}</span>` : ''}
+            </div>
+          </div>
+
         </article>`;
   }).join('\n');
 
-  // Replace placeholders
-  let html = template
-    .replaceAll('{{STORE_NAME}}', settings.storeName || 'MFU')
-    .replaceAll('{{STORE_TAGLINE}}', settings.tagline || 'Curated Funko Pop! Vinyl Figures & Rare Chase Editions')
-    .replaceAll('{{STORE_WHATSAPP}}', settings.whatsappNumber || '')
-    .replaceAll('{{STORE_WHATSAPP_CLEAN}}', cleanWhatsApp)
-    .replaceAll('{{STORE_EMAIL}}', settings.contactEmail || '')
-    .replaceAll('{{INSTAGRAM_HANDLE}}', settings.instagramHandle || '@mfu.pop')
-    .replaceAll('{{INSTAGRAM_URL}}', settings.instagramUrl || 'https://www.instagram.com/mfu.pop')
-    .replaceAll('{{ATELIER_LOCATION}}', settings.atelierLocation || 'Bangalore &bull; Delhi &bull; Mumbai')
-    .replaceAll('{{ANNOUNCEMENT_TEXT}}', settings.announcementText || 'Complimentary 0.5mm Pop Protector Shield on All Figures &bull; Worldwide Dispatch')
-    .replaceAll('{{CATEGORY_FILTER_PILLS}}', filterPillsHtml)
-    .replaceAll('{{PRODUCT_GRID_CARDS}}', cardsHtml)
-    .replaceAll('{{YEAR}}', new Date().getFullYear().toString());
+  const cleanPhone = (settings.whatsappNumber || '').replace(/[^0-9]/g, '');
 
-  fs.writeFileSync(INDEX_HTML_PATH, html, 'utf-8');
-  return INDEX_HTML_PATH;
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${settings.storeName || 'MFU'} — ${settings.tagline || 'Curated Vault Collectibles'}</title>
+  <meta name="description" content="Discover rare, verified authentic Funko Pop vinyl figures, grails, and limited editions. Complete with free 0.5mm Pop Protector Shields.">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/mfu-logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/mfu-logo.png">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <script>
+    window.__STORE_SETTINGS__ = ${JSON.stringify(settings)};
+  </script>
+</head>
+<body>
+
+  <!-- Top Utility Marquee Bar -->
+  <aside class="utility-bar">
+    <span>${settings.announcementText || 'Complimentary 0.5mm Pop Protector Shield on All Figures • Worldwide Dispatch'}</span>
+  </aside>
+
+  <!-- Floating Tech Header -->
+  <header class="tech-header">
+    <div class="container tech-header-inner">
+      
+      <!-- Brand Identity -->
+      <a href="index.html" class="brand-identity">
+        <div class="brand-badge">
+          <img src="assets/images/mfu-logo.png" alt="MFU Collectibles Logo">
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">${settings.storeName || 'MFU'}</span>
+          <span class="brand-subtitle">COLLECTIBLES</span>
+        </div>
+      </a>
+
+      <!-- Instant Keyboard-Aware Search Field -->
+      <div class="header-search">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="M21 21l-4.35-4.35"/>
+        </svg>
+        <input type="text" id="searchInput" class="search-field" placeholder="Search verified grails, characters, series..." aria-label="Search catalog">
+        <kbd class="search-kbd">/</kbd>
+      </div>
+
+      <!-- Actions -->
+      <div class="header-actions">
+        <a href="https://wa.me/${cleanPhone}" target="_blank" rel="noopener" class="btn-desk-concierge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          <span>VIP Desk</span>
+        </a>
+
+        <button type="button" class="btn-cart-trigger" id="cartTrigger" aria-label="Open Collector Bag">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+          <span class="cart-count-badge" id="cartBadge">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Banner & Live Stats -->
+  <section class="hero-deck">
+    <div class="container hero-deck-content">
+      <div class="hero-headline-wrap">
+        <div class="hero-pill-badge">
+          <span class="dot"></span>
+          Vault Archive • Authenticated Curations
+        </div>
+        <h1 class="hero-headline">Curated Rare Vinyl & Grail Archive</h1>
+        <p class="hero-lead">Museum-grade Pop collectibles, rare convention exclusives, and vaulted vinyl figurines. Every piece ships in a complimentary 0.5mm UV-filtering shield.</p>
+      </div>
+
+      <div class="hero-metrics-strip">
+        <div class="metric-card">
+          <div class="metric-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div class="metric-info">
+            <span class="metric-value">${products.length} Grails</span>
+            <span class="metric-label">In Live Archive</span>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div class="metric-info">
+            <span class="metric-value">0.5mm Shield</span>
+            <span class="metric-label">Included on All Pops</span>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <div class="metric-info">
+            <span class="metric-value">Fast Dispatch</span>
+            <span class="metric-label">Pan-India Express</span>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <div class="metric-info">
+            <span class="metric-value">100% Genuine</span>
+            <span class="metric-label">Inspected & Verified</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Shelf Control Bar -->
+  <section class="shelf-bar">
+    <div class="container shelf-bar-inner">
+      <div class="shelf-categories" id="shelfCategories">
+        ${categoryPillsHtml}
+      </div>
+
+      <div class="shelf-tools">
+        <label class="stock-toggle-label">
+          <input type="checkbox" id="stockToggle" class="stock-toggle-input">
+          <span class="stock-toggle-switch"></span>
+          <span>In Stock Only</span>
+        </label>
+
+        <select id="sortSelect" class="shelf-select" aria-label="Sort products">
+          <option value="featured">Sort: Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="title-az">Name: A to Z</option>
+        </select>
+
+        <span class="results-count-badge" id="resultsCounter">Showing ${products.length} Vault Pieces</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5-Column Product Grid -->
+  <main class="catalog-section">
+    <div class="container">
+      <div class="collector-grid" id="collectorGrid">
+        ${cardsHtml}
+      </div>
+    </div>
+  </main>
+
+  <!-- Slide-Out Cart / Bag Drawer -->
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Bag">
+    <div class="cart-drawer-header">
+      <h3 class="cart-drawer-title">Collector Bag</h3>
+      <button type="button" class="btn-drawer-close" id="cartClose" aria-label="Close Bag">✕</button>
+    </div>
+
+    <div class="cart-drawer-items" id="cartItems">
+      <!-- Populated via app.js -->
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span>Estimated Subtotal</span>
+        <span class="cart-subtotal-val" id="cartSubtotal">₹0</span>
+      </div>
+      <a href="#" class="btn-whatsapp-checkout" id="cartWhatsappBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z"/>
+        </svg>
+        <span>Checkout with WhatsApp</span>
+      </a>
+      <a href="checkout.html" style="text-align: center; font-size: 11.5px; color: var(--text-muted); text-decoration: underline;">
+        Or view detailed order summary
+      </a>
+    </div>
+  </aside>
+
+  <!-- Floating Quick-View Modal -->
+  <div class="modal-backdrop" id="quickViewBackdrop">
+    <div class="quickview-card" role="dialog" aria-modal="true">
+      <button type="button" class="btn-modal-close" id="qvClose" aria-label="Close modal">✕</button>
+      
+      <div class="quickview-gallery">
+        <img id="qvImage" src="" alt="" class="quickview-main-img">
+      </div>
+
+      <div class="quickview-info">
+        <span class="quickview-category" id="qvCategory"></span>
+        <h2 class="quickview-title" id="qvTitle"></h2>
+        
+        <div class="quickview-price-row">
+          <span class="quickview-price" id="qvPrice"></span>
+          <span style="font-size: 11.5px; color: var(--accent-mint); font-weight: 700;">● Ready for Express Dispatch</span>
+        </div>
+
+        <ul class="quickview-specs" id="qvSpecs">
+          <!-- Populated dynamically -->
+        </ul>
+
+        <div class="quickview-actions">
+          <a href="#" class="btn-qv-whatsapp" id="qvWhatsappBtn" target="_blank" rel="noopener">
+            Order via WhatsApp
+          </a>
+          <button type="button" class="btn-qv-bag" id="qvBagBtn">
+            Add to Bag
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Deck -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Tech Footer -->
+  <footer class="tech-footer">
+    <div class="container">
+      <div class="tech-footer-grid">
+        <div>
+          <h4 class="footer-brand-title">${settings.storeName || 'MFU'} Collectibles</h4>
+          <p class="footer-brand-desc">${settings.tagline || 'Curated rare Pop vinyl figures, limited grails, and authenticated collector editions.'}</p>
+          <p style="font-size: 11px; color: var(--text-muted); margin-top: 10px;">${settings.atelierLocation || 'Bangalore • Delhi • Mumbai'}</p>
+        </div>
+
+        <div>
+          <h5 class="footer-section-title">Direct Concierge</h5>
+          <ul class="footer-link-list">
+            <li><a href="https://wa.me/${cleanPhone}" target="_blank" rel="noopener">WhatsApp: ${settings.whatsappNumber}</a></li>
+            <li><a href="mailto:${settings.contactEmail}">${settings.contactEmail}</a></li>
+            <li><a href="${settings.instagramUrl || '#'}" target="_blank" rel="noopener">Instagram: ${settings.instagramHandle || '@mfu.pop'}</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer-section-title">Collector Standards</h5>
+          <ul class="footer-link-list">
+            <li><a>0.5mm Pop Protector Shields Included</a></li>
+            <li><a>Bubble-Wrapped Double-Box Packing</a></li>
+            <li><a>100% Verified Authentic Packaging</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-strip">
+        <span>&copy; ${new Date().getFullYear()} ${settings.storeName || 'MFU'}. All rights reserved.</span>
+        <span>Obsidian Tech Storefront Engine</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>`;
+
+  fs.writeFileSync(path.join(__dirname, 'index.html'), html, 'utf-8');
+  console.log('✔ index.html compiled successfully');
 }
 
-function syncCheckoutPage(settings) {
-  if (!fs.existsSync(CHECKOUT_HTML_PATH)) return;
-
-  try {
-    let content = fs.readFileSync(CHECKOUT_HTML_PATH, 'utf-8');
-    content = content.replace(/data-whatsapp="[^"]*"/, `data-whatsapp="${settings.whatsappNumber}"`);
-    content = content.replace(/data-email="[^"]*"/, `data-email="${settings.contactEmail}"`);
-    fs.writeFileSync(CHECKOUT_HTML_PATH, content, 'utf-8');
-  } catch (err) {
-    // Non-fatal
-  }
-}
-
-function rebuildAll(products, settings) {
-  console.log(`\n${c.cyan}⚡ Rebuilding all static editorial pages from master template...${c.reset}`);
-  
-  let count = 0;
-  for (const prod of products) {
-    compileProductPage(prod, settings);
-    count++;
+// Build Individual Product Pages
+export function buildProductPages(products, settings) {
+  if (!fs.existsSync(OUT_PRODUCTS_DIR)) {
+    fs.mkdirSync(OUT_PRODUCTS_DIR, { recursive: true });
   }
 
-  compileIndexPage(products, settings);
-  syncCheckoutPage(settings);
+  const cleanPhone = (settings.whatsappNumber || '').replace(/[^0-9]/g, '');
 
-  console.log(`${c.green}✔ Successfully generated ${count} product pages and updated index.html & checkout.html!${c.reset}`);
-}
+  products.forEach(p => {
+    const cleanName = formatTitle(p.name);
+    const subtitle = getSubtitle(p.name, p.category);
+    const specs = Array.isArray(p.description) ? p.description : [p.description || 'Exclusive Pop vinyl collectible.'];
+    const specsHtml = specs.map(s => `<li>${s}</li>`).join('\n              ');
 
-// ============================================================================
-// INTERACTIVE CLI COMMAND HANDLERS
-// ============================================================================
+    const imgSrc = p.mainImage && fs.existsSync(path.join(__dirname, p.mainImage))
+      ? `../${p.mainImage}`
+      : '../Pics/pop_person_transparent.png';
 
-async function handleAddProduct(rl) {
-  console.log(`\n${c.bold}========================================${c.reset}`);
-  console.log(`${c.bold}       [1] ADD NEW PRODUCT PAGE         ${c.reset}`);
-  console.log(`${c.bold}========================================${c.reset}`);
+    const waMsg = encodeURIComponent(`Hello MFU Desk, I want to purchase ${cleanName} (${p.price}). Please confirm stock & shipping.`);
+    const waUrl = `https://wa.me/${cleanPhone}?text=${waMsg}`;
 
-  const name = await rl.question(`${c.cyan}1. Product Name:${c.reset} `);
-  if (!name.trim()) {
-    console.log(`${c.red}Product name cannot be empty.${c.reset}`);
-    return;
-  }
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${cleanName} — ${settings.storeName || 'MFU'}</title>
+  <meta name="description" content="${p.summary || cleanName}">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon.png">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" href="../assets/images/mfu-logo.png">
+  <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+<body>
 
-  const defaultSlug = slugify(name);
-  const slugInput = await rl.question(`${c.cyan}   Slug [Press Enter for '${defaultSlug}']:${c.reset} `);
-  const slug = slugInput.trim() ? slugify(slugInput) : defaultSlug;
+  <!-- Top Utility Bar -->
+  <aside class="utility-bar">
+    <span>Free 0.5mm Pop Protector Shield Included on Every Order</span>
+  </aside>
 
-  const products = loadProducts();
-  if (products.some(p => p.slug === slug)) {
-    console.log(`${c.red}A product with slug '${slug}' already exists. Please choose another name.${c.reset}`);
-    return;
-  }
+  <!-- Sticky Header -->
+  <header class="tech-header">
+    <div class="container tech-header-inner">
+      <a href="../index.html" class="brand-identity">
+        <div class="brand-badge">
+          <img src="../assets/images/mfu-logo.png" alt="Logo">
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">${settings.storeName || 'MFU'}</span>
+          <span class="brand-subtitle">COLLECTIBLES</span>
+        </div>
+      </a>
 
-  const price = await rl.question(`${c.cyan}2. Offer Price (e.g. ₹2,499):${c.reset} `);
-  const originalPrice = await rl.question(`${c.cyan}3. Original MRP Price (optional, e.g. ₹3,299):${c.reset} `);
-  const category = await rl.question(`${c.cyan}4. Category / Fandom (e.g. Anime, Marvel & DC, Gaming):${c.reset} `);
-  const mainImage = await rl.question(`${c.cyan}5. Front Image URL or local path:${c.reset} `);
-  const galleryInput = await rl.question(`${c.cyan}6. Additional Gallery Images (comma-separated, optional):${c.reset} `);
-  const summary = await rl.question(`${c.cyan}7. Short Editorial Summary:${c.reset} `);
-  const detailsInput = await rl.question(`${c.cyan}8. Specifications / Details (comma-separated):${c.reset} `);
-  
-  console.log(`${c.cyan}9. Availability Status:${c.reset}`);
-  console.log(`   [1] Available (In Stock)`);
-  console.log(`   [2] Pre-Order`);
-  console.log(`   [3] Out of Stock`);
-  const statusChoice = await rl.question(`   Select [1/2/3, default 1]: `);
-  let status = 'Available';
-  if (statusChoice.trim() === '2') status = 'Pre-Order';
-  else if (statusChoice.trim() === '3') status = 'Out of Stock';
+      <div class="header-actions">
+        <a href="../index.html" class="btn-desk-concierge">
+          ← Back to Catalog
+        </a>
+      </div>
+    </div>
+  </header>
 
-  // Parse gallery & specs
-  const galleryImages = [mainImage.trim()];
-  if (galleryInput.trim()) {
-    const extras = galleryInput.split(',').map(s => s.trim()).filter(Boolean);
-    galleryImages.push(...extras);
-  }
+  <main class="detail-stage">
+    <div class="container">
+      <div class="detail-split">
+        
+        <!-- Left: Figure Display -->
+        <div class="detail-gallery">
+          <img src="${imgSrc}" alt="${cleanName}" class="detail-main-img">
+        </div>
 
-  const description = detailsInput.trim()
-    ? detailsInput.split(',').map(s => s.trim()).filter(Boolean)
-    : [summary];
+        <!-- Right: Information & Actions -->
+        <div class="detail-info">
+          <span class="detail-category-eyebrow">${p.category || 'Collectibles'} • ${subtitle}</span>
+          <h1 class="detail-title">${cleanName}</h1>
 
-  const newProduct = {
-    id: `prod-${Date.now()}`,
-    slug,
-    name: name.trim(),
-    price: price.trim() || '₹0',
-    originalPrice: originalPrice.trim() || '',
-    category: category.trim() || 'Anime',
-    status,
-    mainImage: mainImage.trim() || 'assets/images/spiderman-no-way-home.webp',
-    galleryImages,
-    summary: summary.trim() || 'An authentic vault piece in mint box condition.',
-    description,
-    createdAt: new Date().toISOString()
-  };
+          <div class="detail-price-stack">
+            <span class="detail-price">${p.price}</span>
+            ${p.originalPrice ? `<span class="card-original-price" style="font-size: 15px;">${p.originalPrice}</span>` : ''}
+          </div>
 
-  products.push(newProduct);
-  saveProducts(products);
+          <p style="font-size: 14.5px; color: var(--text-secondary); line-height: 1.6;">
+            ${p.summary || 'Premium Funko Pop collectible, sculpted with authentic detailing and packaged with collector-grade protection.'}
+          </p>
 
-  const settings = loadSettings();
-  compileProductPage(newProduct, settings);
-  compileIndexPage(products, settings);
+          <div class="detail-specs-box">
+            <h4 class="detail-specs-title">Item Specifications</h4>
+            <ul class="detail-specs-list">
+              ${specsHtml}
+            </ul>
+          </div>
 
-  console.log(`\n${c.green}✔ Created product: ${newProduct.name}${c.reset}`);
-  console.log(`${c.green}✔ Static HTML generated at: products/${newProduct.slug}.html${c.reset}`);
-  console.log(`${c.green}✔ Homepage catalog refreshed.${c.reset}`);
-}
+          <div class="detail-actions-group">
+            <a href="${waUrl}" target="_blank" rel="noopener" class="btn-detail-order">
+              Order via WhatsApp (${p.price})
+            </a>
+          </div>
+        </div>
 
-async function handleToggleAvailability(rl) {
-  const products = loadProducts();
-  if (products.length === 0) {
-    console.log(`\n${c.yellow}No products found in data/products.json.${c.reset}`);
-    return;
-  }
+      </div>
+    </div>
+  </main>
 
-  console.log(`\n${c.bold}========================================${c.reset}`);
-  console.log(`${c.bold}    [2] TOGGLE PRODUCT AVAILABILITY     ${c.reset}`);
-  console.log(`${c.bold}========================================${c.reset}`);
+  <footer class="tech-footer">
+    <div class="container">
+      <div class="footer-bottom-strip">
+        <span>&copy; ${new Date().getFullYear()} ${settings.storeName || 'MFU'}. Authenticated Funko Grails.</span>
+        <a href="../index.html" style="color: var(--accent-gold);">Return to Storefront</a>
+      </div>
+    </div>
+  </footer>
 
-  products.forEach((p, idx) => {
-    let statusText = `${c.red}[OUT OF STOCK]${c.reset}`;
-    if (p.status === 'Available') statusText = `${c.green}[AVAILABLE]${c.reset}`;
-    else if (p.status === 'Pre-Order' || p.status === 'Preorder') statusText = `${c.yellow}[PRE-ORDER]${c.reset}`;
-    console.log(`[${idx + 1}] ${p.name.padEnd(34)} ${statusText}`);
+</body>
+</html>`;
+
+    fs.writeFileSync(path.join(OUT_PRODUCTS_DIR, `${p.slug}.html`), html, 'utf-8');
   });
 
-  const choiceStr = await rl.question(`\n${c.cyan}Enter product number to update status (or 0 to cancel):${c.reset} `);
-  const choice = parseInt(choiceStr, 10);
-
-  if (isNaN(choice) || choice < 1 || choice > products.length) {
-    console.log(`${c.taupe}Action cancelled.${c.reset}`);
-    return;
-  }
-
-  const target = products[choice - 1];
-  console.log(`\n${c.cyan}Select new status for "${target.name}":${c.reset}`);
-  console.log(`  [1] Available (In Stock)`);
-  console.log(`  [2] Pre-Order`);
-  console.log(`  [3] Out of Stock`);
-  console.log(`  [Enter] Cycle to next status`);
-  const statusSelect = await rl.question(`Select [1/2/3 or Enter]: `);
-
-  if (statusSelect.trim() === '1') {
-    target.status = 'Available';
-  } else if (statusSelect.trim() === '2') {
-    target.status = 'Pre-Order';
-  } else if (statusSelect.trim() === '3') {
-    target.status = 'Out of Stock';
-  } else {
-    // Cycle
-    if (target.status === 'Available') target.status = 'Pre-Order';
-    else if (target.status === 'Pre-Order' || target.status === 'Preorder') target.status = 'Out of Stock';
-    else target.status = 'Available';
-  }
-
-  saveProducts(products);
-  const settings = loadSettings();
-  compileProductPage(target, settings);
-  compileIndexPage(products, settings);
-
-  let newStatusColored = `${c.red}OUT OF STOCK${c.reset}`;
-  if (target.status === 'Available') newStatusColored = `${c.green}AVAILABLE${c.reset}`;
-  else if (target.status === 'Pre-Order') newStatusColored = `${c.yellow}PRE-ORDER${c.reset}`;
-
-  console.log(`\n${c.green}✔ Updated "${target.name}" -> ${newStatusColored}`);
-  console.log(`${c.green}✔ Static page 'products/${target.slug}.html' & homepage updated instantly!${c.reset}`);
+  console.log(`✔ Generated ${products.length} product detail pages in products/`);
 }
 
-async function handleEditProduct(rl) {
+// Build checkout.html
+export function buildCheckout(settings) {
+  const cleanPhone = (settings.whatsappNumber || '').replace(/[^0-9]/g, '');
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout & Concierge Desk — ${settings.storeName || 'MFU'}</title>
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+
+  <header class="tech-header">
+    <div class="container tech-header-inner">
+      <a href="index.html" class="brand-identity">
+        <div class="brand-badge">
+          <img src="assets/images/mfu-logo.png" alt="Logo">
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">${settings.storeName || 'MFU'}</span>
+          <span class="brand-subtitle">COLLECTIBLES</span>
+        </div>
+      </a>
+      <a href="index.html" class="btn-desk-concierge">← Back to Store</a>
+    </div>
+  </header>
+
+  <main style="padding: 60px 0 100px;">
+    <div class="container" style="max-width: 640px;">
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-medium); border-radius: var(--radius-lg); padding: 36px; text-align: center;">
+        <span class="hero-pill-badge" style="margin-bottom: 16px;">Direct VIP Ordering</span>
+        <h1 style="font-family: var(--font-display); font-size: 28px; font-weight: 800; color: var(--text-white); margin-bottom: 12px;">Instant Concierge Checkout</h1>
+        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;">
+          For expedited processing, bank transfers, or UPI payments, connect directly with our collector desk on WhatsApp. We offer same-day dispatch and mint box verification.
+        </p>
+
+        <a href="https://wa.me/${cleanPhone}?text=Hello%20MFU%20Desk,%20I%20would%20like%20to%20complete%20an%20order." target="_blank" rel="noopener" class="btn-detail-order" style="display: block; padding: 16px;">
+          Connect on WhatsApp (+91 6366196633)
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="tech-footer">
+    <div class="container">
+      <div class="footer-bottom-strip">
+        <span>&copy; ${new Date().getFullYear()} ${settings.storeName || 'MFU'}</span>
+        <a href="index.html" style="color: var(--accent-gold);">Return to Storefront</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>`;
+
+  fs.writeFileSync(path.join(__dirname, 'checkout.html'), html, 'utf-8');
+  console.log('✔ checkout.html compiled successfully');
+}
+
+export function compileAll() {
   const products = loadProducts();
-  if (products.length === 0) {
-    console.log(`\n${c.yellow}No products available to edit.${c.reset}`);
-    return;
-  }
-
-  console.log(`\n${c.bold}========================================${c.reset}`);
-  console.log(`${c.bold}        [3] EDIT EXISTING PRODUCT        ${c.reset}`);
-  console.log(`${c.bold}========================================${c.reset}`);
-
-  products.forEach((p, idx) => {
-    console.log(`[${idx + 1}] ${p.name} (${p.price}) [${p.status}]`);
-  });
-
-  const choiceStr = await rl.question(`\n${c.cyan}Select product number to edit (or 0 to cancel):${c.reset} `);
-  const choice = parseInt(choiceStr, 10);
-
-  if (isNaN(choice) || choice < 1 || choice > products.length) {
-    console.log(`${c.taupe}Action cancelled.${c.reset}`);
-    return;
-  }
-
-  const p = products[choice - 1];
-  console.log(`\n${c.taupe}Press [Enter] on any field to keep its existing value.${c.reset}\n`);
-
-  const name = await rl.question(`${c.cyan}Name [${p.name}]:${c.reset} `);
-  if (name.trim()) p.name = name.trim();
-
-  const price = await rl.question(`${c.cyan}Price [${p.price}]:${c.reset} `);
-  if (price.trim()) p.price = price.trim();
-
-  const category = await rl.question(`${c.cyan}Category [${p.category}]:${c.reset} `);
-  if (category.trim()) p.category = category.trim();
-
-  const mainImage = await rl.question(`${c.cyan}Main Image [${p.mainImage}]:${c.reset} `);
-  if (mainImage.trim()) {
-    p.mainImage = mainImage.trim();
-    if (!p.galleryImages || p.galleryImages.length === 0) {
-      p.galleryImages = [p.mainImage];
-    } else {
-      p.galleryImages[0] = p.mainImage;
-    }
-  }
-
-  const summary = await rl.question(`${c.cyan}Editorial Summary [${p.summary}]:${c.reset} `);
-  if (summary.trim()) p.summary = summary.trim();
-
-  const specsStr = await rl.question(`${c.cyan}Specifications (comma-separated, Enter to keep current):${c.reset} `);
-  if (specsStr.trim()) {
-    p.description = specsStr.split(',').map(s => s.trim()).filter(Boolean);
-  }
-
-  saveProducts(products);
   const settings = loadSettings();
-  compileProductPage(p, settings);
-  compileIndexPage(products, settings);
-
-  console.log(`\n${c.green}✔ Updated ${p.name} and regenerated static pages.${c.reset}`);
+  buildIndex(products, settings);
+  buildProductPages(products, settings);
+  buildCheckout(settings);
+  console.log('🎉 All pages compiled successfully!');
 }
 
-async function handleDeleteProduct(rl) {
-  const products = loadProducts();
-  if (products.length === 0) {
-    console.log(`\n${c.yellow}No products available to delete.${c.reset}`);
-    return;
-  }
-
-  console.log(`\n${c.bold}========================================${c.reset}`);
-  console.log(`${c.bold}          [4] DELETE PRODUCT            ${c.reset}`);
-  console.log(`${c.bold}========================================${c.reset}`);
-
-  products.forEach((p, idx) => {
-    console.log(`[${idx + 1}] ${p.name} (${p.slug})`);
-  });
-
-  const choiceStr = await rl.question(`\n${c.cyan}Select product number to DELETE (or 0 to cancel):${c.reset} `);
-  const choice = parseInt(choiceStr, 10);
-
-  if (isNaN(choice) || choice < 1 || choice > products.length) {
-    console.log(`${c.taupe}Action cancelled.${c.reset}`);
-    return;
-  }
-
-  const target = products[choice - 1];
-  const confirm = await rl.question(`${c.red}Are you sure you want to permanently delete "${target.name}"? (y/N):${c.reset} `);
-
-  if (confirm.trim().toLowerCase() !== 'y') {
-    console.log(`${c.taupe}Deletion aborted.${c.reset}`);
-    return;
-  }
-
-  // Remove html file
-  const htmlPath = path.join(PRODUCTS_OUT_DIR, `${target.slug}.html`);
-  if (fs.existsSync(htmlPath)) {
-    fs.unlinkSync(htmlPath);
-  }
-
-  // Remove from array
-  products.splice(choice - 1, 1);
-  saveProducts(products);
-
-  const settings = loadSettings();
-  compileIndexPage(products, settings);
-
-  console.log(`\n${c.green}✔ Product "${target.name}" deleted and catalog rebuilt.${c.reset}`);
-}
-
-async function handleUpdateContact(rl) {
-  const settings = loadSettings();
-
-  console.log(`\n${c.bold}========================================${c.reset}`);
-  console.log(`${c.bold}     [6] UPDATE CONCIERGE CONTACT       ${c.reset}`);
-  console.log(`${c.bold}========================================${c.reset}`);
-  console.log(`Current WhatsApp: ${settings.whatsappNumber}`);
-  console.log(`Current Email:    ${settings.contactEmail}\n`);
-
-  const newWa = await rl.question(`${c.cyan}New WhatsApp number (e.g. +12125550198, Enter to keep):${c.reset} `);
-  if (newWa.trim()) settings.whatsappNumber = newWa.trim();
-
-  const newEmail = await rl.question(`${c.cyan}New Contact Email (e.g. orders@atelier.com, Enter to keep):${c.reset} `);
-  if (newEmail.trim()) settings.contactEmail = newEmail.trim();
-
-  saveSettings(settings);
-
-  // Rebuild all pages so new contact links are active everywhere
-  const products = loadProducts();
-  rebuildAll(products, settings);
-
-  console.log(`\n${c.green}✔ Contact details saved and synced across all pages.${c.reset}`);
-}
-
-// ============================================================================
-// MAIN CLI LOOP
-// ============================================================================
-
-async function main() {
-  const rl = readline.createInterface({ input, output });
-
-  // Banner
-  console.clear();
-  console.log(`\n${c.bold}------------------------------------------------------------${c.reset}`);
-  console.log(`${c.bold}            MFU — CONTENT MANAGEMENT TERMINAL CLI            ${c.reset}`);
-  console.log(`${c.dim}  Zero-Code Static Commerce System & Master Template Engine ${c.reset}`);
-  console.log(`${c.bold}------------------------------------------------------------${c.reset}`);
-
-  let running = true;
-  while (running) {
-    console.log(`\n${c.bold}MANAGEMENT MENU:${c.reset}`);
-    console.log(`  ${c.cyan}[1]${c.reset} Add New Product Page`);
-    console.log(`  ${c.cyan}[2]${c.reset} Toggle Product Availability (Available / Out of Stock)`);
-    console.log(`  ${c.cyan}[3]${c.reset} Edit Existing Product`);
-    console.log(`  ${c.cyan}[4]${c.reset} Delete Product`);
-    console.log(`  ${c.cyan}[5]${c.reset} Rebuild All Pages from Master Template`);
-    console.log(`  ${c.cyan}[6]${c.reset} Update Contact Details (WhatsApp Number & Email)`);
-    console.log(`  ${c.yellow}[0]${c.reset} Exit`);
-
-    const action = await rl.question(`\n${c.bold}Select option [0-6]:${c.reset} `);
-
-    switch (action.trim()) {
-      case '1':
-        await handleAddProduct(rl);
-        break;
-      case '2':
-        await handleToggleAvailability(rl);
-        break;
-      case '3':
-        await handleEditProduct(rl);
-        break;
-      case '4':
-        await handleDeleteProduct(rl);
-        break;
-      case '5': {
-        const products = loadProducts();
-        const settings = loadSettings();
-        rebuildAll(products, settings);
-        break;
-      }
-      case '6':
-        await handleUpdateContact(rl);
-        break;
-      case '0':
-        running = false;
-        console.log(`\n${c.taupe}Exiting Atelier CLI. Have a wonderful day.${c.reset}\n`);
-        break;
-      default:
-        console.log(`${c.red}Invalid option. Please choose between 0 and 6.${c.reset}`);
-        break;
-    }
-  }
-
-  rl.close();
-}
-
-// Auto-run if executed directly
+// Run if called directly
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  main().catch(err => {
-    console.error(`CLI Error:`, err);
-    process.exit(1);
-  });
+  compileAll();
 }
-
-export {
-  loadProducts,
-  saveProducts,
-  loadSettings,
-  saveSettings,
-  compileProductPage,
-  compileIndexPage,
-  rebuildAll,
-  slugify
-};
-

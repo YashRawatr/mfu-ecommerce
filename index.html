@@ -3,827 +3,1138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MFU — Rare Funko Pop! Figures & Collectibles</title>
-  <meta name="description" content="Curated Funko Pop! Vinyl Figures & Rare Chase Editions. An editorial archive of limited edition Funko Pop! vinyl figures, convention exclusives, and vaulted chase grails.">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <title>MFU — Curated Funko Pop! Vinyl Figures & Rare Chase Editions</title>
+  <meta name="description" content="Discover rare, verified authentic Funko Pop vinyl figures, grails, and limited editions. Complete with free 0.5mm Pop Protector Shields.">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/mfu-logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/mfu-logo.png">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <script>
+    window.__STORE_SETTINGS__ = {"storeName":"MFU","tagline":"Curated Funko Pop! Vinyl Figures & Rare Chase Editions","whatsappNumber":"+91 6366196633","contactEmail":"mfucollectibles@gmail.com","instagramHandle":"@mfu.pop","instagramUrl":"https://www.instagram.com/mfu.pop","currencySymbol":"₹","atelierLocation":"Bangalore &bull; Delhi &bull; Mumbai","announcementText":"Complimentary 0.5mm Pop Protector Shield on All Figures &bull; Worldwide Dispatch","adminPasscode":"mfu2026"};
+  </script>
 </head>
 <body>
 
-  <!-- Top Announcement Bar -->
-  <aside class="site-announcement caption">
-    Complimentary 0.5mm Pop Protector Shield on All Figures &bull; Worldwide Dispatch
+  <!-- Top Utility Marquee Bar -->
+  <aside class="utility-bar">
+    <span>Complimentary 0.5mm Pop Protector Shield on All Figures &bull; Worldwide Dispatch</span>
   </aside>
 
-  <!-- Editorial Top Navigation -->
-  <header class="site-header">
-    <div class="container nav-inner">
-      <div class="nav-brand">
-        <a href="index.html" class="nav-brand-title">MFU</a>
-        <span class="nav-brand-sub">Curated Funko Pop! Vinyl Figures & Rare Chase Editions</span>
+  <!-- Floating Tech Header -->
+  <header class="tech-header">
+    <div class="container tech-header-inner">
+      
+      <!-- Brand Identity -->
+      <a href="index.html" class="brand-identity">
+        <div class="brand-badge">
+          <img src="assets/images/mfu-logo.png" alt="MFU Collectibles Logo">
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">MFU</span>
+          <span class="brand-subtitle">COLLECTIBLES</span>
+        </div>
+      </a>
+
+      <!-- Instant Keyboard-Aware Search Field -->
+      <div class="header-search">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="M21 21l-4.35-4.35"/>
+        </svg>
+        <input type="text" id="searchInput" class="search-field" placeholder="Search verified grails, characters, series..." aria-label="Search catalog">
+        <kbd class="search-kbd">/</kbd>
       </div>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link active">Home</a></li>
-          <li><a href="checkout.html" class="nav-link">Checkout</a></li>
-        </ul>
-      </nav>
-      <div>
-        <a href="https://wa.me/916366196633" target="_blank" rel="noopener" class="nav-concierge-pill">
-          <span>Collector Desk</span>
+
+      <!-- Actions -->
+      <div class="header-actions">
+        <a href="https://wa.me/916366196633" target="_blank" rel="noopener" class="btn-desk-concierge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          <span>VIP Desk</span>
         </a>
+
+        <button type="button" class="btn-cart-trigger" id="cartTrigger" aria-label="Open Collector Bag">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+          <span class="cart-count-badge" id="cartBadge">0</span>
+        </button>
       </div>
+
     </div>
   </header>
 
-  <!-- Hero Section with Didot Display 110px / 124px Scale -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-meta-strip">
-        <span class="caption">ARCHIVE NO. 24 &bull; POP! VINYL & GRAILS</span>
-        <span class="caption">AUTHENTIC COLLECTIBLES</span>
-      </div>
-      
-      <div class="hero-title-container">
-        <h1 class="hero-display">THE POP! VAULT</h1>
-      </div>
-
-      <div class="hero-subtext-grid">
-        <p class="body-lead">
-          A gallery-grade collection of rare Funko Pop! figures, convention exclusives, and vaulted chase grails. Curated for the discerning pop culture collector.
-        </p>
-        <p class="body-text">
-          Every figure is guaranteed 10/10 mint box condition, protected inside an archival 0.5mm UV shield, and shipped in crush-proof packaging.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Collection Filter & Search Bar -->
-  <section class="catalog-toolbar" id="vault">
-    <div class="container toolbar-inner">
-      <div class="filter-pills" id="filterPillsContainer">
-        <button type="button" class="filter-pill active" data-filter="all">All Figures</button>
-        <button type="button" class="filter-pill" data-filter="available">In Stock Only</button>
-        <button type="button" class="filter-pill" data-filter="pre-order">Pre-Orders</button>
-        <button type="button" class="filter-pill" data-filter="dc comics">DC Comics</button>
-        <button type="button" class="filter-pill" data-filter="marvel">Marvel</button>
-        <button type="button" class="filter-pill" data-filter="anime">Anime</button>
-        <button type="button" class="filter-pill" data-filter="television">Television</button>
-        <button type="button" class="filter-pill" data-filter="sports">Sports</button>
-        <button type="button" class="filter-pill" data-filter="movies">Movies</button>
-      </div>
-      <div class="search-input-wrap">
-        <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"></path>
-        </svg>
-        <input type="text" id="catalogSearch" class="search-input" placeholder="Search by character, fandom, or #box..." autocomplete="off">
-      </div>
-    </div>
-  </section>
-
-  <!-- Editorial Product Grid -->
-  <section class="product-grid-section">
-    <div class="container">
-      <div class="editorial-grid" id="productGrid">
-        
-        <article class="product-card" data-category="DC Comics" data-status="available">
-          <a href="products/pop-dc-comics-freddy-funko-as-the-riddler-87.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/Pop_DC_Comics_Freddy_Funko_as_the_Riddler_87__f_img.png" alt="Pop! DC Comics: Freddy Funko as The Riddler #87" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">DC Comics</span>
-            </div>
-            <a href="products/pop-dc-comics-freddy-funko-as-the-riddler-87.html">
-              <h3 class="product-card-title">Pop! DC Comics: Freddy Funko as The Riddler #87</h3>
-            </a>
-            <p class="product-card-summary">Exclusive collector grail featuring Freddy Funko dressed as the enigmatic Gotham rogue The Riddler (#87) in tailored green question-mark suit.</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹2,999</span>
-                <span class="product-card-original-price">₹4,199</span>
-                <span class="badge-discount">29% OFF</span>
-              </div>
-              <a href="products/pop-dc-comics-freddy-funko-as-the-riddler-87.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="Marvel" data-status="available">
-          <a href="products/pop-marvel-groot-as-wolverine-1396.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/My Funko Universe available soon.png" alt="Pop! Marvel: Groot as Wolverine #1396" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">Marvel</span>
-            </div>
-            <a href="products/pop-marvel-groot-as-wolverine-1396.html">
-              <h3 class="product-card-title">Pop! Marvel: Groot as Wolverine #1396</h3>
-            </a>
-            <p class="product-card-summary">Playful Marvel mashup featuring everyone's favorite Flora Colossus Groot channeling Wolverine (#1396) complete with Adamantium wood-claws and winged mask.</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹1,899</span>
-                <span class="product-card-original-price">₹2,599</span>
-                <span class="badge-discount">27% OFF</span>
-              </div>
-              <a href="products/pop-marvel-groot-as-wolverine-1396.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="Marvel" data-status="available">
-          <a href="products/pop-marvel-captain-america-2017-summer-convention-exclusive-06.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/My Funko Universe available soon.png" alt="Pop! Marvel: Captain America (2017 Summer Convention Exclusive) #06" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">Marvel</span>
-            </div>
-            <a href="products/pop-marvel-captain-america-2017-summer-convention-exclusive-06.html">
-              <h3 class="product-card-title">Pop! Marvel: Captain America (2017 Summer Convention Exclusive) #06</h3>
-            </a>
-            <p class="product-card-summary">Vaulted 2017 San Diego Summer Convention Exclusive of Steve Rogers as Captain America (#06) with classic vibranium shield.</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹2,499</span>
-                <span class="product-card-original-price">₹3,499</span>
-                <span class="badge-discount">29% OFF</span>
-              </div>
-              <a href="products/pop-marvel-captain-america-2017-summer-convention-exclusive-06.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="DC Comics" data-status="available">
-          <a href="products/pop-dc-comics-batman-justice-armor-83.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/Pop_Batman_digital_Justice_Armor_4250LE__f_img.png" alt="Pop! DC Comics: Batman (Justice Armor) #83" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">DC Comics</span>
-            </div>
-            <a href="products/pop-dc-comics-batman-justice-armor-83.html">
-              <h3 class="product-card-title">Pop! DC Comics: Batman (Justice Armor) #83</h3>
-            </a>
-            <p class="product-card-summary">Heavy tactical Justice Armor Batman (#83) built for epic confrontations with high-tech reinforced plating and glowing bat-insignia.</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹6,500</span>
-                <span class="product-card-original-price">₹8,999</span>
-                <span class="badge-discount">28% OFF</span>
-              </div>
-              <a href="products/pop-dc-comics-batman-justice-armor-83.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="Marvel" data-status="available">
-          <a href="products/pop-marvel-hulk-gold-chrome-499.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/Pop_Marvel_Hulk_Gold_Chrome_499_f_img.png" alt="Pop! Marvel: Hulk (Gold Chrome) #499" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">Marvel</span>
-            </div>
-            <a href="products/pop-marvel-hulk-gold-chrome-499.html">
-              <h3 class="product-card-title">Pop! Marvel: Hulk (Gold Chrome) #499</h3>
-            </a>
-            <p class="product-card-summary">Marvel Studios 10th Anniversary Gold Chrome special edition of The Incredible Hulk (#499), sculpted in gleaming lustrous metallic gold.</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹1,899</span>
-                <span class="product-card-original-price">₹2,599</span>
-                <span class="badge-discount">27% OFF</span>
-              </div>
-              <a href="products/pop-marvel-hulk-gold-chrome-499.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="Marvel" data-status="available">
-          <a href="products/pop-marvel-spider-man-japanese-tv-series-glow-chase-932.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/Pop_Marvel_Spider-Man_Japanese_TV_Series_Glow_Chase_932__f_img.png" alt="Pop! Marvel: Spider-Man (Japanese TV Series, Glow Chase) #932" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">Marvel</span>
-            </div>
-            <a href="products/pop-marvel-spider-man-japanese-tv-series-glow-chase-932.html">
-              <h3 class="product-card-title">Pop! Marvel: Spider-Man (Japanese TV Series, Glow Chase) #932</h3>
-            </a>
-            <p class="product-card-summary">Rare Glow-in-the-Dark Chase Edition of Spider-Man from the iconic 1978 Toei Japanese TV series (#932) with luminescent web lines and eyes.</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹3,499</span>
-                <span class="product-card-original-price">₹4,799</span>
-                <span class="badge-discount">27% OFF</span>
-              </div>
-              <a href="products/pop-marvel-spider-man-japanese-tv-series-glow-chase-932.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="DC Comics" data-status="available">
-          <a href="products/pop-dc-comics-batman-beyond-chase-458.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/Pop_DC_Comics_Batman_Batman_Beyond_Chase_458__f_img.png" alt="Pop! DC Comics: Batman (Batman Beyond, Chase) #458" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">DC Comics</span>
-            </div>
-            <a href="products/pop-dc-comics-batman-beyond-chase-458.html">
-              <h3 class="product-card-title">Pop! DC Comics: Batman (Batman Beyond, Chase) #458</h3>
-            </a>
-            <p class="product-card-summary">Terry McGinnis in the sleek futuristic Neo-Gotham Batman Beyond batsuit (#458), featuring the rare metallic Chase edition with wings deployed.</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹3,499</span>
-                <span class="product-card-original-price">₹4,999</span>
-                <span class="badge-discount">30% OFF</span>
-              </div>
-              <a href="products/pop-dc-comics-batman-beyond-chase-458.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="Marvel" data-status="available">
-          <a href="products/pop-marvel-thor-glow-in-the-dark-335.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/Pop_Marvel_Thor_Glow_in_the_Dark_335__f_img.png" alt="Pop! Marvel: Thor (Glow in the Dark) #335" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">Marvel</span>
-            </div>
-            <a href="products/pop-marvel-thor-glow-in-the-dark-335.html">
-              <h3 class="product-card-title">Pop! Marvel: Thor (Glow in the Dark) #335</h3>
-            </a>
-            <p class="product-card-summary">The God of Thunder Thor (#335) charging electrifying Asgardian lightning, featuring glowing phosphorescent storm effects.</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹3,499</span>
-                <span class="product-card-original-price">₹4,599</span>
-                <span class="badge-discount">24% OFF</span>
-              </div>
-              <a href="products/pop-marvel-thor-glow-in-the-dark-335.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="Marvel" data-status="available">
-          <a href="products/pop-marvel-tony-stark-infinity-saga-le9500-1600.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/Pop_Marvel_Tony_Stark_Infinity_Saga_LE_9500_1600__f_img.png" alt="Pop! Marvel: Tony Stark (Infinity Saga) (LE 9500) #1600" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">Marvel</span>
-            </div>
-            <a href="products/pop-marvel-tony-stark-infinity-saga-le9500-1600.html">
-              <h3 class="product-card-title">Pop! Marvel: Tony Stark (Infinity Saga) (LE 9500) #1600</h3>
-            </a>
-            <p class="product-card-summary">Ultra-limited edition Tony Stark from Marvel Studios The Infinity Saga (#1600), numbered piece limited to just 9,500 pieces worldwide.</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹5,999</span>
-                <span class="product-card-original-price">₹8,499</span>
-                <span class="badge-discount">29% OFF</span>
-              </div>
-              <a href="products/pop-marvel-tony-stark-infinity-saga-le9500-1600.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="Marvel" data-status="available">
-          <a href="products/pop-marvel-superior-iron-man-le5000-1568.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/Pop_Marvel_Superior_Iron_Man_LE_5000_1568_._f_img.png" alt="Pop! Marvel: Superior Iron Man (LE 5000) #1568" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">Marvel</span>
-            </div>
-            <a href="products/pop-marvel-superior-iron-man-le5000-1568.html">
-              <h3 class="product-card-title">Pop! Marvel: Superior Iron Man (LE 5000) #1568</h3>
-            </a>
-            <p class="product-card-summary">Rare comic-exclusive Superior Iron Man (#1568) in high-polish white Endo-Sym armor, limited to only 5,000 pieces worldwide.</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹4,999</span>
-                <span class="product-card-original-price">₹6,999</span>
-                <span class="badge-discount">29% OFF</span>
-              </div>
-              <a href="products/pop-marvel-superior-iron-man-le5000-1568.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="Anime" data-status="available">
-          <a href="products/pop-anime-sung-jinwoo-solo-leveling-le7500-2221.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/Pop_Anime_Sung_Jinwoo_Solo_Leveling_LE7500_2221__f_img.png" alt="Pop! Anime: Sung Jinwoo (Solo Leveling) (LE7500) #2221" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">Anime</span>
-            </div>
-            <a href="products/pop-anime-sung-jinwoo-solo-leveling-le7500-2221.html">
-              <h3 class="product-card-title">Pop! Anime: Sung Jinwoo (Solo Leveling) (LE7500) #2221</h3>
-            </a>
-            <p class="product-card-summary">The Shadow Monarch Sung Jinwoo from Solo Leveling (#2221), ultra-grail exclusive limited to 7,500 pieces worldwide with glowing purple shadow aura.</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹8,499</span>
-                <span class="product-card-original-price">₹11,999</span>
-                <span class="badge-discount">29% OFF</span>
-              </div>
-              <a href="products/pop-anime-sung-jinwoo-solo-leveling-le7500-2221.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="Marvel" data-status="available">
-          <a href="products/pop-marvel-spider-man-die-cast-collectible-09.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/Pop_Marvel_Spider-Man_Die-Cast_Collectible_09__f_img.png" alt="Pop! Marvel: Spider-Man (Die-Cast Collectible) #09" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">Marvel</span>
-            </div>
-            <a href="products/pop-marvel-spider-man-die-cast-collectible-09.html">
-              <h3 class="product-card-title">Pop! Marvel: Spider-Man (Die-Cast Collectible) #09</h3>
-            </a>
-            <p class="product-card-summary">Heavyweight premium die-cast metal Spider-Man (#09) housed in an acrylic display case with laser-etched collector base.</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹6,499</span>
-                <span class="product-card-original-price">₹8,999</span>
-                <span class="badge-discount">28% OFF</span>
-              </div>
-              <a href="products/pop-marvel-spider-man-die-cast-collectible-09.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="Anime" data-status="available">
-          <a href="products/pop-anime-pain-naruto-shippuden-signed-934.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/My Funko Universe available soon.png" alt="Pop! Anime: Pain (Naruto Shippuden) (Signed) #934" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">Anime</span>
-            </div>
-            <a href="products/pop-anime-pain-naruto-shippuden-signed-934.html">
-              <h3 class="product-card-title">Pop! Anime: Pain (Naruto Shippuden) (Signed) #934</h3>
-            </a>
-            <p class="product-card-summary">Autographed collector grail of Pain (Deva Path) from Naruto: Shippuden (#934), signed by official voice actor with authentication.</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹7,999</span>
-                <span class="product-card-original-price">₹11,499</span>
-                <span class="badge-discount">30% OFF</span>
-              </div>
-              <a href="products/pop-anime-pain-naruto-shippuden-signed-934.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="DC Comics" data-status="available">
-          <a href="products/pop-dc-comics-superman-earth-23-le4250-84.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/Pop_DC_Comics_Superman_Earth-23_LE4250_84__f_img.png" alt="Pop! DC Comics: Superman (Earth-23) (LE4250) #84" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">DC Comics</span>
-            </div>
-            <a href="products/pop-dc-comics-superman-earth-23-le4250-84.html">
-              <h3 class="product-card-title">Pop! DC Comics: Superman (Earth-23) (LE4250) #84</h3>
-            </a>
-            <p class="product-card-summary">President Calvin Ellis, the Superman of Earth-23 (#84), strictly limited to only 4,250 pieces worldwide.</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹5,999</span>
-                <span class="product-card-original-price">₹8,499</span>
-                <span class="badge-discount">29% OFF</span>
-              </div>
-              <a href="products/pop-dc-comics-superman-earth-23-le4250-84.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="Television" data-status="available">
-          <a href="products/pop-welcome-to-derry-little-periwinkle-signed-1853.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/My Funko Universe available soon.png" alt="Pop! Welcome to Derry: Little Periwinkle (Signed) #1853" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">Television</span>
-            </div>
-            <a href="products/pop-welcome-to-derry-little-periwinkle-signed-1853.html">
-              <h3 class="product-card-title">Pop! Welcome to Derry: Little Periwinkle (Signed) #1853</h3>
-            </a>
-            <p class="product-card-summary">Autographed exclusive of Little Periwinkle from HBOs IT prequel series Welcome to Derry (#1853), hand-signed on window.</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹6,999</span>
-                <span class="product-card-original-price">₹9,999</span>
-                <span class="badge-discount">30% OFF</span>
-              </div>
-              <a href="products/pop-welcome-to-derry-little-periwinkle-signed-1853.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="Sports" data-status="available">
-          <a href="products/pop-sports-lionel-messi-inter-miami-cf-11.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/Pop_Sports_Lionel_Messi_Inter_Miami_CF_11__f_img.png" alt="Pop! Sports: Lionel Messi (Inter Miami CF) #11" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">Sports</span>
-            </div>
-            <a href="products/pop-sports-lionel-messi-inter-miami-cf-11.html">
-              <h3 class="product-card-title">Pop! Sports: Lionel Messi (Inter Miami CF) #11</h3>
-            </a>
-            <p class="product-card-summary">World champion and 8-time Ballon dOr winner Lionel Messi in his iconic pink Inter Miami CF home kit (#11).</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹2,399</span>
-                <span class="product-card-original-price">₹3,299</span>
-                <span class="badge-discount">27% OFF</span>
-              </div>
-              <a href="products/pop-sports-lionel-messi-inter-miami-cf-11.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="DC Comics" data-status="available">
-          <a href="products/pop-dc-comics-aquaman-justice-league-464.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/Pop_DC_Comics_Aquaman_Justice_League_464__f_img.png" alt="Pop! DC Comics: Aquaman (Justice League) #464" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">DC Comics</span>
-            </div>
-            <a href="products/pop-dc-comics-aquaman-justice-league-464.html">
-              <h3 class="product-card-title">Pop! DC Comics: Aquaman (Justice League) #464</h3>
-            </a>
-            <p class="product-card-summary">Arthur Curry, King of Atlantis, as seen in DCs Justice League (#464), sculpted with golden trident and scaled Atlantean armor.</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹1,899</span>
-                <span class="product-card-original-price">₹2,499</span>
-                <span class="badge-discount">24% OFF</span>
-              </div>
-              <a href="products/pop-dc-comics-aquaman-justice-league-464.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="DC Comics" data-status="available">
-          <a href="products/pop-dc-comics-batman-the-dark-knight-le5000-621.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/Pop_DC_Comics_Batman_The_Dark_Knight_LE_5000_621__f_img.png" alt="Pop! DC Comics: Batman (The Dark Knight) (LE 5000) #621" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">DC Comics</span>
-            </div>
-            <a href="products/pop-dc-comics-batman-the-dark-knight-le5000-621.html">
-              <h3 class="product-card-title">Pop! DC Comics: Batman (The Dark Knight) (LE 5000) #621</h3>
-            </a>
-            <p class="product-card-summary">Christopher Nolans The Dark Knight trilogy Batman (#621), strictly limited to 5,000 pieces with tactical Kevlar weave armor.</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹5,999</span>
-                <span class="product-card-original-price">₹8,999</span>
-                <span class="badge-discount">33% OFF</span>
-              </div>
-              <a href="products/pop-dc-comics-batman-the-dark-knight-le5000-621.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="Anime" data-status="available">
-          <a href="products/pop-anime-gyokko-demon-slayer-1855.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/My Funko Universe available soon.png" alt="Pop! Anime: Gyokko (Demon Slayer) #1855" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">Anime</span>
-            </div>
-            <a href="products/pop-anime-gyokko-demon-slayer-1855.html">
-              <h3 class="product-card-title">Pop! Anime: Gyokko (Demon Slayer) #1855</h3>
-            </a>
-            <p class="product-card-summary">Upper Rank Five demon Gyokko from Demon Slayer: Kimetsu no Yaiba (#1855), emerging from his ornate porcelain summoning pot.</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹8,999</span>
-                <span class="product-card-original-price">₹11,999</span>
-                <span class="badge-discount">25% OFF</span>
-              </div>
-              <a href="products/pop-anime-gyokko-demon-slayer-1855.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="Movies" data-status="available">
-          <a href="products/pop-harry-potter-harry-potter-112.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/Pop_Harry_Potter_Harry_Potter_112__f_img.png" alt="Pop! Harry Potter: Harry Potter #112" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">Movies</span>
-            </div>
-            <a href="products/pop-harry-potter-harry-potter-112.html">
-              <h3 class="product-card-title">Pop! Harry Potter: Harry Potter #112</h3>
-            </a>
-            <p class="product-card-summary">The Boy Who Lived in classic Hogwarts Gryffindor school robes with wand drawn (#112).</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹1,899</span>
-                <span class="product-card-original-price">₹2,699</span>
-                <span class="badge-discount">30% OFF</span>
-              </div>
-              <a href="products/pop-harry-potter-harry-potter-112.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="Movies" data-status="available">
-          <a href="products/pop-godzilla-freddy-funko-as-shin-godzilla-fundays24-1150.html" class="product-card-figure">
-            <div class="product-card-badge">
-              <span class="badge-status available">AVAILABLE</span>
-            </div>
-            <img src="Pics/My Funko Universe available soon.png" alt="Pop! Godzilla: Freddy Funko as Shin Godzilla (Funko Fundays24 SE) (LE 1150)" class="product-card-img" loading="lazy">
-          </a>
-          <div class="product-card-body">
-            <div class="product-card-meta">
-              <span class="caption">Movies</span>
-            </div>
-            <a href="products/pop-godzilla-freddy-funko-as-shin-godzilla-fundays24-1150.html">
-              <h3 class="product-card-title">Pop! Godzilla: Freddy Funko as Shin Godzilla (Funko Fundays24 SE) (LE 1150)</h3>
-            </a>
-            <p class="product-card-summary">Ultra-rare Funko Fundays 2024 Special Edition mashup of Freddy Funko as Shin Godzilla, strictly limited to only 1,150 pieces worldwide.</p>
-            <div class="product-card-footer">
-              
-              <div class="product-card-price-wrap">
-                <span class="product-card-price">₹6,499</span>
-                <span class="product-card-original-price">₹9,499</span>
-                <span class="badge-discount">32% OFF</span>
-              </div>
-              <a href="products/pop-godzilla-freddy-funko-as-shin-godzilla-fundays24-1150.html" class="product-card-cta">
-                <span>View Collector Piece</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div id="emptyStateNotice" class="empty-state" style="display: none;">
-        <h3>No Figures Found</h3>
-        <p class="body-text">We could not find any Funko Pop matching your selected filter or search query.</p>
-      </div>
-
-      <!-- Editorial Centered Pagination -->
-      <nav class="catalog-pagination" id="catalogPagination" aria-label="Catalog Pages" style="display: none;">
-        <ul class="pagination-list">
-          <li>
-            <button type="button" class="pagination-btn pagination-arrow" id="paginationPrev" aria-label="Previous Page" disabled>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-              </svg>
-              <span>Prev</span>
-            </button>
-          </li>
-          <li class="pagination-numbers" id="paginationNumbers">
-            <!-- Dynamically populated when products > 6 -->
-          </li>
-          <li>
-            <button type="button" class="pagination-btn pagination-arrow" id="paginationNext" aria-label="Next Page">
-              <span>Next</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </section>
-
-  <!-- Editorial Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <h4>MFU</h4>
-          <p>Curated Funko Pop! Vinyl Figures & Rare Chase Editions</p>
-          <p class="caption" style="margin-top: 12px;">Bangalore &bull; Delhi &bull; Mumbai</p>
+  <!-- Hero Banner & Live Stats -->
+  <section class="hero-deck">
+    <div class="container hero-deck-content">
+      <div class="hero-headline-wrap">
+        <div class="hero-pill-badge">
+          <span class="dot"></span>
+          Vault Archive • Authenticated Curations
         </div>
+        <h1 class="hero-headline">Curated Rare Vinyl & Grail Archive</h1>
+        <p class="hero-lead">Museum-grade Pop collectibles, rare convention exclusives, and vaulted vinyl figurines. Every piece ships in a complimentary 0.5mm UV-filtering shield.</p>
+      </div>
+
+      <div class="hero-metrics-strip">
+        <div class="metric-card">
+          <div class="metric-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div class="metric-info">
+            <span class="metric-value">21 Grails</span>
+            <span class="metric-label">In Live Archive</span>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div class="metric-info">
+            <span class="metric-value">0.5mm Shield</span>
+            <span class="metric-label">Included on All Pops</span>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <div class="metric-info">
+            <span class="metric-value">Fast Dispatch</span>
+            <span class="metric-label">Pan-India Express</span>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <div class="metric-info">
+            <span class="metric-value">100% Genuine</span>
+            <span class="metric-label">Inspected & Verified</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Shelf Control Bar -->
+  <section class="shelf-bar">
+    <div class="container shelf-bar-inner">
+      <div class="shelf-categories" id="shelfCategories">
+        <button type="button" class="shelf-pill active" data-filter="all">All</button>
+          <button type="button" class="shelf-pill " data-filter="dc comics">DC Comics</button>
+          <button type="button" class="shelf-pill " data-filter="marvel">Marvel</button>
+          <button type="button" class="shelf-pill " data-filter="anime">Anime</button>
+          <button type="button" class="shelf-pill " data-filter="television">Television</button>
+          <button type="button" class="shelf-pill " data-filter="sports">Sports</button>
+          <button type="button" class="shelf-pill " data-filter="movies">Movies</button>
+      </div>
+
+      <div class="shelf-tools">
+        <label class="stock-toggle-label">
+          <input type="checkbox" id="stockToggle" class="stock-toggle-input">
+          <span class="stock-toggle-switch"></span>
+          <span>In Stock Only</span>
+        </label>
+
+        <select id="sortSelect" class="shelf-select" aria-label="Sort products">
+          <option value="featured">Sort: Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="title-az">Name: A to Z</option>
+        </select>
+
+        <span class="results-count-badge" id="resultsCounter">Showing 21 Vault Pieces</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5-Column Product Grid -->
+  <main class="catalog-section">
+    <div class="container">
+      <div class="collector-grid" id="collectorGrid">
+        
+        <article class="collector-card" 
+          data-id="pop-011" 
+          data-slug="pop-dc-comics-freddy-funko-as-the-riddler-87" 
+          data-name="Pop! Freddy Funko as The Riddler" 
+          data-price="₹2,999" 
+          data-category="DC Comics" 
+          data-status="available"
+          data-image="Pics/Pop_DC_Comics_Freddy_Funko_as_the_Riddler_87__f_img.png"
+          data-specs="[&quot;Official Funko Specialty Series exclusive collectible (#87)&quot;,&quot;Sculpted in signature emerald green suit adorned with iconic question mark motifs&quot;,&quot;Includes bowler hat, golden question mark cane accessory, and domino mask&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-dc-comics-freddy-funko-as-the-riddler-87.html" class="card-visual-link" aria-label="Pop! Freddy Funko as The Riddler">
+              <img src="Pics/Pop_DC_Comics_Freddy_Funko_as_the_Riddler_87__f_img.png" alt="Pop! Freddy Funko as The Riddler" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-dc-comics-freddy-funko-as-the-riddler-87.html" class="card-title-link">
+              <h3 class="card-title">Pop! Freddy Funko as The Riddler</h3>
+            </a>
+            <span class="card-category-tag">Gotham Enigma • Special Edition</span>
+            <div class="card-price-row">
+              <span class="card-price">₹2,999</span>
+              <span class="card-original-price">₹4,199</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-012" 
+          data-slug="pop-marvel-groot-as-wolverine-1396" 
+          data-name="Pop! Groot as Wolverine" 
+          data-price="₹1,899" 
+          data-category="Marvel" 
+          data-status="available"
+          data-image="Pics/pop_person_transparent.png"
+          data-specs="[&quot;Officially licensed Marvel Studios collectible (#1396)&quot;,&quot;Dynamic mashup sculpt combining classic Groot bark texture with Wolverine cowl and claws&quot;,&quot;Vibrant yellow and blue comic-inspired battle suit detailing&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-marvel-groot-as-wolverine-1396.html" class="card-visual-link" aria-label="Pop! Groot as Wolverine">
+              <img src="Pics/pop_person_transparent.png" alt="Pop! Groot as Wolverine" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-marvel-groot-as-wolverine-1396.html" class="card-title-link">
+              <h3 class="card-title">Pop! Groot as Wolverine</h3>
+            </a>
+            <span class="card-category-tag">Wild Fusion • Limited Series</span>
+            <div class="card-price-row">
+              <span class="card-price">₹1,899</span>
+              <span class="card-original-price">₹2,599</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-013" 
+          data-slug="pop-marvel-captain-america-2017-summer-convention-exclusive-06" 
+          data-name="Pop! Captain America" 
+          data-price="₹2,499" 
+          data-category="Marvel" 
+          data-status="available"
+          data-image="Pics/pop_person_transparent.png"
+          data-specs="[&quot;Official 2017 San Diego Summer Convention Exclusive grail (#06)&quot;,&quot;Authentic convention exclusive sticker on front display window&quot;,&quot;Classic WWII tactical suit sculpt with iconic star emblem and circular vibranium shield&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-marvel-captain-america-2017-summer-convention-exclusive-06.html" class="card-visual-link" aria-label="Pop! Captain America">
+              <img src="Pics/pop_person_transparent.png" alt="Pop! Captain America" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-marvel-captain-america-2017-summer-convention-exclusive-06.html" class="card-title-link">
+              <h3 class="card-title">Pop! Captain America</h3>
+            </a>
+            <span class="card-category-tag">First Avenger • Convention Grail</span>
+            <div class="card-price-row">
+              <span class="card-price">₹2,499</span>
+              <span class="card-original-price">₹3,499</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-014" 
+          data-slug="pop-dc-comics-batman-justice-armor-83" 
+          data-name="Pop! Batman (Justice Armor)" 
+          data-price="₹6,500" 
+          data-category="DC Comics" 
+          data-status="available"
+          data-image="Pics/Pop_Batman_digital_Justice_Armor_4250LE__f_img.png"
+          data-specs="[&quot;Officially licensed DC Comics premier collector vinyl (#83)&quot;,&quot;Heavyweight tactical exo-armor sculpt with reinforced shoulder pauldrons and gauntlets&quot;,&quot;Metallic battle-weathered finish with intricate hydraulic joint detailing&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-dc-comics-batman-justice-armor-83.html" class="card-visual-link" aria-label="Pop! Batman (Justice Armor)">
+              <img src="Pics/Pop_Batman_digital_Justice_Armor_4250LE__f_img.png" alt="Pop! Batman (Justice Armor)" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-dc-comics-batman-justice-armor-83.html" class="card-title-link">
+              <h3 class="card-title">Pop! Batman (Justice Armor)</h3>
+            </a>
+            <span class="card-category-tag">Dark Knight • Armored Edition</span>
+            <div class="card-price-row">
+              <span class="card-price">₹6,500</span>
+              <span class="card-original-price">₹8,999</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-015" 
+          data-slug="pop-marvel-hulk-gold-chrome-499" 
+          data-name="Pop! Hulk (Gold Chrome)" 
+          data-price="₹1,899" 
+          data-category="Marvel" 
+          data-status="available"
+          data-image="Pics/Pop_Marvel_Hulk_Gold_Chrome_499_f_img.png"
+          data-specs="[&quot;Marvel Studios 10th Anniversary Commemorative Special Edition (#499)&quot;,&quot;High-gloss polished gold chrome metallic finish with intricate muscle sculpt&quot;,&quot;Vaulted collector grail vinyl bobble-head format&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-marvel-hulk-gold-chrome-499.html" class="card-visual-link" aria-label="Pop! Hulk (Gold Chrome)">
+              <img src="Pics/Pop_Marvel_Hulk_Gold_Chrome_499_f_img.png" alt="Pop! Hulk (Gold Chrome)" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-marvel-hulk-gold-chrome-499.html" class="card-title-link">
+              <h3 class="card-title">Pop! Hulk (Gold Chrome)</h3>
+            </a>
+            <span class="card-category-tag">Chrome Alloy • Special Finish</span>
+            <div class="card-price-row">
+              <span class="card-price">₹1,899</span>
+              <span class="card-original-price">₹2,599</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-016" 
+          data-slug="pop-marvel-spider-man-japanese-tv-series-glow-chase-932" 
+          data-name="Pop! Spider-Man (Japanese TV Series, Glow Chase)" 
+          data-price="₹3,499" 
+          data-category="Marvel" 
+          data-status="available"
+          data-image="Pics/Pop_Marvel_Spider-Man_Japanese_TV_Series_Glow_Chase_932__f_img.png"
+          data-specs="[&quot;Official 1978 Toei Japanese Spider-Man TV Series collectible (#932)&quot;,&quot;Rare Glow-in-the-Dark (GITD) Chase Variant with certified Chase foil sticker&quot;,&quot;Sculpted classic emissary from hell battle stance with Spider Bracelet&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-marvel-spider-man-japanese-tv-series-glow-chase-932.html" class="card-visual-link" aria-label="Pop! Spider-Man (Japanese TV Series, Glow Chase)">
+              <img src="Pics/Pop_Marvel_Spider-Man_Japanese_TV_Series_Glow_Chase_932__f_img.png" alt="Pop! Spider-Man (Japanese TV Series, Glow Chase)" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-marvel-spider-man-japanese-tv-series-glow-chase-932.html" class="card-title-link">
+              <h3 class="card-title">Pop! Spider-Man (Japanese TV Series, Glow Chase)</h3>
+            </a>
+            <span class="card-category-tag">Web Slinger • Vintage Series</span>
+            <div class="card-price-row">
+              <span class="card-price">₹3,499</span>
+              <span class="card-original-price">₹4,799</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-017" 
+          data-slug="pop-dc-comics-batman-beyond-chase-458" 
+          data-name="Pop! Batman (Batman Beyond, Chase)" 
+          data-price="₹3,499" 
+          data-category="DC Comics" 
+          data-status="available"
+          data-image="Pics/Pop_DC_Comics_Batman_Batman_Beyond_Chase_458__f_img.png"
+          data-specs="[&quot;Official DC Comics Batman Beyond animation series collectible (#458)&quot;,&quot;Rare Limited Edition Chase variant with official Chase foil seal&quot;,&quot;Futuristic matte-black stealth suit with crimson bat insignia and wing gliders&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-dc-comics-batman-beyond-chase-458.html" class="card-visual-link" aria-label="Pop! Batman (Batman Beyond, Chase)">
+              <img src="Pics/Pop_DC_Comics_Batman_Batman_Beyond_Chase_458__f_img.png" alt="Pop! Batman (Batman Beyond, Chase)" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-dc-comics-batman-beyond-chase-458.html" class="card-title-link">
+              <h3 class="card-title">Pop! Batman (Batman Beyond, Chase)</h3>
+            </a>
+            <span class="card-category-tag">Dark Knight • Armored Edition</span>
+            <div class="card-price-row">
+              <span class="card-price">₹3,499</span>
+              <span class="card-original-price">₹4,999</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-018" 
+          data-slug="pop-marvel-thor-glow-in-the-dark-335" 
+          data-name="Pop! Thor (Glow in the Dark)" 
+          data-price="₹3,499" 
+          data-category="Marvel" 
+          data-status="available"
+          data-image="Pics/Pop_Marvel_Thor_Glow_in_the_Dark_335__f_img.png"
+          data-specs="[&quot;Officially licensed Marvel Avengers / Thor collectible (#335)&quot;,&quot;Special Edition Glow-in-the-Dark (GITD) phosphorescent lightning sculpt&quot;,&quot;Classic armor with dynamic winged helmet and enchanted Mjolnir&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-marvel-thor-glow-in-the-dark-335.html" class="card-visual-link" aria-label="Pop! Thor (Glow in the Dark)">
+              <img src="Pics/Pop_Marvel_Thor_Glow_in_the_Dark_335__f_img.png" alt="Pop! Thor (Glow in the Dark)" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-marvel-thor-glow-in-the-dark-335.html" class="card-title-link">
+              <h3 class="card-title">Pop! Thor (Glow in the Dark)</h3>
+            </a>
+            <span class="card-category-tag">Asgardian Core • Glow Edition</span>
+            <div class="card-price-row">
+              <span class="card-price">₹3,499</span>
+              <span class="card-original-price">₹4,599</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-019" 
+          data-slug="pop-marvel-tony-stark-infinity-saga-le9500-1600" 
+          data-name="Pop! Tony Stark (Infinity Saga)" 
+          data-price="₹5,999" 
+          data-category="Marvel" 
+          data-status="available"
+          data-image="Pics/Pop_Marvel_Tony_Stark_Infinity_Saga_LE_9500_1600__f_img.png"
+          data-specs="[&quot;Official Marvel Studios Infinity Saga Limited Edition (LE 9500) (#1600)&quot;,&quot;Rare numbered grail collectible with authenticated piece count sticker&quot;,&quot;Sculpted with Tony Stark casual tech attire and arc reactor detailing&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-marvel-tony-stark-infinity-saga-le9500-1600.html" class="card-visual-link" aria-label="Pop! Tony Stark (Infinity Saga)">
+              <img src="Pics/Pop_Marvel_Tony_Stark_Infinity_Saga_LE_9500_1600__f_img.png" alt="Pop! Tony Stark (Infinity Saga)" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-marvel-tony-stark-infinity-saga-le9500-1600.html" class="card-title-link">
+              <h3 class="card-title">Pop! Tony Stark (Infinity Saga)</h3>
+            </a>
+            <span class="card-category-tag">Stark Archive • Infinity Saga</span>
+            <div class="card-price-row">
+              <span class="card-price">₹5,999</span>
+              <span class="card-original-price">₹8,499</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-020" 
+          data-slug="pop-marvel-superior-iron-man-le5000-1568" 
+          data-name="Pop! Superior Iron Man" 
+          data-price="₹4,999" 
+          data-category="Marvel" 
+          data-status="available"
+          data-image="Pics/Pop_Marvel_Superior_Iron_Man_LE_5000_1568_._f_img.png"
+          data-specs="[&quot;Limited Edition of only 5,000 pieces worldwide (LE 5000) (#1568)&quot;,&quot;Sculpted in liquid-metal white and cobalt blue Endo-Sym biological armor&quot;,&quot;Official convention/collector exclusive foil sticker on box&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-marvel-superior-iron-man-le5000-1568.html" class="card-visual-link" aria-label="Pop! Superior Iron Man">
+              <img src="Pics/Pop_Marvel_Superior_Iron_Man_LE_5000_1568_._f_img.png" alt="Pop! Superior Iron Man" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-marvel-superior-iron-man-le5000-1568.html" class="card-title-link">
+              <h3 class="card-title">Pop! Superior Iron Man</h3>
+            </a>
+            <span class="card-category-tag">Stark Archive • Infinity Saga</span>
+            <div class="card-price-row">
+              <span class="card-price">₹4,999</span>
+              <span class="card-original-price">₹6,999</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-021" 
+          data-slug="pop-anime-sung-jinwoo-solo-leveling-le7500-2221" 
+          data-name="Pop! Sung Jinwoo (Solo Leveling)" 
+          data-price="₹8,499" 
+          data-category="Anime" 
+          data-status="available"
+          data-image="Pics/Pop_Anime_Sung_Jinwoo_Solo_Leveling_LE7500_2221__f_img.png"
+          data-specs="[&quot;Officially licensed Solo Leveling anime grail collectible (#2221)&quot;,&quot;Strictly limited to 7,500 pieces worldwide (LE 7500)&quot;,&quot;Dynamic sculpt featuring Kasaka Poison Fang dagger and glowing monarch eyes&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-anime-sung-jinwoo-solo-leveling-le7500-2221.html" class="card-visual-link" aria-label="Pop! Sung Jinwoo (Solo Leveling)">
+              <img src="Pics/Pop_Anime_Sung_Jinwoo_Solo_Leveling_LE7500_2221__f_img.png" alt="Pop! Sung Jinwoo (Solo Leveling)" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-anime-sung-jinwoo-solo-leveling-le7500-2221.html" class="card-title-link">
+              <h3 class="card-title">Pop! Sung Jinwoo (Solo Leveling)</h3>
+            </a>
+            <span class="card-category-tag">Shadow Monarch • Solo Leveling</span>
+            <div class="card-price-row">
+              <span class="card-price">₹8,499</span>
+              <span class="card-original-price">₹11,999</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-022" 
+          data-slug="pop-marvel-spider-man-die-cast-collectible-09" 
+          data-name="Pop! Spider-Man (Die-Cast Collectible)" 
+          data-price="₹6,499" 
+          data-category="Marvel" 
+          data-status="available"
+          data-image="Pics/Pop_Marvel_Spider-Man_Die-Cast_Collectible_09__f_img.png"
+          data-specs="[&quot;Official Funko Die-Cast Metal Series collectible (#09)&quot;,&quot;Constructed with authentic solid die-cast metal for substantial premium weight&quot;,&quot;Encased in clear acrylic museum-grade display case with telescopic lid&quot;,&quot;Metallic crimson and cobalt blue comic-accurate enamel detailing&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-marvel-spider-man-die-cast-collectible-09.html" class="card-visual-link" aria-label="Pop! Spider-Man (Die-Cast Collectible)">
+              <img src="Pics/Pop_Marvel_Spider-Man_Die-Cast_Collectible_09__f_img.png" alt="Pop! Spider-Man (Die-Cast Collectible)" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-marvel-spider-man-die-cast-collectible-09.html" class="card-title-link">
+              <h3 class="card-title">Pop! Spider-Man (Die-Cast Collectible)</h3>
+            </a>
+            <span class="card-category-tag">Web Slinger • Vintage Series</span>
+            <div class="card-price-row">
+              <span class="card-price">₹6,499</span>
+              <span class="card-original-price">₹8,999</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-023" 
+          data-slug="pop-anime-pain-naruto-shippuden-signed-934" 
+          data-name="Pop! Pain (Naruto Shippuden)" 
+          data-price="₹7,999" 
+          data-category="Anime" 
+          data-status="available"
+          data-image="Pics/pop_person_transparent.png"
+          data-specs="[&quot;Official Naruto: Shippuden anime collectible (#934)&quot;,&quot;Hand-signed on front window with tamper-evident authentication seal&quot;,&quot;Akatsuki cloud cloak with sculpted Rinnegan eyes and chakra receivers&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-anime-pain-naruto-shippuden-signed-934.html" class="card-visual-link" aria-label="Pop! Pain (Naruto Shippuden)">
+              <img src="Pics/pop_person_transparent.png" alt="Pop! Pain (Naruto Shippuden)" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-anime-pain-naruto-shippuden-signed-934.html" class="card-title-link">
+              <h3 class="card-title">Pop! Pain (Naruto Shippuden)</h3>
+            </a>
+            <span class="card-category-tag">Six Paths • Signed Collectible</span>
+            <div class="card-price-row">
+              <span class="card-price">₹7,999</span>
+              <span class="card-original-price">₹11,499</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-024" 
+          data-slug="pop-dc-comics-superman-earth-23-le4250-84" 
+          data-name="Pop! Superman (Earth-23)" 
+          data-price="₹5,999" 
+          data-category="DC Comics" 
+          data-status="available"
+          data-image="Pics/Pop_DC_Comics_Superman_Earth-23_LE4250_84__f_img.png"
+          data-specs="[&quot;Official DC Comics Multiverse collectible (#84)&quot;,&quot;Ultra-limited edition of only 4,250 pieces worldwide (LE 4250)&quot;,&quot;Iconic gold-bordered shield emblem with sculpted red cape and metallic belt&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-dc-comics-superman-earth-23-le4250-84.html" class="card-visual-link" aria-label="Pop! Superman (Earth-23)">
+              <img src="Pics/Pop_DC_Comics_Superman_Earth-23_LE4250_84__f_img.png" alt="Pop! Superman (Earth-23)" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-dc-comics-superman-earth-23-le4250-84.html" class="card-title-link">
+              <h3 class="card-title">Pop! Superman (Earth-23)</h3>
+            </a>
+            <span class="card-category-tag">Multiverse Icon • Earth-23</span>
+            <div class="card-price-row">
+              <span class="card-price">₹5,999</span>
+              <span class="card-original-price">₹8,499</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-025" 
+          data-slug="pop-welcome-to-derry-little-periwinkle-signed-1853" 
+          data-name="Pop! Little Periwinkle" 
+          data-price="₹6,999" 
+          data-category="Television" 
+          data-status="available"
+          data-image="Pics/pop_person_transparent.png"
+          data-specs="[&quot;Officially licensed HBO / Warner Bros. Welcome to Derry collectible (#1853)&quot;,&quot;Authentic hand-signed autograph on window with certificate of authenticity&quot;,&quot;Eerie vintage horror styling capturing the early lore of Derry&quot;,&quot;Vaulted limited release for horror collectors&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-welcome-to-derry-little-periwinkle-signed-1853.html" class="card-visual-link" aria-label="Pop! Little Periwinkle">
+              <img src="Pics/pop_person_transparent.png" alt="Pop! Little Periwinkle" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-welcome-to-derry-little-periwinkle-signed-1853.html" class="card-title-link">
+              <h3 class="card-title">Pop! Little Periwinkle</h3>
+            </a>
+            <span class="card-category-tag">Derry Archive • Signed Edition</span>
+            <div class="card-price-row">
+              <span class="card-price">₹6,999</span>
+              <span class="card-original-price">₹9,999</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-026" 
+          data-slug="pop-sports-lionel-messi-inter-miami-cf-11" 
+          data-name="Pop! Lionel Messi (Inter Miami CF)" 
+          data-price="₹2,399" 
+          data-category="Sports" 
+          data-status="available"
+          data-image="Pics/Pop_Sports_Lionel_Messi_Inter_Miami_CF_11__f_img.png"
+          data-specs="[&quot;Officially licensed MLS / Inter Miami CF football collectible (#11)&quot;,&quot;Sculpted in signature pink and black kit with captains armband and ball&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-sports-lionel-messi-inter-miami-cf-11.html" class="card-visual-link" aria-label="Pop! Lionel Messi (Inter Miami CF)">
+              <img src="Pics/Pop_Sports_Lionel_Messi_Inter_Miami_CF_11__f_img.png" alt="Pop! Lionel Messi (Inter Miami CF)" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-sports-lionel-messi-inter-miami-cf-11.html" class="card-title-link">
+              <h3 class="card-title">Pop! Lionel Messi (Inter Miami CF)</h3>
+            </a>
+            <span class="card-category-tag">World Champion • Sports Legends</span>
+            <div class="card-price-row">
+              <span class="card-price">₹2,399</span>
+              <span class="card-original-price">₹3,299</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-027" 
+          data-slug="pop-dc-comics-aquaman-justice-league-464" 
+          data-name="Pop! Aquaman (Justice League)" 
+          data-price="₹1,899" 
+          data-category="DC Comics" 
+          data-status="available"
+          data-image="Pics/Pop_DC_Comics_Aquaman_Justice_League_464__f_img.png"
+          data-specs="[&quot;Officially licensed DC Comics / Warner Bros. Justice League collectible (#464)&quot;,&quot;Detailed Atlantean scale mail armor and gleaming golden Quinquedent&quot;,&quot;Dynamic flowing hair and determined battle pose&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-dc-comics-aquaman-justice-league-464.html" class="card-visual-link" aria-label="Pop! Aquaman (Justice League)">
+              <img src="Pics/Pop_DC_Comics_Aquaman_Justice_League_464__f_img.png" alt="Pop! Aquaman (Justice League)" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-dc-comics-aquaman-justice-league-464.html" class="card-title-link">
+              <h3 class="card-title">Pop! Aquaman (Justice League)</h3>
+            </a>
+            <span class="card-category-tag">Seven Seas • Justice League</span>
+            <div class="card-price-row">
+              <span class="card-price">₹1,899</span>
+              <span class="card-original-price">₹2,499</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-028" 
+          data-slug="pop-dc-comics-batman-the-dark-knight-le5000-621" 
+          data-name="Pop! Batman (The Dark Knight)" 
+          data-price="₹5,999" 
+          data-category="DC Comics" 
+          data-status="available"
+          data-image="Pics/Pop_DC_Comics_Batman_The_Dark_Knight_LE_5000_621__f_img.png"
+          data-specs="[&quot;Officially licensed The Dark Knight / Christopher Nolan trilogy collectible (#621)&quot;,&quot;Strictly limited production of only 5,000 pieces worldwide (LE 5000)&quot;,&quot;Sculpted with modular cowl plates, gauntlet blades, and utility belt&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-dc-comics-batman-the-dark-knight-le5000-621.html" class="card-visual-link" aria-label="Pop! Batman (The Dark Knight)">
+              <img src="Pics/Pop_DC_Comics_Batman_The_Dark_Knight_LE_5000_621__f_img.png" alt="Pop! Batman (The Dark Knight)" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-dc-comics-batman-the-dark-knight-le5000-621.html" class="card-title-link">
+              <h3 class="card-title">Pop! Batman (The Dark Knight)</h3>
+            </a>
+            <span class="card-category-tag">Dark Knight • Armored Edition</span>
+            <div class="card-price-row">
+              <span class="card-price">₹5,999</span>
+              <span class="card-original-price">₹8,999</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-029" 
+          data-slug="pop-anime-gyokko-demon-slayer-1855" 
+          data-name="Pop! Gyokko (Demon Slayer)" 
+          data-price="₹8,999" 
+          data-category="Anime" 
+          data-status="available"
+          data-image="Pics/pop_person_transparent.png"
+          data-specs="[&quot;Officially licensed Demon Slayer: Swordsmith Village Arc collectible (#1855)&quot;,&quot;Intricate porcelain vase sculpt with emerging serpentine demon form&quot;,&quot;Sculpted multiple hands and inverted facial feature anatomy&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-anime-gyokko-demon-slayer-1855.html" class="card-visual-link" aria-label="Pop! Gyokko (Demon Slayer)">
+              <img src="Pics/pop_person_transparent.png" alt="Pop! Gyokko (Demon Slayer)" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-anime-gyokko-demon-slayer-1855.html" class="card-title-link">
+              <h3 class="card-title">Pop! Gyokko (Demon Slayer)</h3>
+            </a>
+            <span class="card-category-tag">Upper Moon • Demon Slayer</span>
+            <div class="card-price-row">
+              <span class="card-price">₹8,999</span>
+              <span class="card-original-price">₹11,999</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-030" 
+          data-slug="pop-harry-potter-harry-potter-112" 
+          data-name="Pop! Harry Potter" 
+          data-price="₹1,899" 
+          data-category="Movies" 
+          data-status="available"
+          data-image="Pics/Pop_Harry_Potter_Harry_Potter_112__f_img.png"
+          data-specs="[&quot;Officially licensed Wizarding World / Harry Potter collectible (#112)&quot;,&quot;Sculpted round spectacles, lightning bolt forehead scar, and holly wand&quot;,&quot;Gryffindor house crest and pleated Hogwarts school uniform&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-harry-potter-harry-potter-112.html" class="card-visual-link" aria-label="Pop! Harry Potter">
+              <img src="Pics/Pop_Harry_Potter_Harry_Potter_112__f_img.png" alt="Pop! Harry Potter" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-harry-potter-harry-potter-112.html" class="card-title-link">
+              <h3 class="card-title">Pop! Harry Potter</h3>
+            </a>
+            <span class="card-category-tag">Golden Snitch • Wizarding World</span>
+            <div class="card-price-row">
+              <span class="card-price">₹1,899</span>
+              <span class="card-original-price">₹2,699</span>
+            </div>
+          </div>
+
+        </article>
+
+        <article class="collector-card" 
+          data-id="pop-031" 
+          data-slug="pop-godzilla-freddy-funko-as-shin-godzilla-fundays24-1150" 
+          data-name="Pop! Freddy Funko as Shin Godzilla" 
+          data-price="₹6,499" 
+          data-category="Movies" 
+          data-status="available"
+          data-image="Pics/pop_person_transparent.png"
+          data-specs="[&quot;Official Funko Fundays 2024 Convention Exclusive (Fundays24 SE)&quot;,&quot;Extremely limited grail edition of only 1,150 pieces worldwide (LE 1150)&quot;,&quot;Sculpted Shin Godzilla tail, dorsal fins, and Freddy crown insignia&quot;]">
+          
+          <div class="card-visual-frame">
+            <span class="card-status-pill available">
+              <span class="indicator-dot"></span>
+              In Stock
+            </span>
+            <a href="products/pop-godzilla-freddy-funko-as-shin-godzilla-fundays24-1150.html" class="card-visual-link" aria-label="Pop! Freddy Funko as Shin Godzilla">
+              <img src="Pics/pop_person_transparent.png" alt="Pop! Freddy Funko as Shin Godzilla" class="card-visual-img" loading="lazy">
+            </a>
+            <div class="card-action-deck">
+              <button type="button" class="btn-card-quickview">Quick View</button>
+              <button type="button" class="btn-card-quickadd" aria-label="Add to Bag">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-info-body">
+            <a href="products/pop-godzilla-freddy-funko-as-shin-godzilla-fundays24-1150.html" class="card-title-link">
+              <h3 class="card-title">Pop! Freddy Funko as Shin Godzilla</h3>
+            </a>
+            <span class="card-category-tag">Fundays Grail • Atomic Edition</span>
+            <div class="card-price-row">
+              <span class="card-price">₹6,499</span>
+              <span class="card-original-price">₹9,499</span>
+            </div>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- Slide-Out Cart / Bag Drawer -->
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Bag">
+    <div class="cart-drawer-header">
+      <h3 class="cart-drawer-title">Collector Bag</h3>
+      <button type="button" class="btn-drawer-close" id="cartClose" aria-label="Close Bag">✕</button>
+    </div>
+
+    <div class="cart-drawer-items" id="cartItems">
+      <!-- Populated via app.js -->
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span>Estimated Subtotal</span>
+        <span class="cart-subtotal-val" id="cartSubtotal">₹0</span>
+      </div>
+      <a href="#" class="btn-whatsapp-checkout" id="cartWhatsappBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z"/>
+        </svg>
+        <span>Checkout with WhatsApp</span>
+      </a>
+      <a href="checkout.html" style="text-align: center; font-size: 11.5px; color: var(--text-muted); text-decoration: underline;">
+        Or view detailed order summary
+      </a>
+    </div>
+  </aside>
+
+  <!-- Floating Quick-View Modal -->
+  <div class="modal-backdrop" id="quickViewBackdrop">
+    <div class="quickview-card" role="dialog" aria-modal="true">
+      <button type="button" class="btn-modal-close" id="qvClose" aria-label="Close modal">✕</button>
+      
+      <div class="quickview-gallery">
+        <img id="qvImage" src="" alt="" class="quickview-main-img">
+      </div>
+
+      <div class="quickview-info">
+        <span class="quickview-category" id="qvCategory"></span>
+        <h2 class="quickview-title" id="qvTitle"></h2>
+        
+        <div class="quickview-price-row">
+          <span class="quickview-price" id="qvPrice"></span>
+          <span style="font-size: 11.5px; color: var(--accent-mint); font-weight: 700;">● Ready for Express Dispatch</span>
+        </div>
+
+        <ul class="quickview-specs" id="qvSpecs">
+          <!-- Populated dynamically -->
+        </ul>
+
+        <div class="quickview-actions">
+          <a href="#" class="btn-qv-whatsapp" id="qvWhatsappBtn" target="_blank" rel="noopener">
+            Order via WhatsApp
+          </a>
+          <button type="button" class="btn-qv-bag" id="qvBagBtn">
+            Add to Bag
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Deck -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Tech Footer -->
+  <footer class="tech-footer">
+    <div class="container">
+      <div class="tech-footer-grid">
         <div>
-          <span class="caption footer-col-title">Collector Desk</span>
-          <ul class="footer-links">
-            <li><a href="https://wa.me/916366196633" target="_blank" rel="noopener">WhatsApp Inquiries (+91 6366196633)</a></li>
+          <h4 class="footer-brand-title">MFU Collectibles</h4>
+          <p class="footer-brand-desc">Curated Funko Pop! Vinyl Figures & Rare Chase Editions</p>
+          <p style="font-size: 11px; color: var(--text-muted); margin-top: 10px;">Bangalore &bull; Delhi &bull; Mumbai</p>
+        </div>
+
+        <div>
+          <h5 class="footer-section-title">Direct Concierge</h5>
+          <ul class="footer-link-list">
+            <li><a href="https://wa.me/916366196633" target="_blank" rel="noopener">WhatsApp: +91 6366196633</a></li>
             <li><a href="mailto:mfucollectibles@gmail.com">mfucollectibles@gmail.com</a></li>
-            <li><a href="https://www.instagram.com/mfu.pop" target="_blank" rel="noopener">Instagram (@mfu.pop)</a></li>
-            <li><a href="#vault">The Complete Pop! Vault</a></li>
+            <li><a href="https://www.instagram.com/mfu.pop" target="_blank" rel="noopener">Instagram: @mfu.pop</a></li>
           </ul>
         </div>
+
         <div>
-          <span class="caption footer-col-title">Collector &amp; Mint Guarantee</span>
-          <p style="font-size: 13px; line-height: 1.6; color: var(--text-secondary);">
-            Every Funko Pop! figure is guaranteed 100% genuine and inspected for 10/10 mint box condition. Encased in a complimentary 0.5mm UV protector shield and double-boxed for secure dispatch.
-          </p>
+          <h5 class="footer-section-title">Collector Standards</h5>
+          <ul class="footer-link-list">
+            <li><a>0.5mm Pop Protector Shields Included</a></li>
+            <li><a>Bubble-Wrapped Double-Box Packing</a></li>
+            <li><a>100% Verified Authentic Packaging</a></li>
+          </ul>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <span class="caption">&copy; 2026 MFU. All Rights Reserved.</span>
-        <span class="caption">Rare Chase Editions &bull; Vaulted Grails &bull; Archival UV Shield Included &bull; Mint Box Guarantee</span>
+      <div class="footer-bottom-strip">
+        <span>&copy; 2026 MFU. All rights reserved.</span>
+        <span>Obsidian Tech Storefront Engine</span>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
